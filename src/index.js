@@ -22,6 +22,7 @@ export { default as Frame } from "./components/Frame/index.svelte"
 /* ---------------------------------- Grid ---------------------------------- */
 
 export { default as Grid } from "./components/Grid/index.svelte"
+export { default as GridList } from "./components/GridList/index.svelte"
 
 /* ---------------------------------- Stack --------------------------------- */
 
