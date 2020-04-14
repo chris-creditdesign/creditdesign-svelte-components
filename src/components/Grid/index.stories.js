@@ -9,7 +9,28 @@ export const Default = () => ({
   props: { className: 'test' },
 });
 
-export const WithExtraSpace = () => ({
+export const ExtraSpace = () => ({
   Component: ViewDefault,
-  props: { className: 'test', gridSpace: 'var(--s3)' },
+  props: { className: 'test', gridColumnSpace: 'var(--s3)', gridRowSpace: 'var(--s3)' },
 });
+
+export const ExtraColumnSpace = () => ({
+  Component: ViewDefault,
+  props: { className: 'test', gridColumnSpace: 'var(--s3)' },
+});
+
+export const ExtraRowSpace = () => ({
+  Component: ViewDefault,
+  props: { className: 'test', gridRowSpace: 'var(--s3)' },
+});
+
+export const SmallMinWidth = () => ({
+  Component: ViewDefault,
+  props: { className: 'test', minWidth: 'var(--s3)' },
+});
+
+export const LargeMinWidth = () => ({
+  Component: ViewDefault,
+  props: { className: 'test', minWidth: 'var(--measure)' },
+});
+

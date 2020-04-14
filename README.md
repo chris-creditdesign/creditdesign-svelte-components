@@ -1,6 +1,6 @@
 # creditdesign-svelte-components
 
-Set of layout components used to build interactive graphics and immersive articles.
+Svelte layout components used to build interactive graphics and articles.
 
 ## Setting up
 
