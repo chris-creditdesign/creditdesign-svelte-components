@@ -1,5 +1,5 @@
 {
-  "name": "credit-design-svelte-components",
+  "name": "creditdesign-svelte-components",
   "version": "0.0.1",
   "description": "Collection fo svelte compontents for layout",
   "svelte": "src/index.js",
@@ -9,6 +9,10 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -s ./static"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chris-creditdesign/creditdesign-svelte-components.git"
   },
   "author": "chris-creditdesign",
   "devDependencies": {
