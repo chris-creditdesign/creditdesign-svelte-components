@@ -8,7 +8,8 @@
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
-    "storybook": "start-storybook -s ./static"
+    "storybook": "start-storybook -s ./static",
+    "build-storybook": "build-storybook -s ./static -o docs"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,6 @@
     "src",
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "homepage": "http://chris-creditdesign.github.io/creditdesign-svelte-components"
 }
