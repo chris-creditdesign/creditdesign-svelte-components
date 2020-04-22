@@ -1,6 +1,8 @@
 # creditdesign-svelte-components
 
-Svelte layout components used to build interactive graphics and articles.
+> Svelte layout components used to layout interactive graphics and articles.
+
+Preview the compontents in a [Storybook](https://storybook.js.org/) here: [https://chris-creditdesign.github.io/creditdesign-svelte-components]()
 
 ## Setting up
 
