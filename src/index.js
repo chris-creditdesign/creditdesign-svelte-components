@@ -27,6 +27,7 @@ export { default as GridList } from "./components/GridList/index.svelte"
 /* ---------------------------------- Stack --------------------------------- */
 
 export { default as Stack } from "./components/Stack/index.svelte"
+export { default as StackList } from "./components/StackList/index.svelte"
 
 /* -------------------------------- Switcher -------------------------------- */
 
