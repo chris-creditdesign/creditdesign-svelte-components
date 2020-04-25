@@ -2,6 +2,7 @@
   import Grid from "./index.svelte";
 
   export let className = "";
+  export let gridSpace;
   export let gridColumnSpace;
   export let gridRowSpace;
   export let minWidth;
@@ -14,7 +15,7 @@
   }
 </style>
 
-<Grid {className} {gridColumnSpace} {gridRowSpace} {minWidth}>
+<Grid {className} {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>
   <div class="test-content" />
   <div class="test-content" />
   <div class="test-content" />

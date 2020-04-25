@@ -2,6 +2,7 @@
   import GridList from "./index.svelte";
 
   export let className = "";
+  export let gridSpace;
   export let gridColumnSpace;
   export let gridRowSpace;
   export let minWidth;
@@ -14,7 +15,7 @@
   }
 </style>
 
-<GridList {className} {gridColumnSpace} {gridRowSpace} {minWidth}>
+<GridList {className} {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>
   <li>
     <div class="test-content" />
   </li>

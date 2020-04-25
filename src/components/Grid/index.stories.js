@@ -9,17 +9,18 @@ export const Default = () => ({
   props: { className: 'test' },
 });
 
-export const ExtraSpace = () => ({
+
+export const GridSpace = () => ({
   Component: ViewDefault,
-  props: { className: 'test', gridColumnSpace: 'var(--s3)', gridRowSpace: 'var(--s3)' },
+  props: { className: 'test', gridSpace: 'var(--s3)' },
 });
 
-export const ExtraColumnSpace = () => ({
+export const GridColumnSpace = () => ({
   Component: ViewDefault,
   props: { className: 'test', gridColumnSpace: 'var(--s3)' },
 });
 
-export const ExtraRowSpace = () => ({
+export const GridRowSpace = () => ({
   Component: ViewDefault,
   props: { className: 'test', gridRowSpace: 'var(--s3)' },
 });

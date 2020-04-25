@@ -1,8 +1,13 @@
 <script>
   export let className = "";
-  export let gridColumnSpace;
-  export let gridRowSpace;
+  export let gridSpace;
+  export let gridColumnSpace = "";
+  export let gridRowSpace = "";
   export let minWidth = "";
+
+  if (gridSpace) {
+    gridColumnSpace = gridRowSpace = gridSpace;
+  }
 </script>
 
 <style>
