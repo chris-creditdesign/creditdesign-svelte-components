@@ -9,8 +9,8 @@
 
 <style>
   .test-content {
-    background-color: lightblue;
     max-width: none;
+    background-color: lightblue;
   }
 </style>
 

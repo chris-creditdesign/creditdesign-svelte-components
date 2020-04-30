@@ -9,8 +9,8 @@
 
 <style>
   .test-content {
-    background-color: lightblue;
     margin: 0;
+    background-color: lightblue;
   }
 
   img {

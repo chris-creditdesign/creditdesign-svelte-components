@@ -10,15 +10,15 @@
     display: flex;
     width: 100vw;
   }
+
   .test-content {
     background-color: lightblue;
-    /* width: 80vw;
-    min-height: 100px; */
   }
+
   .test-height-expander {
     width: 20vw;
-    background-color: lightcoral;
     height: 100vh;
+    background-color: lightcoral;
   }
 </style>
 

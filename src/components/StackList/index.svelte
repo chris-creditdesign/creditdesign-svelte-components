@@ -22,24 +22,26 @@
     margin-top: var(--stack-space);
   }
 
-  :global(.stack:only-child) {
-    height: 100%;
+  /* List specific modifiers */
+  :global(ul.stack) {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* List item specific modifiers */
+  :global(ul.stack li) {
+    max-width: none;
+    padding: 0;
   }
 
   :global(.stack > .split-before) {
     margin-bottom: auto;
   }
 
-  :global(ul.stack) {
-    list-style: none;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  :global(ul.stack li) {
-    max-width: none;
-    padding: 0;
+  :global(.stack:only-child) {
+    height: 100%;
   }
 </style>
 

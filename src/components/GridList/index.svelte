@@ -29,10 +29,10 @@
   }
 
   :global(ul.grid) {
-    list-style: none;
     max-width: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   :global(ul.grid li) {

@@ -1,4 +1,6 @@
 import ViewDefault from './view.default.svelte';
+import ViewSevenElements from './view.seven-elements.svelte';
+import ViewEightElements from './view.eight-elements.svelte';
 
 export default {
   title: 'Switcher',
@@ -22,4 +24,14 @@ export const LargeMin = () => ({
 export const ExtraSpace = () => ({
 	Component: ViewDefault,
 	props: { className: 'test', switcherSpace: 'var(--s3)'}
+});
+
+export const SevenElements = () => ({
+  Component: ViewSevenElements,
+  props: { className: 'test' },
+});
+
+export const EightElements = () => ({
+  Component: ViewEightElements,
+  props: { className: 'test' },
 });

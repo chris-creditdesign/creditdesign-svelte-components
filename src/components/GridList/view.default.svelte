@@ -10,8 +10,8 @@
 
 <style>
   .test-content {
-    background-color: lightblue;
     min-height: 100px;
+    background-color: lightblue;
   }
 </style>
 

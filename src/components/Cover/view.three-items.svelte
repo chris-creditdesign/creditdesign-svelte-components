@@ -8,8 +8,8 @@
 
 <style>
   .test-content {
-    background-color: lightblue;
     max-width: 100%;
+    background-color: lightblue;
   }
 </style>
 

@@ -4,12 +4,12 @@
 
 <style>
   .test-content {
-    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: lightblue;
   }
 </style>
 

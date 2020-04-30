@@ -8,9 +8,9 @@
 
 <style>
   .place-holder {
-    background-color: #ececec;
-    text-transform: uppercase;
     font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ececec;
   }
 </style>
 

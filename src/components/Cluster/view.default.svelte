@@ -8,12 +8,12 @@
 
 <style>
   .test-content {
+    justify-content: center;
+    align-items: center;
     background-color: lightblue;
     width: 100px;
     height: 100px;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 </style>
 
