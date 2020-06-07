@@ -48,7 +48,7 @@
 <div
   class={`cluster ${className}`}
   style={`${clusterJustifyContent ? `--cluster-justify-content: ${clusterJustifyContent};` : ''} ${clusterSpace ? `--cluster-space: ${clusterSpace};` : ''}`}>
-  <ul>
+  <ul role="list">
     <slot />
   </ul>
 </div>

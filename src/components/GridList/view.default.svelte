@@ -16,25 +16,25 @@
 </style>
 
 <GridList {className} {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
-  <li>
-    <div class="test-content" />
+  <li class="test-content">
+    <p>Test content.</p>
   </li>
 </GridList>

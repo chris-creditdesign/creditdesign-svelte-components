@@ -47,6 +47,7 @@
 
 <div>
   <ul
+    role="list"
     class={`stack ${className}`}
     style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
     <slot />

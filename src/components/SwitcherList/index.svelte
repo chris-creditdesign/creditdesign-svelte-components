@@ -53,7 +53,7 @@
   {id}
   class={`switcher ${className}`}
   style={`${switcherSpace ? `--switcher-space: ${switcherSpace};` : ''} ${switcherMinWidth ? `--switcher-min-width: ${switcherMinWidth};` : ''}`}>
-  <ul>
+  <ul role="list">
     <slot />
   </ul>
 </div>

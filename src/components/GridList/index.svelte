@@ -42,6 +42,7 @@
 </style>
 
 <ul
+  role="list"
   class={`grid ${className}`}
   style={`${gridColumnSpace ? `--grid-column-space: ${gridColumnSpace};` : ''} ${gridRowSpace ? `--grid-row-space: ${gridRowSpace};` : ''} ${minWidth ? `--grid-min-width: ${minWidth};` : ''}`}>
   <slot />
