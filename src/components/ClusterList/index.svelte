@@ -3,10 +3,10 @@
   export let clusterSpace = "";
 
   let clusterJustifyContentComponent = clusterJustifyContent
-    ? `--cluster-justify-content: ${clusterJustifyContent};`
+    ? `--cluster-justify-content--component: ${clusterJustifyContent};`
     : "";
   let clusterSpaceComponent = clusterSpace
-    ? `--cluster-space: ${clusterSpace};`
+    ? `--cluster-space-component: ${clusterSpace};`
     : "";
   let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
 </script>
@@ -18,6 +18,9 @@
   }
 
   .cluster--list {
+    --cluster-justify-content--component: initial;
+    --cluster-space--component: initial;
+
     overflow: hidden;
   }
 
@@ -25,12 +28,20 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: var(--cluster-justify-content);
-    margin: calc(var(--cluster-space) / 2 * -1);
+    justify-content: var(
+      --cluster-justify-content--component,
+      var(--cluster-justify-content--global)
+    );
+    margin: 1rem;
+    margin: calc(
+      var(--cluster-space--component, var(--cluster-space--global)) / 2 * -1
+    );
   }
 
   :global(.cluster--list__inner > *) {
-    margin: calc(var(--cluster-space) / 2);
+    margin: calc(
+      var(--cluster-space--component, var(--cluster-space--global)) / 2
+    );
   }
 
   :global(.cluster--list__split-after) {

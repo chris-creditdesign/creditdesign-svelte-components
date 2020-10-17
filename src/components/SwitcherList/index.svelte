@@ -3,23 +3,33 @@
   export let switcherMinWidth = "";
 
   let switcherSpaceComponent = switcherSpace
-    ? `--switcher-space: ${switcherSpace};`
+    ? `--switcher-space--component: ${switcherSpace};`
     : "";
   let switcherMinWidthComponent = switcherMinWidth
-    ? `--switcher-min-width: ${switcherMinWidth};`
+    ? `--switcher-min-width--component: ${switcherMinWidth};`
     : "";
   let style = `${switcherSpaceComponent} ${switcherMinWidthComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --switcher-space: var(--s-1);
-    --switcher-min-width: var(--measure);
+    --switcher-space--global: var(--s-1);
+    --switcher-min-width--global: var(--measure);
   }
 
   .switcher--list {
-    --space-between: var(--switcher-space);
-    --modifier: calc(var(--switcher-min-width) - (100% - var(--space-between)));
+    --switcher-space--component: initial;
+    --switcher-min-width--component: initial;
+    --space-between: var(
+      --switcher-space--component,
+      var(--switcher-space--global)
+    );
+    /* stylelint-disable */
+    --modifier: calc(
+      var(--switcher-min-width--component, var(--switcher-min-width--global)) -
+        (100% - var(--space-between))
+    );
+    /* stylelint-enable */
   }
 
   .switcher--list__inner {

@@ -7,12 +7,12 @@
 
 <style>
   .test-content {
-    justify-content: center;
+    display: flex;
     align-items: center;
-    background-color: lightblue;
+    justify-content: center;
     width: 100px;
     height: 100px;
-    display: flex;
+    background-color: lightblue;
   }
 </style>
 

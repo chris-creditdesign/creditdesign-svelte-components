@@ -2,26 +2,40 @@
   export let centerSpace = "";
   export let centerMeasure = "";
 
-  let centerSpaceComponent = centerSpace
-    ? `--center-space: ${centerSpace};`
-    : "";
   let centerMeasureComponent = centerMeasure
-    ? `--center-measure: ${centerMeasure};`
+    ? `--center-measure--component: ${centerMeasure};`
     : "";
-  let style = `${centerSpaceComponent} ${centerMeasureComponent}`;
+  let centerSpaceComponent = centerSpace
+    ? `--center-space--component: ${centerSpace};`
+    : "";
+  let style = `${centerMeasureComponent} ${centerSpaceComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --center-space: var(--s-1);
-    --center-measure: var(--measure);
+    --center-measure--global: var(--measure);
+    --center-space--global: var(--s-1);
   }
 
   .center {
+    --center-measure--component: initial;
+    --center-space--component: initial;
+
     box-sizing: content-box;
-    max-width: var(--center-measure);
-    padding-right: var(--center-space);
-    padding-left: var(--center-space);
+    max-width: 60ch;
+    max-width: var(
+      --center-measure--component,
+      var(--center-measure--global, 60ch)
+    );
+    padding-right: 1rem;
+    padding-right: var(
+      --center-space--component,
+      var(--center-space--global, 1rem)
+    );
+    padding-left: var(
+      --center-space--component,
+      var(--center-space--global, 1rem)
+    );
     margin-right: auto;
     margin-left: auto;
   }

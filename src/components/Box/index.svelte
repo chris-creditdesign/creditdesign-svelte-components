@@ -1,16 +1,21 @@
 <script>
   export let boxSpace = "";
 
-  let boxSpaceComponent = boxSpace ? `--box-space: ${boxSpace};` : "";
+  let boxSpaceComponent = boxSpace
+    ? `--box-space--component: ${boxSpace};`
+    : "";
 </script>
 
 <style>
   :global(:root) {
-    --box-space: var(--s-1);
+    --box-space--global: var(--s-1);
   }
 
   .box {
-    padding: var(--box-space);
+    --box-space--component: initial;
+
+    padding: 1rem;
+    padding: var(--box-space--component, var(--box-space--global, 1rem));
   }
 </style>
 

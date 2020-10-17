@@ -3,25 +3,33 @@
   export let frameRatioWidth;
 
   let frameRatioHeightComponent = frameRatioHeight
-    ? `--frame-ratio-height: ${frameRatioHeight};`
+    ? `--frame-ratio-height--component: ${frameRatioHeight};`
     : "";
   let frameRatioWidthComponent = frameRatioWidth
-    ? `--frame-ratio-width: ${frameRatioWidth};`
+    ? `--frame-ratio-width--component: ${frameRatioWidth};`
     : "";
   let style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --frame-ratio-height: 9; /* height */
-    --frame-ratio-width: 16; /* width */
+    --frame-ratio-height--global: 9; /* height */
+    --frame-ratio-width--global: 16; /* width */
   }
 
   .frame {
+    --frame-ratio-height--component: initial;
+    --frame-ratio-width--component: initial;
+
     position: relative;
+
+    /* stylelint-disable */
     padding-bottom: calc(
-      var(--frame-ratio-height) / var(--frame-ratio-width) * 100%
+      var(--frame-ratio-height--component, var(--frame-ratio-height--global)) /
+        var(--frame-ratio-width--component, var(--frame-ratio-width--global)) *
+        100%
     );
+    /* stylelint-enable */
   }
 
   :global(.frame > *) {

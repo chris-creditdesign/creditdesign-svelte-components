@@ -3,24 +3,34 @@
   export let coverSpace = "";
 
   let coverHeightComponent = coverHeight
-    ? `--cover-height: ${coverHeight};`
+    ? `--cover-height--component: ${coverHeight};`
     : "";
-  let coverSpaceComponent = coverSpace ? `--cover-space: ${coverSpace};` : "";
+  let coverSpaceComponent = coverSpace
+    ? `--cover-space--component: ${coverSpace};`
+    : "";
   let style = `${coverHeightComponent} ${coverSpaceComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --cover-space: 1rem;
-    --cover-height: 100vh;
+    --cover-height--global: 100vh;
+    --cover-space--global: 1rem;
   }
 
   .cover {
+    --cover-height--component: initial;
+    --cover-space--component: initial;
+
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: var(--cover-height);
-    padding: var(--cover-space);
+    min-height: 100vh;
+    min-height: var(
+      --cover-height--component,
+      var(--cover-height--global, 100vh)
+    );
+    padding: 1rem;
+    padding: var(--cover-space--component, var(--cover-space--global, 1rem));
     overflow: hidden;
   }
 
