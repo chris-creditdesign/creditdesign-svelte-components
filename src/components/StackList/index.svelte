@@ -1,5 +1,7 @@
 <script>
   export let stackSpace = "";
+
+  let stackSpaceComponent = stackSpace ? `--stack-space: ${stackSpace};` : "";
 </script>
 
 <style>
@@ -40,9 +42,7 @@
 </style>
 
 <div>
-  <ul
-    class="stack--list"
-    style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
+  <ul class="stack--list" style={stackSpaceComponent}>
     <slot />
   </ul>
 </div>

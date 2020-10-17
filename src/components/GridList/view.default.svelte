@@ -12,6 +12,10 @@
     min-height: 100px;
     background-color: lightblue;
   }
+
+  .test-content p {
+    margin: 0;
+  }
 </style>
 
 <GridList {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>

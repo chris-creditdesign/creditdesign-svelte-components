@@ -1,6 +1,14 @@
 <script>
   export let frameRatioHeight;
   export let frameRatioWidth;
+
+  let frameRatioHeightComponent = frameRatioHeight
+    ? `--frame-ratio-height: ${frameRatioHeight};`
+    : "";
+  let frameRatioWidthComponent = frameRatioWidth
+    ? `--frame-ratio-width: ${frameRatioWidth};`
+    : "";
+  let style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
 </script>
 
 <style>
@@ -35,8 +43,6 @@
   }
 </style>
 
-<div
-  class="frame"
-  style={`${frameRatioHeight ? `--frame-ratio-height: ${frameRatioHeight};` : ''} ${frameRatioWidth ? `--frame-ratio-width: ${frameRatioWidth};` : ''}`}>
+<div class="frame" {style}>
   <slot />
 </div>

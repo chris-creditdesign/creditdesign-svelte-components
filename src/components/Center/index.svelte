@@ -1,6 +1,14 @@
 <script>
   export let centerSpace = "";
   export let centerMeasure = "";
+
+  let centerSpaceComponent = centerSpace
+    ? `--center-space: ${centerSpace};`
+    : "";
+  let centerMeasureComponent = centerMeasure
+    ? `--center-measure: ${centerMeasure};`
+    : "";
+  let style = `${centerSpaceComponent} ${centerMeasureComponent}`;
 </script>
 
 <style>
@@ -19,8 +27,6 @@
   }
 </style>
 
-<div
-  class="center"
-  style={`${centerSpace ? `--center-space: ${centerSpace};` : ''} ${centerMeasure ? `--center-measure: ${centerMeasure};` : ''}`}>
+<div class="center" {style}>
   <slot />
 </div>

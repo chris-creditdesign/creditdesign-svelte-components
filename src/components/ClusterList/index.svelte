@@ -1,6 +1,14 @@
 <script>
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
+
+  let clusterJustifyContentComponent = clusterJustifyContent
+    ? `--cluster-justify-content: ${clusterJustifyContent};`
+    : "";
+  let clusterSpaceComponent = clusterSpace
+    ? `--cluster-space: ${clusterSpace};`
+    : "";
+  let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
 </script>
 
 <style>
@@ -36,8 +44,8 @@
   }
 
   :global(.cluster--list li) {
-    padding: 0;
     max-width: none;
+    padding: 0;
   }
 
   :global(.cluster__inner > .grow) {
@@ -45,9 +53,7 @@
   }
 </style>
 
-<div
-  class="cluster--list"
-  style={`${clusterJustifyContent ? `--cluster-justify-content: ${clusterJustifyContent};` : ''} ${clusterSpace ? `--cluster-space: ${clusterSpace};` : ''}`}>
+<div class="cluster--list" {style}>
   <ul class="cluster--list__inner">
     <slot />
   </ul>

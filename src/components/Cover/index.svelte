@@ -1,6 +1,12 @@
 <script>
   export let coverHeight = "";
   export let coverSpace = "";
+
+  let coverHeightComponent = coverHeight
+    ? `--cover-height: ${coverHeight};`
+    : "";
+  let coverSpaceComponent = coverSpace ? `--cover-space: ${coverSpace};` : "";
+  let style = `${coverHeightComponent} ${coverSpaceComponent}`;
 </script>
 
 <style>
@@ -37,8 +43,6 @@
   }
 </style>
 
-<div
-  class="cover"
-  style={`${coverSpace ? `--cover-space: ${coverSpace};` : ''} ${coverHeight ? `--cover-height: ${coverHeight};` : ''}`}>
+<div class="cover" {style}>
   <slot />
 </div>

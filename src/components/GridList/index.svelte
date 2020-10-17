@@ -7,6 +7,15 @@
   if (gridSpace) {
     gridColumnSpace = gridRowSpace = gridSpace;
   }
+
+  let gridColumnSpaceComponent = gridColumnSpace
+    ? `--grid-column-space: ${gridColumnSpace};`
+    : "";
+  let gridRowSpaceComponent = gridRowSpace
+    ? `--grid-row-space: ${gridRowSpace};`
+    : "";
+  let minWidthComponent = minWidth ? `--grid-min-width: ${minWidth};` : "";
+  let style = `${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`;
 </script>
 
 <style>
@@ -37,8 +46,6 @@
   }
 </style>
 
-<ul
-  class="grid--list"
-  style={`${gridColumnSpace ? `--grid-column-space: ${gridColumnSpace};` : ''} ${gridRowSpace ? `--grid-row-space: ${gridRowSpace};` : ''} ${minWidth ? `--grid-min-width: ${minWidth};` : ''}`}>
+<ul class="grid--list" {style}>
   <slot />
 </ul>

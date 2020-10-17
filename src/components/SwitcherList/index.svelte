@@ -1,6 +1,14 @@
 <script>
   export let switcherSpace = "";
   export let switcherMinWidth = "";
+
+  let switcherSpaceComponent = switcherSpace
+    ? `--switcher-space: ${switcherSpace};`
+    : "";
+  let switcherMinWidthComponent = switcherMinWidth
+    ? `--switcher-min-width: ${switcherMinWidth};`
+    : "";
+  let style = `${switcherSpaceComponent} ${switcherMinWidthComponent}`;
 </script>
 
 <style>
@@ -44,9 +52,7 @@
   }
 </style>
 
-<div
-  class="switcher--list"
-  style={`${switcherSpace ? `--switcher-space: ${switcherSpace};` : ''} ${switcherMinWidth ? `--switcher-min-width: ${switcherMinWidth};` : ''}`}>
+<div class="switcher--list" {style}>
   <ul class="switcher--list__inner">
     <slot />
   </ul>
