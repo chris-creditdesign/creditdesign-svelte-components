@@ -1,35 +1,65 @@
-import ViewDefault from './view.default.svelte';
+import GridList from "./view.default.svelte";
 
 export default {
-  title: 'GridList',
+  title: "GridList",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: GridList,
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const GridSpace = () => ({
-  Component: ViewDefault,
-  props: { gridSpace: 'var(--s3)', },
+  Component: GridList,
+  props: {
+    gridSpace: "var(--s3)",
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const GridColumnSpace = () => ({
-  Component: ViewDefault,
-  props: { gridColumnSpace: 'var(--s3)' },
+  Component: GridList,
+  props: {
+    gridSpace: "",
+    gridColumnSpace: "var(--s3)",
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const GridRowSpace = () => ({
-  Component: ViewDefault,
-  props: { gridRowSpace: 'var(--s3)' },
+  Component: GridList,
+  props: {
+    gridSpace: "",
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "var(--s3)",
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const SmallMinWidth = () => ({
-  Component: ViewDefault,
-  props: { minWidth: 'var(--s3)' },
+  Component: GridList,
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--s3)",
+  },
 });
 
 export const LargeMinWidth = () => ({
-  Component: ViewDefault,
-  props: { minWidth: 'var(--measure)' },
+  Component: GridList,
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure)",
+  },
 });
-

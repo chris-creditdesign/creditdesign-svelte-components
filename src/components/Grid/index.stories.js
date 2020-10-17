@@ -1,36 +1,68 @@
-import ViewDefault from './view.default.svelte';
+import Grid from "./view.default.svelte";
 
 export default {
-  title: 'Grid',
+  title: "Grid",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: Grid,
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
-
 export const GridSpace = () => ({
-  Component: ViewDefault,
-  props: { gridSpace: 'var(--s3)' },
+  Component: Grid,
+  props: {
+    gridSpace: "var(--s3)",
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const GridColumnSpace = () => ({
-  Component: ViewDefault,
-  props: { gridColumnSpace: 'var(--s3)' },
+  Component: Grid,
+  props: {
+    gridSpace: "",
+    gridColumnSpace: "var(--s3)",
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const GridRowSpace = () => ({
-  Component: ViewDefault,
-  props: { gridRowSpace: 'var(--s3)' },
+  Component: Grid,
+  props: { gridRowSpace: "var(--s3)" },
+  props: {
+    gridSpace: "",
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "var(--s3)",
+    minWidth: "var(--measure-small)" /* default */,
+  },
 });
 
 export const SmallMinWidth = () => ({
-  Component: ViewDefault,
-  props: { minWidth: 'var(--s3)' },
+  Component: Grid,
+  props: { minWidth: "var(--s3)" },
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--s3)",
+  },
 });
 
 export const LargeMinWidth = () => ({
-  Component: ViewDefault,
-  props: { minWidth: 'var(--measure)' },
+  Component: Grid,
+  props: { minWidth: "var(--measure)" },
+  props: {
+    gridSpace: "var(--s-1)" /* default */,
+    gridColumnSpace: "" /* default */,
+    gridRowSpace: "" /* default */,
+    minWidth: "var(--measure)",
+  },
 });
-

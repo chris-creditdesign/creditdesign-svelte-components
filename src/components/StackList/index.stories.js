@@ -1,20 +1,21 @@
-import ViewDefault from './view.default.svelte';
-import ViewSplitBefore from './view.split-before.svelte';
+import StackList from "./view.default.svelte";
+import ViewSplitBefore from "./view.split-before.svelte";
 
 export default {
-  title: 'StackList',
+  title: "StackList",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: StackList,
+  props: { stackSpace: "var(--s-1)" /* default */ },
 });
 
 export const ExtraSpace = () => ({
-  Component: ViewDefault,
-  props: { stackSpace: 'var(--s3)' },
+  Component: StackList,
+  props: { stackSpace: "var(--s3)" },
 });
 
 export const SplitBefore = () => ({
-  Component: ViewSplitBefore
+  Component: ViewSplitBefore,
+  props: { stackSpace: "var(--s-1)" /* default */ },
 });
-

@@ -1,39 +1,55 @@
-import ViewDefault from './view.default.svelte';
-import ViewGrow from './view.grow.svelte';
-import ViewSplit from './view.split.svelte';
+import ClusterList from "./view.default.svelte";
+import ViewGrow from "./view.grow.svelte";
+import ViewSplit from "./view.split.svelte";
 
 export default {
-  title: 'ClusterList',
+  title: "ClusterList",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: ClusterList,
+  props: {
+    clusterJustifyContent: "flex-start" /* default */,
+    clusterSpace: "var(--s-1)" /* default */,
+  },
 });
 
 export const FlexEnd = () => ({
-	Component: ViewDefault,
-	props: { clusterJustifyContent: "flex-end" },
+  Component: ClusterList,
+  props: {
+    clusterJustifyContent: "flex-end",
+    clusterSpace: "var(--s-1)" /* default */,
+  },
 });
 
 export const SpaceBetween = () => ({
-	Component: ViewDefault,
-	props: { clusterJustifyContent: "space-between" },
+  Component: ClusterList,
+  props: {
+    clusterJustifyContent: "space-between",
+    clusterSpace: "var(--s-1)" /* default */,
+  },
 });
 
 export const SpaceAround = () => ({
-	Component: ViewDefault,
-	props: { clusterJustifyContent: "space-around" },
+  Component: ClusterList,
+  props: {
+    clusterJustifyContent: "space-around",
+    clusterSpace: "var(--s-1)" /* default */,
+  },
 });
 
 export const Grow = () => ({
-  Component: ViewGrow
+  Component: ViewGrow,
 });
 
 export const ExtraSpace = () => ({
-	Component: ViewDefault,
-	props: { clusterSpace: "var(--s3)" },
+  Component: ClusterList,
+  props: {
+    clusterJustifyContent: "flex-start" /* default */,
+    clusterSpace: "var(--s3)",
+  },
 });
 
 export const Split = () => ({
-  Component: ViewSplit
+  Component: ViewSplit,
 });

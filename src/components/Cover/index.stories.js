@@ -1,24 +1,38 @@
-import ViewDefault from './view.default.svelte';
-import ViewThreeItems from './view.three-items.svelte';
+import Cover from "./view.default.svelte";
+import ViewThreeItems from "./view.three-items.svelte";
 
 export default {
-  title: 'Cover',
+  title: "Cover",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: Cover,
+  props: {
+    coverHeight: "100vh" /* default */,
+    coverSpace: "1rem" /* default */,
+  },
 });
 
 export const ThreeItems = () => ({
-  Component: ViewThreeItems
+  Component: ViewThreeItems,
+  props: {
+    coverHeight: "100vh" /* default */,
+    coverSpace: "1rem" /* default */,
+  },
 });
 
 export const NoSpace = () => ({
   Component: ViewThreeItems,
-  props: { coverSpace: '0' },
+  props: {
+    coverHeight: "100vh" /* default */,
+    coverSpace: "0",
+  },
 });
 
 export const HalfHeight = () => ({
   Component: ViewThreeItems,
-  props: { coverHeight: '50vh' },
+  props: {
+    coverHeight: "50vh",
+    coverSpace: "1rem" /* default */,
+  },
 });

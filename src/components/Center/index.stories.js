@@ -1,28 +1,41 @@
-import ViewDefault from './view.default.svelte';
-import ViewMultipleWidths from './view.multiple-widths.svelte';
-import ViewMultipleStacks from './view.multiple-stacks.svelte';
+import Center from "./view.default.svelte";
+import ViewMultipleWidths from "./view.multiple-widths.svelte";
+import ViewMultipleStacks from "./view.multiple-stacks.svelte";
 
 export default {
-  title: 'Center',
+  title: "Center",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: Center,
+  props: {
+    centerSpace: "var(--s-1)" /* default */,
+    centerMeasure: "var(--measure)" /* default */,
+  },
 });
 
 export const SmallerMeasure = () => ({
-  Component: ViewDefault,
-  props: { centerMeasure: 'var(--measure-small)' },
+  Component: Center,
+  props: {
+    centerSpace: "var(--s-1)" /* default */,
+    centerMeasure: "var(--measure-small)",
+  },
 });
 
 export const LargerMeasure = () => ({
-  Component: ViewDefault,
-  props: { centerMeasure: 'var(--measure-big)' },
+  Component: Center,
+  props: {
+    centerSpace: "var(--s-1)" /* default */,
+    centerMeasure: "var(--measure-big)",
+  },
 });
 
 export const LargerSpace = () => ({
-  Component: ViewDefault,
-  props: { centerSpace: 'var(--s3)' },
+  Component: Center,
+  props: {
+    centerSpace: "var(--s3)",
+    centerMeasure: "var(--measure)" /* default */,
+  },
 });
 
 export const MultipleWidths = () => ({
@@ -30,5 +43,5 @@ export const MultipleWidths = () => ({
 });
 
 export const MulitpleStacks = () => ({
-	Component: ViewMultipleStacks,
+  Component: ViewMultipleStacks,
 });

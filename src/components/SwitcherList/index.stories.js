@@ -1,34 +1,47 @@
-import ViewDefault from './view.default.svelte';
-import ViewSevenElements from './view.seven-elements.svelte';
-import ViewEightElements from './view.eight-elements.svelte';
+import SwitcherList from "./view.default.svelte";
+import ViewSevenElements from "./view.seven-elements.svelte";
+import ViewEightElements from "./view.eight-elements.svelte";
 
 export default {
-  title: 'SwitcherList',
+  title: "SwitcherList",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: SwitcherList,
+  props: {
+    switcherSpace: "var(--s-1)" /* default */,
+    switcherMinWidth: "var(--measure)" /* default */,
+  },
 });
 
 export const SmallMin = () => ({
-	Component: ViewDefault,
-	props: { switcherMinWidth: 'var(--measure-small)'}
+  Component: SwitcherList,
+  props: {
+    switcherSpace: "var(--s-1)" /* default */,
+    switcherMinWidth: "var(--measure-small)",
+  },
 });
 
 export const LargeMin = () => ({
-	Component: ViewDefault,
-	props: { switcherMinWidth: 'var(--measure-big)'}
+  Component: SwitcherList,
+  props: {
+    switcherSpace: "var(--s-1)" /* default */,
+    switcherMinWidth: "var(--measure-big)",
+  },
 });
 
 export const ExtraSpace = () => ({
-	Component: ViewDefault,
-	props: { switcherSpace: 'var(--s3)'}
+  Component: SwitcherList,
+  props: {
+    switcherSpace: "var(--s3)",
+    switcherMinWidth: "var(--measure)" /* default */,
+  },
 });
 
 export const SevenElements = () => ({
-  Component: ViewSevenElements
+  Component: ViewSevenElements,
 });
 
 export const EightElements = () => ({
-  Component: ViewEightElements
+  Component: ViewEightElements,
 });

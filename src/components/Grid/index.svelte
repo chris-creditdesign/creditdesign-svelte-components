@@ -5,6 +5,7 @@
   export let minWidth = "";
 
   if (gridSpace) {
+    console.log("we have gridspace");
     gridColumnSpace = gridRowSpace = gridSpace;
   }
 
