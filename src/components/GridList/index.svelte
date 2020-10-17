@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let gridSpace = "";
   export let gridColumnSpace = "";
   export let gridRowSpace = "";
@@ -18,9 +17,13 @@
     --grid-min-width: var(--measure-small);
   }
 
-  :global(.grid) {
+  .grid--list {
     display: grid;
+    max-width: none;
+    padding: 0;
+    margin: 0;
     column-gap: var(--grid-column-space);
+    list-style: none;
     row-gap: var(--grid-row-space);
     grid-template-columns: repeat(
       auto-fit,
@@ -28,22 +31,14 @@
     );
   }
 
-  :global(ul.grid) {
-    max-width: none;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  :global(ul.grid li) {
+  :global(.grid--list > li) {
     max-width: none;
     padding: 0;
   }
 </style>
 
 <ul
-  role="list"
-  class={`grid ${className}`}
+  class="grid--list"
   style={`${gridColumnSpace ? `--grid-column-space: ${gridColumnSpace};` : ''} ${gridRowSpace ? `--grid-row-space: ${gridRowSpace};` : ''} ${minWidth ? `--grid-min-width: ${minWidth};` : ''}`}>
   <slot />
 </ul>

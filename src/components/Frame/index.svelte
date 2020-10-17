@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let frameRatioHeight;
   export let frameRatioWidth;
 </script>
@@ -10,7 +9,7 @@
     --frame-ratio-width: 16; /* width */
   }
 
-  :global(.frame) {
+  .frame {
     position: relative;
     padding-bottom: calc(
       var(--frame-ratio-height) / var(--frame-ratio-width) * 100%
@@ -37,7 +36,7 @@
 </style>
 
 <div
-  class={`frame ${className}`}
+  class="frame"
   style={`${frameRatioHeight ? `--frame-ratio-height: ${frameRatioHeight};` : ''} ${frameRatioWidth ? `--frame-ratio-width: ${frameRatioWidth};` : ''}`}>
   <slot />
 </div>

@@ -2,7 +2,6 @@
   import Center from "./index.svelte";
   import Stack from "../Stack/index.svelte";
 
-  export let className = "";
   export let centerSpace = "";
 </script>
 
@@ -13,7 +12,7 @@
 </style>
 
 <Stack stackSpace="var(--s3)">
-  <Center {className} {centerSpace} centerMeasure="var(--measure-small)">
+  <Center {centerSpace} centerMeasure="var(--measure-small)">
     <Stack stackSpace="var(--s-1)">
       <p class="test-content">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae
@@ -35,7 +34,7 @@
       </p>
     </Stack>
   </Center>
-  <Center {className} {centerSpace} centerMeasure="var(--measure-small)">
+  <Center {centerSpace} centerMeasure="var(--measure-small)">
     <Stack stackSpace="var(--s-1)">
       <p class="test-content">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae

@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let stackSpace = "";
 </script>
 
@@ -8,7 +7,7 @@
     --stack-space: var(--s-1);
   }
 
-  :global(.stack) {
+  .stack {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -33,7 +32,7 @@
 
 <div>
   <div
-    class={`stack ${className}`}
+    class="stack"
     style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
     <slot />
   </div>

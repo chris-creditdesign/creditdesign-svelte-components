@@ -1,7 +1,6 @@
 <script>
   import Frame from "./index.svelte";
 
-  export let className = "";
   export let frameRatioHeight;
   export let frameRatioWidth;
 </script>
@@ -14,7 +13,7 @@
   }
 </style>
 
-<Frame {className} {frameRatioHeight} {frameRatioWidth}>
+<Frame {frameRatioHeight} {frameRatioWidth}>
   <div class="place-holder">
     <p>image pending</p>
   </div>

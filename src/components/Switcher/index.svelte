@@ -1,6 +1,4 @@
 <script>
-  export let className = "";
-  export let id = "";
   export let switcherSpace = "";
   export let switcherMinWidth = "";
 </script>
@@ -11,16 +9,18 @@
     --switcher-min-width: var(--measure);
   }
 
-  :global(.switcher > *) {
+  .switcher {
     --space-between: var(--switcher-space);
     --modifier: calc(var(--switcher-min-width) - (100% - var(--space-between)));
+  }
 
+  .switcher__inner {
     display: flex;
     flex-wrap: wrap;
     margin: calc((var(--space-between) / 2) * -1);
   }
 
-  :global(.switcher > * > *) {
+  :global(.switcher__inner > *) {
     flex-basis: calc(var(--modifier) * 999);
     flex-grow: 1;
     margin: calc(var(--space-between) / 2);
@@ -39,20 +39,19 @@
 	in total they will all be selected. If there are less than 8,
 	none will be selecetd.
   */
-  :global(.switcher > * > :nth-last-child(n + 8)) {
+  :global(.switcher__inner > :nth-last-child(n + 8)) {
     flex-basis: 100%;
   }
 
-  :global(.switcher > * > :nth-last-child(n + 8) ~ *) {
+  :global(.switcher__inner > :nth-last-child(n + 8) ~ *) {
     flex-basis: 100%;
   }
 </style>
 
 <div
-  {id}
-  class={`switcher ${className}`}
+  class="switcher"
   style={`${switcherSpace ? `--switcher-space: ${switcherSpace};` : ''} ${switcherMinWidth ? `--switcher-min-width: ${switcherMinWidth};` : ''}`}>
-  <div>
+  <div class="switcher__inner">
     <slot />
   </div>
 </div>

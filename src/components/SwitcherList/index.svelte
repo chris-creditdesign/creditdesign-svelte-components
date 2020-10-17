@@ -1,6 +1,4 @@
 <script>
-  export let className = "";
-  export let id = "";
   export let switcherSpace = "";
   export let switcherMinWidth = "";
 </script>
@@ -11,49 +9,45 @@
     --switcher-min-width: var(--measure);
   }
 
-  :global(.switcher > *) {
-    display: flex;
-    flex-wrap: wrap;
-
+  .switcher--list {
     --space-between: var(--switcher-space);
     --modifier: calc(var(--switcher-min-width) - (100% - var(--space-between)));
-
-    margin: calc((var(--space-between) / 2) * -1);
   }
 
-  :global(.switcher > * > *) {
+  .switcher--list__inner {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    padding: 0;
+    margin: calc((var(--space-between) / 2) * -1);
+    list-style: none;
+  }
+
+  :global(.switcher--list__inner > *) {
     flex-basis: calc(var(--modifier) * 999);
     flex-grow: 1;
     margin: calc(var(--space-between) / 2);
   }
 
-  /* List item specific modifiers */
-  :global(.switcher ul) {
-    max-width: none;
-    padding: 0;
-    list-style: none;
-  }
-
-  :global(.switcher li) {
+  :global(.switcher--list__inner > li) {
     /* Remove default padding */
     padding: 0;
   }
 
   /* If there are more than 7 items, stack them automatically */
-  :global(.switcher > * > :nth-last-child(n + 8)) {
+  :global(.switcher--list__inner > :nth-last-child(n + 8)) {
     flex-basis: 100%;
   }
 
-  :global(.switcher > * > :nth-last-child(n + 8) ~ *) {
+  :global(.switcher--list__inner > :nth-last-child(n + 8) ~ *) {
     flex-basis: 100%;
   }
 </style>
 
 <div
-  {id}
-  class={`switcher ${className}`}
+  class="switcher--list"
   style={`${switcherSpace ? `--switcher-space: ${switcherSpace};` : ''} ${switcherMinWidth ? `--switcher-min-width: ${switcherMinWidth};` : ''}`}>
-  <ul role="list">
+  <ul class="switcher--list__inner">
     <slot />
   </ul>
 </div>

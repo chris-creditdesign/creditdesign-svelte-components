@@ -6,13 +6,11 @@ export default {
 };
 
 export const Default = () => ({
-  Component: ViewDefault,
-  props: { className: 'test' },
+  Component: ViewDefault
 });
 
 export const ThreeItems = () => ({
-  Component: ViewThreeItems,
-  props: { className: 'test' },
+  Component: ViewThreeItems
 });
 
 export const NoSpace = () => ({

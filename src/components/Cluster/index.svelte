@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
 </script>
@@ -10,11 +9,11 @@
     --cluster-justify-content: flex-start;
   }
 
-  :global(.cluster) {
+  .cluster {
     overflow: hidden;
   }
 
-  :global(.cluster > *) {
+  .cluster__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -22,7 +21,7 @@
     margin: calc(var(--cluster-space) / 2 * -1);
   }
 
-  :global(.cluster > * > *) {
+  :global(.cluster__inner > *) {
     margin: calc(var(--cluster-space) / 2);
   }
 
@@ -30,15 +29,15 @@
     flex-grow: 1;
   }
 
-  :global(.cluster > * > .grow) {
+  :global(.cluster__inner > .grow) {
     flex-grow: 2;
   }
 </style>
 
 <div
-  class={`cluster ${className}`}
+  class="cluster"
   style={`${clusterJustifyContent ? `--cluster-justify-content: ${clusterJustifyContent};` : ''} ${clusterSpace ? `--cluster-space: ${clusterSpace};` : ''}`}>
-  <div>
+  <div class="cluster__inner">
     <slot />
   </div>
 </div>

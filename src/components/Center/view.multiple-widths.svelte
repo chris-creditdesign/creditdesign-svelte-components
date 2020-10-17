@@ -2,7 +2,6 @@
   import Center from "./index.svelte";
   import Stack from "../Stack/index.svelte";
 
-  export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
 </script>
@@ -19,7 +18,7 @@
 </style>
 
 <Stack>
-  <Center {className} {centerSpace} centerMeasure="var(--measure-small)">
+  <Center {centerSpace} centerMeasure="var(--measure-small)">
     <p class="test-content">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae
       doloribus quod, quisquam fuga dolor, eveniet at mollitia quia consectetur
@@ -27,10 +26,10 @@
       labore.
     </p>
   </Center>
-  <Center {className} {centerSpace} centerMeasure="var(--measure-big)">
+  <Center {centerSpace} centerMeasure="var(--measure-big)">
     <img src="img/image.jpg" alt="" />
   </Center>
-  <Center {className} {centerSpace} centerMeasure="var(--measure-small)">
+  <Center {centerSpace} centerMeasure="var(--measure-small)">
     <p class="test-content">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae
       doloribus quod, quisquam fuga dolor, eveniet at mollitia quia consectetur
@@ -38,7 +37,7 @@
       labore.
     </p>
   </Center>
-  <Center {className} {centerSpace} {centerMeasure}>
+  <Center {centerSpace} {centerMeasure}>
     <p class="test-content">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae
       doloribus quod, quisquam fuga dolor, eveniet at mollitia quia consectetur
@@ -46,7 +45,7 @@
       labore.
     </p>
   </Center>
-  <Center {className} {centerSpace} centerMeasure="var(--measure-small)">
+  <Center {centerSpace} centerMeasure="var(--measure-small)">
     <p class="test-content">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste beatae
       doloribus quod, quisquam fuga dolor, eveniet at mollitia quia consectetur

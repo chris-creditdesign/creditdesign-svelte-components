@@ -1,7 +1,6 @@
 <script>
   import StackList from "./index.svelte";
 
-  export let className = "";
   export let stackSpace = "";
 </script>
 
@@ -24,7 +23,7 @@
 
 <div class="test-container">
   <div class="test-height-expander" />
-  <StackList {className} {stackSpace}>
+  <StackList {stackSpace}>
     <li class="test-content">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo

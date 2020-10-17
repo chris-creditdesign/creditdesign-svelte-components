@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
 </script>
@@ -10,7 +9,7 @@
     --center-measure: var(--measure);
   }
 
-  :global(.center) {
+  .center {
     box-sizing: content-box;
     max-width: var(--center-measure);
     padding-right: var(--center-space);
@@ -21,7 +20,7 @@
 </style>
 
 <div
-  class={`center ${className}`}
+  class="center"
   style={`${centerSpace ? `--center-space: ${centerSpace};` : ''} ${centerMeasure ? `--center-measure: ${centerMeasure};` : ''}`}>
   <slot />
 </div>

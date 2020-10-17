@@ -5,33 +5,32 @@ export default {
 };
 
 export const Default = () => ({
-  Component: ViewDefault,
-  props: { className: 'test' },
+  Component: ViewDefault
 });
 
 
 export const GridSpace = () => ({
   Component: ViewDefault,
-  props: { className: 'test', gridSpace: 'var(--s3)' },
+  props: { gridSpace: 'var(--s3)' },
 });
 
 export const GridColumnSpace = () => ({
   Component: ViewDefault,
-  props: { className: 'test', gridColumnSpace: 'var(--s3)' },
+  props: { gridColumnSpace: 'var(--s3)' },
 });
 
 export const GridRowSpace = () => ({
   Component: ViewDefault,
-  props: { className: 'test', gridRowSpace: 'var(--s3)' },
+  props: { gridRowSpace: 'var(--s3)' },
 });
 
 export const SmallMinWidth = () => ({
   Component: ViewDefault,
-  props: { className: 'test', minWidth: 'var(--s3)' },
+  props: { minWidth: 'var(--s3)' },
 });
 
 export const LargeMinWidth = () => ({
   Component: ViewDefault,
-  props: { className: 'test', minWidth: 'var(--measure)' },
+  props: { minWidth: 'var(--measure)' },
 });
 

@@ -1,7 +1,6 @@
 <script>
   import ClusterList from "./index.svelte";
 
-  export let className = "";
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
 </script>
@@ -17,26 +16,12 @@
   }
 </style>
 
-<ClusterList {className} {clusterJustifyContent} {clusterSpace}>
-  <li>
-    <img src="img/image-small.jpg" alt="" class="test-content" />
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
-  <li>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-  </li>
+<ClusterList {clusterJustifyContent} {clusterSpace}>
+  <li><img src="img/image-small.jpg" alt="" class="test-content" /></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
 </ClusterList>

@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let boxSpace = "";
 </script>
 
@@ -8,13 +7,11 @@
     --box-space: var(--s-1);
   }
 
-  :global(.box) {
+  .box {
     padding: var(--box-space);
   }
 </style>
 
-<div
-  class={`box ${className}`}
-  style={`${boxSpace ? `--box-space: ${boxSpace};` : ''}`}>
+<div class="box" style={`${boxSpace ? `--box-space: ${boxSpace};` : ''}`}>
   <slot />
 </div>

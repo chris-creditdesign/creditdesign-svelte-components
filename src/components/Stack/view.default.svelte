@@ -1,7 +1,6 @@
 <script>
   import Stack from "./index.svelte";
 
-  export let className = "";
   export let stackSpace = "";
 </script>
 
@@ -11,7 +10,7 @@
   }
 </style>
 
-<Stack {className} {stackSpace}>
+<Stack {stackSpace}>
   <p class="test-content">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
     eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti

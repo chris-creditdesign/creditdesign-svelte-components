@@ -1,7 +1,6 @@
 <script>
   import Cluster from "./index.svelte";
 
-  export let className = "";
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
 </script>
@@ -17,7 +16,7 @@
   }
 </style>
 
-<Cluster {className} {clusterJustifyContent} {clusterSpace}>
+<Cluster {clusterJustifyContent} {clusterSpace}>
   <img src="img/image-small.jpg" alt="" class="test-content" />
   <a href="https://www.nature.com" class="test-content">Link</a>
   <a href="https://www.nature.com" class="test-content">Link</a>

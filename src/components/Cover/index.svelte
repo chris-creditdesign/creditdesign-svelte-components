@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let coverHeight = "";
   export let coverSpace = "";
 </script>
@@ -10,7 +9,7 @@
     --cover-height: 100vh;
   }
 
-  :global(.cover) {
+  .cover {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -39,7 +38,7 @@
 </style>
 
 <div
-  class={`cover ${className}`}
+  class="cover"
   style={`${coverSpace ? `--cover-space: ${coverSpace};` : ''} ${coverHeight ? `--cover-height: ${coverHeight};` : ''}`}>
   <slot />
 </div>

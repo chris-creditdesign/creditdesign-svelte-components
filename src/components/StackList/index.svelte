@@ -1,5 +1,4 @@
 <script>
-  export let className = "";
   export let stackSpace = "";
 </script>
 
@@ -8,47 +7,41 @@
     --stack-space: var(--s-1);
   }
 
-  :global(.stack) {
+  .stack--list {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-  }
-
-  :global(.stack > *) {
-    margin: 0;
-  }
-
-  :global(.stack > * + *) {
-    margin-top: var(--stack-space);
-  }
-
-  /* List specific modifiers */
-  :global(ul.stack) {
     max-width: none;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  /* List item specific modifiers */
-  :global(ul.stack li) {
+  :global(.stack--list > *) {
+    margin: 0;
+  }
+
+  :global(.stack--list > * + *) {
+    margin-top: var(--stack-space);
+  }
+
+  :global(.stack--list > li) {
     max-width: none;
     padding: 0;
   }
 
-  :global(.stack > .split-before) {
+  :global(.stack--list > .split-before) {
     margin-bottom: auto;
   }
 
-  :global(.stack:only-child) {
+  :global(.stack--list:only-child) {
     height: 100%;
   }
 </style>
 
 <div>
   <ul
-    role="list"
-    class={`stack ${className}`}
+    class="stack--list"
     style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
     <slot />
   </ul>

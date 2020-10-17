@@ -1,6 +1,5 @@
 <script>
-  export let className = "";
-  export let gridSpace;
+  export let gridSpace = "";
   export let gridColumnSpace = "";
   export let gridRowSpace = "";
   export let minWidth = "";
@@ -18,7 +17,7 @@
     --grid-min-width: var(--measure-small);
   }
 
-  :global(.grid) {
+  .grid {
     display: grid;
 
     /* Set a gutter between each grid item */
@@ -48,7 +47,7 @@
 </style>
 
 <div
-  class={`grid ${className}`}
+  class="grid"
   style={`${gridColumnSpace ? `--grid-column-space: ${gridColumnSpace};` : ''} ${gridRowSpace ? `--grid-row-space: ${gridRowSpace};` : ''} ${minWidth ? `--grid-min-width: ${minWidth};` : ''}`}>
   <slot />
 </div>

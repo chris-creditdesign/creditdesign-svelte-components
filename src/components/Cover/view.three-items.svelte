@@ -1,7 +1,6 @@
 <script>
   import Cover from "./index.svelte";
 
-  export let className = "";
   export let coverHeight;
   export let coverSpace;
 </script>
@@ -13,7 +12,7 @@
   }
 </style>
 
-<Cover {className} {coverHeight} {coverSpace}>
+<Cover {coverHeight} {coverSpace}>
   <p class="test-content">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
     eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti

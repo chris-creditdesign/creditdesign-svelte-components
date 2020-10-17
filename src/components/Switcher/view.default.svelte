@@ -1,8 +1,6 @@
 <script>
   import Switcher from "./index.svelte";
 
-  export let className;
-  export let id;
   export let switcherSpace;
   export let switcherMinWidth;
 </script>
@@ -14,7 +12,7 @@
   }
 </style>
 
-<Switcher {className} {id} {switcherSpace} {switcherMinWidth}>
+<Switcher {switcherSpace} {switcherMinWidth}>
   <p class="test-content">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
     eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
