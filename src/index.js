@@ -24,6 +24,10 @@ export { default as Frame } from "./components/Frame/index.svelte"
 export { default as Grid } from "./components/Grid/index.svelte"
 export { default as GridList } from "./components/GridList/index.svelte"
 
+/* --------------------------------- Sidebar -------------------------------- */
+
+export { default as Sidebar } from "./components/Sidebar/index.svelte"
+
 /* ---------------------------------- Stack --------------------------------- */
 
 export { default as Stack } from "./components/Stack/index.svelte"
