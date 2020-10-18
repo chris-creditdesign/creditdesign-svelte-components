@@ -1,6 +1,7 @@
 import Stack from "./view.default.svelte";
 import ViewSplitBefore from "./view.split-before.svelte";
 import ViewText from "./view.text.svelte";
+import ViewNested from "./view.nested.svelte";
 
 export default {
   title: "Stack",
@@ -24,4 +25,9 @@ export const SplitBefore = () => ({
 export const Text = () => ({
   Component: ViewText,
   props: { stackSpace: "var(--s-1)" /* default */ },
+});
+
+export const Nested = () => ({
+  Component: ViewNested,
+  props: { stackSpace: "" },
 });
