@@ -1,7 +1,6 @@
 <script>
   import Center from "./index.svelte";
 
-  export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
 </script>
@@ -17,7 +16,7 @@
   }
 </style>
 
-<Center {className} {centerSpace} {centerMeasure}>
+<Center {centerSpace} {centerMeasure}>
   <p class="test-content">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
     eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
