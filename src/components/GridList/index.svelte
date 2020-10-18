@@ -32,26 +32,29 @@
     --grid-min-width--component: initial;
     --grid-column-space--component: initial;
     --grid-row-space--component: initial;
+    --grid-min-width: var(
+      --grid-min-width--component,
+      var(--grid-min-width--global)
+    );
+    --grid-column-space: var(
+      --grid-column-space--component,
+      var(--grid-column-space--global)
+    );
+    --grid-row-space: var(
+      --grid-row-space--component,
+      var(--grid-row-space--global)
+    );
 
     display: grid;
     max-width: none;
     padding: 0;
     margin: 0;
-    column-gap: var(
-      --grid-column-space--component,
-      var(--grid-column-space--global)
-    );
+    column-gap: var(--grid-column-space);
     list-style: none;
-    row-gap: var(--grid-row-space--component, var(--grid-row-space--global));
+    row-gap: var(--grid-row-space);
     grid-template-columns: repeat(
       auto-fit,
-      minmax(
-        min(
-          var(--grid-min-width--component, var(--grid-min-width--global)),
-          100%
-        ),
-        1fr
-      )
+      minmax(min(var(--grid-min-width), 100%), 1fr)
     );
   }
 

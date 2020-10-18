@@ -13,6 +13,7 @@
 
   .stack {
     --stack-space--component: initial;
+    --stack-space: var(--stack-space--component, var(--stack-space--global));
 
     display: flex;
     flex-direction: column;
@@ -25,7 +26,7 @@
 
   :global(.stack > * + *) {
     margin-top: 1rem;
-    margin-top: var(--stack-space--component, var(--stack-space--global));
+    margin-top: var(--stack-space);
   }
 
   :global(.stack:only-child) {

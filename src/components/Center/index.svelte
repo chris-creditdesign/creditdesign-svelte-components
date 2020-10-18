@@ -20,22 +20,21 @@
   .center {
     --center-measure--component: initial;
     --center-space--component: initial;
-
-    box-sizing: content-box;
-    max-width: 60ch;
-    max-width: var(
+    --center-measure: var(
       --center-measure--component,
       var(--center-measure--global, 60ch)
     );
+    --center-space: var(
+      --center-space--component,
+      var(--center-space--global, 1rem)
+    );
+
+    box-sizing: content-box;
+    max-width: 60ch;
+    max-width: var(--center-measure);
     padding-right: 1rem;
-    padding-right: var(
-      --center-space--component,
-      var(--center-space--global, 1rem)
-    );
-    padding-left: var(
-      --center-space--component,
-      var(--center-space--global, 1rem)
-    );
+    padding-right: var(--center-space);
+    padding-left: var(--center-space);
     margin-right: auto;
     margin-left: auto;
   }

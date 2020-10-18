@@ -13,23 +13,26 @@
 
 <style>
   :global(:root) {
-    --frame-ratio-height--global: 9; /* height */
-    --frame-ratio-width--global: 16; /* width */
+    --frame-ratio-height--global: 9;
+    --frame-ratio-width--global: 16;
   }
 
   .frame {
     --frame-ratio-height--component: initial;
     --frame-ratio-width--component: initial;
+    --frame-ratio-height: var(
+      --frame-ratio-height--component,
+      var(--frame-ratio-height--global)
+    );
+    --frame-ratio-width: var(
+      --frame-ratio-width--component,
+      var(--frame-ratio-width--global)
+    );
 
     position: relative;
-
-    /* stylelint-disable */
     padding-bottom: calc(
-      var(--frame-ratio-height--component, var(--frame-ratio-height--global)) /
-        var(--frame-ratio-width--component, var(--frame-ratio-width--global)) *
-        100%
+      var(--frame-ratio-height) / var(--frame-ratio-width) * 100%
     );
-    /* stylelint-enable */
   }
 
   :global(.frame > *) {

@@ -13,6 +13,7 @@
 
   .stack--list {
     --stack-space--component: initial;
+    --stack-space: var(--stack-space--component, var(--stack-space--global));
 
     display: flex;
     flex-direction: column;
@@ -29,7 +30,7 @@
 
   :global(.stack--list > * + *) {
     margin-top: 1rem;
-    margin-top: var(--stack-space--component, var(--stack-space--global));
+    margin-top: var(--stack-space);
   }
 
   :global(.stack--list > li) {

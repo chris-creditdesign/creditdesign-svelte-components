@@ -13,9 +13,10 @@
 
   .box {
     --box-space--component: initial;
+    --box-space: var(--box-space--component, var(--box-space--global, 1rem));
 
     padding: 1rem;
-    padding: var(--box-space--component, var(--box-space--global, 1rem));
+    padding: var(--box-space);
   }
 </style>
 

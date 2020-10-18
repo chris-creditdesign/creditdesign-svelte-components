@@ -33,15 +33,24 @@
     --grid-min-width--component: initial;
     --grid-column-space--component: initial;
     --grid-row-space--component: initial;
+    --grid-min-width: var(
+      --grid-min-width--component,
+      var(--grid-min-width--global)
+    );
+    --grid-column-space: var(
+      --grid-column-space--component,
+      var(--grid-column-space--global)
+    );
+    --grid-row-space: var(
+      --grid-row-space--component,
+      var(--grid-row-space--global)
+    );
 
     display: grid;
 
     /* Set a gutter between each grid item */
-    column-gap: var(
-      --grid-column-space--component,
-      var(--grid-column-space--global)
-    );
-    row-gap: var(--grid-row-space--component, var(--grid-row-space--global));
+    column-gap: var(--grid-column-space);
+    row-gap: var(--grid-row-space);
 
     /* repeat() to repeat columns as many times as needed
        auto-fit instead of of set number of columns,
@@ -60,13 +69,7 @@
 	*/
     grid-template-columns: repeat(
       auto-fit,
-      minmax(
-        min(
-          var(--grid-min-width--component, var(--grid-min-width--global)),
-          100%
-        ),
-        1fr
-      )
+      minmax(min(var(--grid-min-width), 100%), 1fr)
     );
   }
 </style>

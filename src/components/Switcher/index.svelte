@@ -20,28 +20,29 @@
   .switcher {
     --switcher-space--component: initial;
     --switcher-min-width--component: initial;
-    --space-between: var(
+    --switcher-space: var(
       --switcher-space--component,
       var(--switcher-space--global)
     );
-    /* stylelint-disable */
-    --modifier: calc(
-      var(--switcher-min-width--component, var(--switcher-min-width--global)) -
-        (100% - var(--space-between))
+    --switcher-min-width: var(
+      --switcher-min-width--component,
+      var(--switcher-min-width--global)
     );
-    /* stylelint-enable */
+    --modifier: calc(
+      var(--switcher-min-width) - (100% - var(--switcher-space))
+    );
   }
 
   .switcher__inner {
     display: flex;
     flex-wrap: wrap;
-    margin: calc((var(--space-between) / 2) * -1);
+    margin: calc((var(--switcher-space) / 2) * -1);
   }
 
   :global(.switcher__inner > *) {
     flex-basis: calc(var(--modifier) * 999);
     flex-grow: 1;
-    margin: calc(var(--space-between) / 2);
+    margin: calc(var(--switcher-space) / 2);
   }
 
   /*

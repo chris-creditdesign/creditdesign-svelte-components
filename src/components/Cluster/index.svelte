@@ -20,6 +20,14 @@
   .cluster {
     --cluster-justify-content--component: initial;
     --cluster-space--component: initial;
+    --cluster-justify-content: var(
+      --cluster-justify-content--component,
+      var(--cluster-justify-content--global)
+    );
+    --cluster-space: var(
+      --cluster-space--component,
+      var(--cluster-space--global)
+    );
 
     overflow: hidden;
   }
@@ -28,20 +36,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: var(
-      --cluster-justify-content--component,
-      var(--cluster-justify-content--global)
-    );
+    justify-content: var(--cluster-justify-content);
     margin: 1rem;
-    margin: calc(
-      var(--cluster-space--component, var(--cluster-space--global)) / 2 * -1
-    );
+    margin: calc(var(--cluster-space) / 2 * -1);
   }
 
   :global(.cluster__inner > *) {
-    margin: calc(
-      var(--cluster-space--component, var(--cluster-space--global)) / 2
-    );
+    margin: calc(var(--cluster-space) / 2);
   }
 
   :global(.cluster__split-after) {
