@@ -10,7 +10,7 @@ export const Default = () => ({
     sidebarWidth: "inherit" /* defalut */,
     sidebarContentMinWidth: "50%;" /* defalut */,
     sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnRight: true /* defalut */,
+    sidebarOnLeft: true /* defalut */,
   },
 });
 
@@ -20,7 +20,7 @@ export const SidebarOnLeft = () => ({
     sidebarWidth: "inherit" /* defalut */,
     sidebarContentMinWidth: "50%;" /* defalut */,
     sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnRight: false,
+    sidebarOnLeft: false,
   },
 });
 
@@ -30,7 +30,7 @@ export const ExtraSpace = () => ({
     sidebarWidth: "inherit" /* defalut */,
     sidebarContentMinWidth: "50%;" /* defalut */,
     sidebarSpace: "var(--s3)",
-    sidebarOnRight: true /* defalut */,
+    sidebarOnLeft: true /* defalut */,
   },
 });
 
@@ -40,7 +40,7 @@ export const SetWidth = () => ({
     sidebarWidth: "var(--measure)",
     sidebarContentMinWidth: "50%;" /* defalut */,
     sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnRight: true /* defalut */,
+    sidebarOnLeft: true /* defalut */,
   },
 });
 
@@ -50,6 +50,6 @@ export const LargeMinWidth = () => ({
     sidebarWidth: "inherit" /* defalut */,
     sidebarContentMinWidth: "80%;",
     sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnRight: true /* defalut */,
+    sidebarOnLeft: true /* defalut */,
   },
 });

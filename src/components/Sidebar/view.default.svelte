@@ -6,7 +6,7 @@
   export let sidebarWidth;
   export let sidebarContentMinWidth;
   export let sidebarSpace;
-  export let sidebarOnRight;
+  export let sidebarOnLeft;
 </script>
 
 <style>
@@ -25,11 +25,7 @@
   }
 </style>
 
-<Sidebar
-  {sidebarWidth}
-  {sidebarContentMinWidth}
-  {sidebarSpace}
-  {sidebarOnRight}>
+<Sidebar {sidebarWidth} {sidebarContentMinWidth} {sidebarSpace} {sidebarOnLeft}>
   <div slot="sidebar" class="sidebar-content">
     <Box>
       <p>This is the sidebar</p>

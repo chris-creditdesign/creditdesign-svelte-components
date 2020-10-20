@@ -2,7 +2,7 @@
   export let sidebarWidth = "";
   export let sidebarContentMinWidth = "";
   export let sidebarSpace = "";
-  export let sidebarOnRight = true;
+  export let sidebarOnLeft = true;
 
   let sidebarWidthComponent = sidebarWidth
     ? `--sidebar-width--component: ${sidebarWidth};`
@@ -66,7 +66,7 @@
 
 <div class="with-sidebar" {style}>
   <div class="with-sidebar__inner">
-    {#if sidebarOnRight}
+    {#if sidebarOnLeft}
       <div class="sidebar">
         <slot name="sidebar" />
       </div>
