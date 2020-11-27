@@ -34,6 +34,7 @@
     max-width: var(--center-measure);
     padding-right: 1rem;
     padding-right: var(--center-space);
+    padding-left: 1rem;
     padding-left: var(--center-space);
     margin-right: auto;
     margin-left: auto;
