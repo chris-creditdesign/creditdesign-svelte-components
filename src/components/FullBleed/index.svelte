@@ -41,6 +41,10 @@
     );
 
     display: grid;
+    padding-right: 1rem;
+    padding-right: var(--full-bleed-side-space);
+    padding-left: 1rem;
+    padding-left: var(--full-bleed-side-space);
     grid-template-columns:
       1fr
       1fr
@@ -51,10 +55,6 @@
       1fr
       1fr
       1fr;
-    padding-right: 1rem;
-    padding-right: var(--full-bleed-side-space);
-    padding-left: 1rem;
-    padding-left: var(--full-bleed-side-space);
   }
 
   :global(.full-bleed-container > *) {
@@ -68,19 +68,19 @@
   }
 
   :global(.full-bleed) {
-    grid-column: 1 / -1;
+    grid-column: 1 / 10;
   }
 
   :global(.full-bleed--2) {
-    grid-column: 2 / -2;
+    grid-column: 2 / 9;
   }
 
   :global(.full-bleed--3) {
-    grid-column: 3 / -3;
+    grid-column: 3 / 8;
   }
 
   :global(.full-bleed--4) {
-    grid-column: 4 / -4;
+    grid-column: 4 / 7;
   }
 
   :global(.full-bleed--left) {
@@ -100,19 +100,19 @@
   }
 
   :global(.full-bleed--right) {
-    grid-column: 5 / -1;
+    grid-column: 5 / 10;
   }
 
   :global(.full-bleed--right-2) {
-    grid-column: 5 / -2;
+    grid-column: 5 / 9;
   }
 
   :global(.full-bleed--right-3) {
-    grid-column: 5 / -3;
+    grid-column: 5 / 8;
   }
 
   :global(.full-bleed--right-4) {
-    grid-column: 5 / -4;
+    grid-column: 5 / 7;
   }
 </style>
 
