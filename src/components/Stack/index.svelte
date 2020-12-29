@@ -1,7 +1,7 @@
 <script>
   export let stackSpace = "";
 
-  let stackSpaceComponent = stackSpace
+  let stackSpaceComponent = stackSpace.length
     ? `--stack-space--component: ${stackSpace};`
     : "";
 </script>
@@ -33,13 +33,13 @@
     height: 100%;
   }
 
-  :global(.stack > .split-before) {
+  :global(.stack > .stack__split-after) {
     margin-bottom: auto;
   }
 </style>
 
 <div>
-  <div class="stack" style={stackSpaceComponent}>
+  <div class="stack" style="{stackSpaceComponent}">
     <slot />
   </div>
 </div>

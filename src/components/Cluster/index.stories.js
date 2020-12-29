@@ -1,6 +1,11 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import Cluster from "./view.default.svelte";
 import ViewGrow from "./view.grow.svelte";
 import ViewSplit from "./view.split.svelte";
+import {
+  spaceOptions,
+  justifyContentOptions,
+} from "../preview-content/options.js";
 
 export default {
   title: "Cluster",
@@ -8,48 +13,39 @@ export default {
 
 export const Default = () => ({
   Component: Cluster,
+  decorators: [withKnobs],
   props: {
-    clusterJustifyContent: "flex-start" /* default */,
-    clusterSpace: "var(--s-1)" /* default */,
-  },
-});
-
-export const FlexEnd = () => ({
-  Component: Cluster,
-  props: {
-    clusterJustifyContent: "flex-end",
-    clusterSpace: "var(--s-1)" /* default */,
-  },
-});
-
-export const SpaceBetween = () => ({
-  Component: Cluster,
-  props: {
-    clusterJustifyContent: "space-between",
-    clusterSpace: "var(--s-1)" /* default */,
-  },
-});
-
-export const SpaceAround = () => ({
-  Component: Cluster,
-  props: {
-    clusterJustifyContent: "space-around",
-    clusterSpace: "var(--s-1)" /* default */,
+    clusterJustifyContent: select(
+      "clusterJustifyContent",
+      justifyContentOptions,
+      "flex-start"
+    ),
+    clusterSpace: select("clusterSpace", spaceOptions, "var(--s-1)"),
   },
 });
 
 export const Grow = () => ({
   Component: ViewGrow,
-});
-
-export const ExtraSpace = () => ({
-  Component: Cluster,
+  decorators: [withKnobs],
   props: {
-    clusterJustifyContent: "flex-start" /* default */,
-    clusterSpace: "var(--s3)",
+    clusterJustifyContent: select(
+      "clusterJustifyContent",
+      justifyContentOptions,
+      "flex-start"
+    ),
+    clusterSpace: select("clusterSpace", spaceOptions, "var(--s-1)"),
   },
 });
 
 export const Split = () => ({
   Component: ViewSplit,
+  decorators: [withKnobs],
+  props: {
+    clusterJustifyContent: select(
+      "clusterJustifyContent",
+      justifyContentOptions,
+      "flex-start"
+    ),
+    clusterSpace: select("clusterSpace", spaceOptions, "var(--s-1)"),
+  },
 });

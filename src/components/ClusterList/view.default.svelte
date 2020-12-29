@@ -6,7 +6,7 @@
 </script>
 
 <style>
-  .test-content {
+  li {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,12 +16,15 @@
   }
 </style>
 
-<ClusterList {clusterJustifyContent} {clusterSpace}>
-  <li><img src="img/image-small.jpg" alt="" class="test-content" /></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
-  <li><a href="https://www.nature.com" class="test-content">Link</a></li>
+<ClusterList
+  clusterJustifyContent="{clusterJustifyContent}"
+  clusterSpace="{clusterSpace}"
+>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
 </ClusterList>

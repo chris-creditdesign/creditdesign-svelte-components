@@ -1,44 +1,44 @@
 <script>
-  export let sidebarWidth = "";
   export let sidebarContentMinWidth = "";
-  export let sidebarSpace = "";
   export let sidebarOnLeft = true;
+  export let sidebarSpace = "";
+  export let sidebarWidth = "";
 
-  let sidebarWidthComponent = sidebarWidth
-    ? `--sidebar-width--component: ${sidebarWidth};`
-    : "";
-  let sidebarContentMinWidthComponent = sidebarContentMinWidth
+  let sidebarContentMinWidthComponent = sidebarContentMinWidth.length
     ? `--sidebar-content-min-width--component: ${sidebarContentMinWidth};`
     : "";
-  let sidebarSpaceComponent = sidebarSpace
+  let sidebarSpaceComponent = sidebarSpace.length
     ? `--sidebar-space--component: ${sidebarSpace};`
     : "";
+  let sidebarWidthComponent = sidebarWidth.length
+    ? `--sidebar-width--component: ${sidebarWidth};`
+    : "";
 
-  let style = `${sidebarWidthComponent} ${sidebarContentMinWidthComponent} ${sidebarSpaceComponent}`;
+  let style = `${sidebarContentMinWidthComponent}  ${sidebarSpaceComponent} ${sidebarWidthComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --sidebar-width--global: inherit;
     --sidebar-content-min-width--global: 50%;
     --sidebar-space--global: var(--s-1);
+    --sidebar-width--global: inherit;
   }
 
   .with-sidebar {
-    --sidebar-width--component: initial;
     --sidebar-content-min-width--component: initial;
     --sidebar-space--component: initial;
-    --sidebar-width: var(
-      --sidebar-width--component,
-      var(--sidebar-width--global)
+    --sidebar-width--component: initial;
+    --sidebar-content-min-width: var(
+      --sidebar-content-min-width--component,
+      var(--sidebar-content-min-width--global)
     );
     --sidebar-space: var(
       --sidebar-space--component,
       var(--sidebar-space--global)
     );
-    --sidebar-content-min-width: var(
-      --sidebar-content-min-width--component,
-      var(--sidebar-content-min-width--global)
+    --sidebar-width: var(
+      --sidebar-width--component,
+      var(--sidebar-width--global)
     );
 
     overflow: hidden;
@@ -64,7 +64,7 @@
   }
 </style>
 
-<div class="with-sidebar" {style}>
+<div class="with-sidebar" style="{style}">
   <div class="with-sidebar__inner">
     {#if sidebarOnLeft}
       <div class="sidebar">

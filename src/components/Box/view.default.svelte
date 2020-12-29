@@ -5,9 +5,15 @@
 </script>
 
 <style>
-  img {
-    max-width: 100%;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: 100px;
+    background-color: lightblue;
   }
 </style>
 
-<Box {boxSpace}><img src="img/image.jpg" alt="" /></Box>
+<Box boxSpace="{boxSpace}"><span>Item</span></Box>

@@ -1,25 +1,22 @@
 <script>
   import Center from "./index.svelte";
 
-  export let centerSpace = "";
   export let centerMeasure = "";
+  export let centerSpace = "";
 </script>
 
 <style>
-  .test-content {
-    background-color: lightblue;
-  }
-
-  p {
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     max-width: none;
-    margin: 0;
+    height: 100px;
+    background-color: lightblue;
   }
 </style>
 
-<Center {centerSpace} {centerMeasure}>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
+<Center centerMeasure="{centerMeasure}" centerSpace="{centerSpace}">
+  <span>Item</span>
 </Center>

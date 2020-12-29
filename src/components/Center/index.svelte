@@ -1,11 +1,11 @@
 <script>
-  export let centerSpace = "";
   export let centerMeasure = "";
+  export let centerSpace = "";
 
-  let centerMeasureComponent = centerMeasure
+  let centerMeasureComponent = centerMeasure.length
     ? `--center-measure--component: ${centerMeasure};`
     : "";
-  let centerSpaceComponent = centerSpace
+  let centerSpaceComponent = centerSpace.length
     ? `--center-space--component: ${centerSpace};`
     : "";
   let style = `${centerMeasureComponent} ${centerSpaceComponent}`;
@@ -41,6 +41,6 @@
   }
 </style>
 
-<div class="center" {style}>
+<div class="center" style="{style}">
   <slot />
 </div>

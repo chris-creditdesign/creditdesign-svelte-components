@@ -1,5 +1,7 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import StackList from "./view.default.svelte";
-import ViewSplitBefore from "./view.split-before.svelte";
+import ViewSplitAfter from "./view.split-after.svelte";
+import { spaceOptions } from "../preview-content/options.js";
 
 export default {
   title: "StackList",
@@ -7,15 +9,16 @@ export default {
 
 export const Default = () => ({
   Component: StackList,
-  props: { stackSpace: "var(--s-1)" /* default */ },
+  decorators: [withKnobs],
+  props: {
+    stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+  },
 });
 
-export const ExtraSpace = () => ({
-  Component: StackList,
-  props: { stackSpace: "var(--s3)" },
-});
-
-export const SplitBefore = () => ({
-  Component: ViewSplitBefore,
-  props: { stackSpace: "var(--s-1)" /* default */ },
+export const SplitAfter = () => ({
+  Component: ViewSplitAfter,
+  decorators: [withKnobs],
+  props: {
+    stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+  },
 });

@@ -6,16 +6,17 @@
 </script>
 
 <style>
-  .test-content {
-    max-width: 100%;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: 100px;
     background-color: lightblue;
   }
 </style>
 
-<Cover {coverHeight} {coverSpace}>
-  <p class="centered test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
+<Cover coverHeight="{coverHeight}" coverSpace="{coverSpace}">
+  <span class="cover__centered">.cover__centered</span>
 </Cover>

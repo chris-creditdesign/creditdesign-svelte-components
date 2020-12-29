@@ -1,47 +1,35 @@
 <script>
   import Sidebar from "./index.svelte";
-  import Box from "../Box/index.svelte";
-  import Stack from "../Stack/index.svelte";
 
-  export let sidebarWidth;
   export let sidebarContentMinWidth;
-  export let sidebarSpace;
   export let sidebarOnLeft;
+  export let sidebarSpace;
+  export let sidebarWidth;
 </script>
 
 <style>
-  .sidebar-content {
-    height: 100%;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 100px;
+    max-width: none;
+    height: 100px;
     background-color: lightblue;
   }
 
-  .sidebar-content p {
-    margin: 0;
-  }
-
-  .not-sidebar-content {
-    height: 100%;
-    background-color: lightgreen;
+  .sidebar {
+    background-color: pink;
   }
 </style>
 
-<Sidebar {sidebarWidth} {sidebarContentMinWidth} {sidebarSpace} {sidebarOnLeft}>
-  <div slot="sidebar" class="sidebar-content">
-    <Box>
-      <p>This is the sidebar</p>
-    </Box>
-  </div>
-  <div slot="main-content" class="not-sidebar-content">
-    <Box>
-      <Stack>
-        <h2>This is the main box</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          quia distinctio molestiae optio. Quis, officiis ipsum accusantium
-          deserunt nam eius atque quibusdam ea fuga, magni, non suscipit iste
-          dolorem consequatur.
-        </p>
-      </Stack>
-    </Box>
-  </div>
+<Sidebar
+  sidebarContentMinWidth="{sidebarContentMinWidth}"
+  sidebarOnLeft="{sidebarOnLeft}"
+  sidebarSpace="{sidebarSpace}"
+  sidebarWidth="{sidebarWidth}"
+>
+  <div slot="sidebar"><span class="sidebar">Sidebar</span></div>
+  <div slot="main-content"><span>Main content</span></div>
 </Sidebar>

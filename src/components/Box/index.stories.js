@@ -1,4 +1,6 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import Box from "./view.default.svelte";
+import { spaceOptions } from "../preview-content/options.js";
 
 export default {
   title: "Box",
@@ -6,15 +8,8 @@ export default {
 
 export const Default = () => ({
   Component: Box,
-  props: { boxSpace: "var(--s-1)" /* default */ },
-});
-
-export const ExtraSpace = () => ({
-  Component: Box,
-  props: { boxSpace: "var(--s3)" },
-});
-
-export const NoSpace = () => ({
-  Component: Box,
-  props: { boxSpace: "0" },
+  decorators: [withKnobs],
+  props: {
+    boxSpace: select("boxSpace", spaceOptions, "var(--s-1)"),
+  },
 });

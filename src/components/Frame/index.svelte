@@ -1,13 +1,15 @@
 <script>
-  export let frameRatioHeight;
-  export let frameRatioWidth;
+  export let frameRatioHeight = 0;
+  export let frameRatioWidth = 0;
 
-  let frameRatioHeightComponent = frameRatioHeight
-    ? `--frame-ratio-height--component: ${frameRatioHeight};`
-    : "";
-  let frameRatioWidthComponent = frameRatioWidth
-    ? `--frame-ratio-width--component: ${frameRatioWidth};`
-    : "";
+  let frameRatioHeightComponent =
+    frameRatioHeight > 0
+      ? `--frame-ratio-height--component: ${frameRatioHeight};`
+      : "";
+  let frameRatioWidthComponent =
+    frameRatioWidth > 0
+      ? `--frame-ratio-width--component: ${frameRatioWidth};`
+      : "";
   let style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
 </script>
 
@@ -54,6 +56,6 @@
   }
 </style>
 
-<div class="frame" {style}>
+<div class="frame" style="{style}">
   <slot />
 </div>

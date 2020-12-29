@@ -1,36 +1,38 @@
 <script>
-  export let switcherSpace = "";
   export let switcherMinWidth = "";
+  export let switcherSpace = "";
 
-  let switcherSpaceComponent = switcherSpace
-    ? `--switcher-space--component: ${switcherSpace};`
-    : "";
-  let switcherMinWidthComponent = switcherMinWidth
+  let switcherMinWidthComponent = switcherMinWidth.length
     ? `--switcher-min-width--component: ${switcherMinWidth};`
     : "";
-  let style = `${switcherSpaceComponent} ${switcherMinWidthComponent}`;
+  let switcherSpaceComponent = switcherSpace.length
+    ? `--switcher-space--component: ${switcherSpace};`
+    : "";
+  let style = `${switcherMinWidthComponent} ${switcherSpaceComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --switcher-space--global: var(--s-1);
     --switcher-min-width--global: var(--measure);
+    --switcher-space--global: var(--s-1);
   }
 
   .switcher--list {
-    --switcher-space--component: initial;
     --switcher-min-width--component: initial;
-    --switcher-space: var(
-      --switcher-space--component,
-      var(--switcher-space--global)
-    );
+    --switcher-space--component: initial;
     --switcher-min-width: var(
       --switcher-min-width--component,
       var(--switcher-min-width--global)
     );
+    --switcher-space: var(
+      --switcher-space--component,
+      var(--switcher-space--global)
+    );
     --modifier: calc(
       var(--switcher-min-width) - (100% - var(--switcher-space))
     );
+
+    overflow: hidden;
   }
 
   .switcher--list__inner {
@@ -63,7 +65,7 @@
   }
 </style>
 
-<div class="switcher--list" {style}>
+<div class="switcher--list" style="{style}">
   <ul class="switcher--list__inner">
     <slot />
   </ul>

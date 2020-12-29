@@ -1,9 +1,12 @@
 <script>
   import Cluster from "./index.svelte";
+
+  export let clusterJustifyContent;
+  export let clusterSpace;
 </script>
 
 <style>
-  .test-content {
+  span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,13 +17,16 @@
 </style>
 
 <Cluster clusterJustifyContent="space-between">
-  <img src="img/image-small.jpg" alt="" class="test-content" />
-  <Cluster clusterJustifyContent="flex-start">
-    <a href="https://www.nature.com" class="test-content">Link</a>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-    <a href="https://www.nature.com" class="test-content">Link</a>
-    <a href="https://www.nature.com" class="test-content">Link</a>
+  <span>Item</span>
+  <Cluster
+    clusterJustifyContent="{clusterJustifyContent}"
+    clusterSpace="{clusterSpace}"
+  >
+    <span>Item</span>
+    <span>Item</span>
+    <span>Item</span>
+    <span>Item</span>
+    <span>Item</span>
+    <span>Item</span>
   </Cluster>
 </Cluster>

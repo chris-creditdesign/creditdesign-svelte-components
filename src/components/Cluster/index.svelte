@@ -2,10 +2,10 @@
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
 
-  let clusterJustifyContentComponent = clusterJustifyContent
+  let clusterJustifyContentComponent = clusterJustifyContent.length
     ? `--cluster-justify-content--component: ${clusterJustifyContent};`
     : "";
-  let clusterSpaceComponent = clusterSpace
+  let clusterSpaceComponent = clusterSpace.length
     ? `--cluster-space--component: ${clusterSpace};`
     : "";
   let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
@@ -54,7 +54,7 @@
   }
 </style>
 
-<div class="cluster" {style}>
+<div class="cluster" style="{style}">
   <div class="cluster__inner">
     <slot />
   </div>

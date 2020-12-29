@@ -1,6 +1,8 @@
+import { withKnobs, number } from "@storybook/addon-knobs";
 import Frame from "./view.default.svelte";
 import ViewVideo from "./view.video.svelte";
 import ViewPlaceHolder from "./view.place-holder.svelte";
+import { frameRatioOptions } from "../preview-content/options.js";
 
 export default {
   title: "Frame",
@@ -8,32 +10,27 @@ export default {
 
 export const Default = () => ({
   Component: Frame,
+  decorators: [withKnobs],
   props: {
-    frameRatioHeight: 9 /* default */,
-    frameRatioWidth: 16 /* default */,
-  },
-});
-
-export const SquareAspectRatio = () => ({
-  Component: Frame,
-  props: {
-    frameRatioHeight: 1,
-    frameRatioWidth: 1,
+    frameRatioHeight: number("frameRatioHeight", 9, frameRatioOptions),
+    frameRatioWidth: number("frameRatioWidth", 16, frameRatioOptions),
   },
 });
 
 export const Video = () => ({
   Component: ViewVideo,
+  decorators: [withKnobs],
   props: {
-    frameRatioHeight: 9 /* default */,
-    frameRatioWidth: 16 /* default */,
+    frameRatioHeight: number("frameRatioHeight", 9, frameRatioOptions),
+    frameRatioWidth: number("frameRatioWidth", 16, frameRatioOptions),
   },
 });
 
 export const PlaceHolderText = () => ({
   Component: ViewPlaceHolder,
+  decorators: [withKnobs],
   props: {
-    frameRatioHeight: 9 /* default */,
-    frameRatioWidth: 16 /* default */,
+    frameRatioHeight: number("frameRatioHeight", 9, frameRatioOptions),
+    frameRatioWidth: number("frameRatioWidth", 16, frameRatioOptions),
   },
 });

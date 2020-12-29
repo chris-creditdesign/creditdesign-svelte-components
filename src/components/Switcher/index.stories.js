@@ -1,6 +1,8 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import Switcher from "./view.default.svelte";
 import ViewSevenElements from "./view.seven-elements.svelte";
 import ViewEightElements from "./view.eight-elements.svelte";
+import { spaceOptions, measureOptions } from "../preview-content/options.js";
 
 export default {
   title: "Switcher",
@@ -8,40 +10,39 @@ export default {
 
 export const Default = () => ({
   Component: Switcher,
+  decorators: [withKnobs],
   props: {
-    switcherSpace: "var(--s-1)" /* default */,
-    switcherMinWidth: "var(--measure)" /* default */,
-  },
-});
-
-export const SmallMin = () => ({
-  Component: Switcher,
-  props: {
-    switcherSpace: "var(--s-1)" /* default */,
-    switcherMinWidth: "var(--measure-small)",
-  },
-});
-
-export const LargeMin = () => ({
-  Component: Switcher,
-  props: {
-    switcherSpace: "var(--s-1)" /* default */,
-    switcherMinWidth: "var(--measure-big)",
-  },
-});
-
-export const ExtraSpace = () => ({
-  Component: Switcher,
-  props: {
-    switcherSpace: "var(--s3)",
-    switcherMinWidth: "var(--measure)" /* default */,
+    switcherMinWidth: select(
+      "switcherMinWidth",
+      measureOptions,
+      "var(--measure)"
+    ),
+    switcherSpace: select("switcherSpace", spaceOptions, "var(--s-1)"),
   },
 });
 
 export const SevenElements = () => ({
   Component: ViewSevenElements,
+  decorators: [withKnobs],
+  props: {
+    switcherMinWidth: select(
+      "switcherMinWidth",
+      measureOptions,
+      "var(--measure)"
+    ),
+    switcherSpace: select("switcherSpace", spaceOptions, "var(--s-1)"),
+  },
 });
 
 export const EightElements = () => ({
   Component: ViewEightElements,
+  decorators: [withKnobs],
+  props: {
+    switcherMinWidth: select(
+      "switcherMinWidth",
+      measureOptions,
+      "var(--measure)"
+    ),
+    switcherSpace: select("switcherSpace", spaceOptions, "var(--s-1)"),
+  },
 });

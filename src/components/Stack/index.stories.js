@@ -1,7 +1,7 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import Stack from "./view.default.svelte";
-import ViewSplitBefore from "./view.split-before.svelte";
-import ViewText from "./view.text.svelte";
-import ViewNested from "./view.nested.svelte";
+import ViewSplitAfter from "./view.split-after.svelte";
+import { spaceOptions } from "../preview-content/options.js";
 
 export default {
   title: "Stack",
@@ -9,25 +9,15 @@ export default {
 
 export const Default = () => ({
   Component: Stack,
-  props: { stackSpace: "var(--s-1)" /* default */ },
+  decorators: [withKnobs],
+  props: {
+    stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+  },
 });
 
-export const ExtraSpace = () => ({
-  Component: Stack,
-  props: { stackSpace: "var(--s3)" },
-});
-
-export const SplitBefore = () => ({
-  Component: ViewSplitBefore,
-  props: { stackSpace: "var(--s-1)" /* default */ },
-});
-
-export const Text = () => ({
-  Component: ViewText,
-  props: { stackSpace: "var(--s-1)" /* default */ },
-});
-
-export const Nested = () => ({
-  Component: ViewNested,
-  props: { stackSpace: "" },
+export const SplitAfter = () => ({
+  Component: ViewSplitAfter,
+  props: {
+    stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+  },
 });

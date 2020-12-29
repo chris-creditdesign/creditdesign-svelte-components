@@ -5,6 +5,9 @@
   export let frameRatioWidth;
 </script>
 
-<Frame {frameRatioHeight} {frameRatioWidth}>
+<Frame
+  frameRatioHeight="{frameRatioHeight}"
+  frameRatioWidth="{frameRatioWidth}"
+>
   <img src="img/image.jpg" alt="test image" />
 </Frame>

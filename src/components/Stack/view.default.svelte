@@ -5,35 +5,21 @@
 </script>
 
 <style>
-  .test-content {
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: 100px;
     background-color: lightblue;
   }
 </style>
 
-<Stack {stackSpace}>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
-  <p class="test-content">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
-    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
-    numquam officia architecto modi! Labore natus error nisi earum?
-  </p>
+<Stack stackSpace="{stackSpace}">
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
 </Stack>

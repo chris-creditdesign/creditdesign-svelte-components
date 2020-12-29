@@ -1,9 +1,13 @@
 <script>
   import ClusterList from "./index.svelte";
   import Cluster from "../Cluster/index.svelte";
+
+  export let clusterJustifyContent = "";
+  export let clusterSpace = "";
 </script>
 
 <style>
+  li,
   .test-content {
     display: flex;
     align-items: center;
@@ -15,27 +19,17 @@
 </style>
 
 <Cluster clusterJustifyContent="space-between">
+  <span class="test-content">Item</span>
 
-  <img src="img/image-small.jpg" alt="" class="test-content" />
-
-  <ClusterList clusterJustifyContent="flex-start">
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
-    <li>
-      <a href="https://www.nature.com" class="test-content">Link</a>
-    </li>
+  <ClusterList
+    clusterJustifyContent="{clusterJustifyContent}"
+    clusterSpace="{clusterSpace}"
+  >
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
   </ClusterList>
 </Cluster>

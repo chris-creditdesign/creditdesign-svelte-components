@@ -1,12 +1,12 @@
 <script>
   import Cluster from "./index.svelte";
 
-  export let clusterJustifyContent = "";
-  export let clusterclusterSpaceJustifyContent = "";
+  export let clusterJustifyContent;
+  export let clusterSpace;
 </script>
 
 <style>
-  .test-content {
+  span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,14 +14,21 @@
     height: 100px;
     background-color: lightblue;
   }
+
+  .grow {
+    background-color: pink;
+  }
 </style>
 
-<Cluster {clusterJustifyContent} {clusterclusterSpaceJustifyContent}>
-  <img src="img/image-small.jpg" alt="" class="test-content grow" />
-  <a href="https://www.nature.com" class="test-content">Link</a>
-  <a href="https://www.nature.com" class="test-content">Link</a>
-  <a href="https://www.nature.com" class="test-content">Link</a>
-  <a href="https://www.nature.com" class="test-content">Link</a>
-  <a href="https://www.nature.com" class="test-content">Link</a>
-  <a href="https://www.nature.com" class="test-content">Link</a>
+<Cluster
+  clusterJustifyContent="{clusterJustifyContent}"
+  clusterSpace="{clusterSpace}"
+>
+  <span class="grow">Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
+  <span>Item</span>
 </Cluster>

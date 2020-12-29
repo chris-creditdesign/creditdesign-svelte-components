@@ -2,10 +2,10 @@
   export let coverHeight = "";
   export let coverSpace = "";
 
-  let coverHeightComponent = coverHeight
+  let coverHeightComponent = coverHeight.length
     ? `--cover-height--component: ${coverHeight};`
     : "";
-  let coverSpaceComponent = coverSpace
+  let coverSpaceComponent = coverSpace.length
     ? `--cover-space--component: ${coverSpace};`
     : "";
   let style = `${coverHeightComponent} ${coverSpaceComponent}`;
@@ -14,7 +14,7 @@
 <style>
   :global(:root) {
     --cover-height--global: 100vh;
-    --cover-space--global: 1rem;
+    --cover-space--global: var(--s-1);
   }
 
   .cover {
@@ -40,24 +40,24 @@
   }
 
   :global(.cover > *) {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--s-1, 1rem);
+    margin-bottom: var(--s-1, 1rem);
   }
 
-  :global(.cover > .centered) {
+  :global(.cover > .cover__centered) {
     margin-top: auto;
     margin-bottom: auto;
   }
 
-  :global(.cover > :first-child:not(.centered)) {
+  :global(.cover > :first-child:not(.cover__centered)) {
     margin-top: 0;
   }
 
-  :global(.cover > :last-child:not(.centered)) {
+  :global(.cover > :last-child:not(.cover__centered)) {
     margin-bottom: 0;
   }
 </style>
 
-<div class="cover" {style}>
+<div class="cover" style="{style}">
   <slot />
 </div>

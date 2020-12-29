@@ -1,4 +1,6 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import Grid from "./view.default.svelte";
+import { spaceOptions, measureOptions } from "../preview-content/options.js";
 
 export default {
   title: "Grid",
@@ -6,63 +8,11 @@ export default {
 
 export const Default = () => ({
   Component: Grid,
+  decorators: [withKnobs],
   props: {
-    gridSpace: "var(--s-1)" /* default */,
-    gridColumnSpace: "" /* default */,
-    gridRowSpace: "" /* default */,
-    minWidth: "var(--measure-small)" /* default */,
-  },
-});
-
-export const GridSpace = () => ({
-  Component: Grid,
-  props: {
-    gridSpace: "var(--s3)",
-    gridColumnSpace: "" /* default */,
-    gridRowSpace: "" /* default */,
-    minWidth: "var(--measure-small)" /* default */,
-  },
-});
-
-export const GridColumnSpace = () => ({
-  Component: Grid,
-  props: {
-    gridSpace: "",
-    gridColumnSpace: "var(--s3)",
-    gridRowSpace: "" /* default */,
-    minWidth: "var(--measure-small)" /* default */,
-  },
-});
-
-export const GridRowSpace = () => ({
-  Component: Grid,
-  props: { gridRowSpace: "var(--s3)" },
-  props: {
-    gridSpace: "",
-    gridColumnSpace: "" /* default */,
-    gridRowSpace: "var(--s3)",
-    minWidth: "var(--measure-small)" /* default */,
-  },
-});
-
-export const SmallMinWidth = () => ({
-  Component: Grid,
-  props: { minWidth: "var(--s3)" },
-  props: {
-    gridSpace: "var(--s-1)" /* default */,
-    gridColumnSpace: "" /* default */,
-    gridRowSpace: "" /* default */,
-    minWidth: "var(--s3)",
-  },
-});
-
-export const LargeMinWidth = () => ({
-  Component: Grid,
-  props: { minWidth: "var(--measure)" },
-  props: {
-    gridSpace: "var(--s-1)" /* default */,
-    gridColumnSpace: "" /* default */,
-    gridRowSpace: "" /* default */,
-    minWidth: "var(--measure)",
+    gridColumnSpace: select("gridColumnSpace", spaceOptions, "var(--s-1)"),
+    gridRowSpace: select("gridRowSpace", spaceOptions, "var(--s-1)"),
+    gridSpace: select("gridSpace", spaceOptions, "var(--s-1)"),
+    minWidth: select("minWidth", measureOptions, "var(--measure-small)"),
   },
 });

@@ -1,7 +1,7 @@
 <script>
   export let boxSpace = "";
 
-  let boxSpaceComponent = boxSpace
+  let boxSpaceComponent = boxSpace.length
     ? `--box-space--component: ${boxSpace};`
     : "";
 </script>
@@ -20,6 +20,6 @@
   }
 </style>
 
-<div class="box" style={boxSpaceComponent}>
+<div class="box" style="{boxSpaceComponent}">
   <slot />
 </div>

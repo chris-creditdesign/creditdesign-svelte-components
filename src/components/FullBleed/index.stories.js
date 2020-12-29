@@ -1,4 +1,6 @@
+import { withKnobs, select } from "@storybook/addon-knobs";
 import FullBleed from "./view.default.svelte";
+import { spaceOptions, measureOptions } from "../preview-content/options.js";
 
 export default {
   title: "FullBleed",
@@ -6,45 +8,22 @@ export default {
 
 export const Default = () => ({
   Component: FullBleed,
+  decorators: [withKnobs],
   props: {
-    fullBleedStackSpace: "var(--s-1)" /* default */,
-    fullBleedSideSpace: "var(--s-1)" /* default */,
-    fullBleedMeasure: "var(--measure)" /* default */,
-  },
-});
-
-export const SmallMeasure = () => ({
-  Component: FullBleed,
-  props: {
-    fullBleedStackSpace: "var(--s-1)" /* default */,
-    fullBleedSideSpace: "var(--s-1)" /* default */,
-    fullBleedMeasure: "var(--measure-small)",
-  },
-});
-
-export const MoreSpace = () => ({
-  Component: FullBleed,
-  props: {
-    fullBleedStackSpace: "var(--s-1)" /* default */,
-    fullBleedSideSpace: "var(--s3)",
-    fullBleedMeasure: "var(--measure)" /* default */,
-  },
-});
-
-export const NoSpace = () => ({
-  Component: FullBleed,
-  props: {
-    fullBleedStackSpace: "var(--s-1)" /* default */,
-    fullBleedSideSpace: "0",
-    fullBleedMeasure: "var(--measure)" /* default */,
-  },
-});
-
-export const ExtraStackSpace = () => ({
-  Component: FullBleed,
-  props: {
-    fullBleedStackSpace: "var(--s3)",
-    fullBleedSideSpace: "var(--s-1)" /* default */,
-    fullBleedMeasure: "var(--measure)" /* default */,
+    fullBleedMeasure: select(
+      "fullBleedMeasure",
+      measureOptions,
+      "var(--measure)"
+    ),
+    fullBleedSideSpace: select(
+      "fullBleedSideSpace",
+      spaceOptions,
+      "var(--s-1)"
+    ),
+    fullBleedStackSpace: select(
+      "fullBleedStackSpace",
+      spaceOptions,
+      "var(--s-1)"
+    ),
   },
 });

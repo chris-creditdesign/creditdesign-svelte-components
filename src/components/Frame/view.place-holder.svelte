@@ -13,7 +13,10 @@
   }
 </style>
 
-<Frame {frameRatioHeight} {frameRatioWidth}>
+<Frame
+  frameRatioHeight="{frameRatioHeight}"
+  frameRatioWidth="{frameRatioWidth}"
+>
   <div class="place-holder">
     <p>image pending</p>
   </div>

@@ -1,36 +1,32 @@
 <script>
-  export let fullBleedStackSpace = "";
-  export let fullBleedSideSpace = "";
   export let fullBleedMeasure = "";
+  export let fullBleedSideSpace = "";
+  export let fullBleedStackSpace = "";
 
-  let fullBleedStackSpaceComponent = fullBleedStackSpace
+  let fullBleedMeasureComponent = fullBleedMeasure.length
+    ? `--full-bleed-measure--component: ${fullBleedMeasure};`
+    : "";
+  let fullBleedSideSpaceComponent = fullBleedSideSpace.length
+    ? `--full-bleed-side-space--component: ${fullBleedSideSpace};`
+    : "";
+  let fullBleedStackSpaceComponent = fullBleedStackSpace.length
     ? `--full-bleed-stack-space--component: ${fullBleedStackSpace};`
     : "";
 
-  let fullBleedMeasureComponent = fullBleedMeasure
-    ? `--full-bleed-measure--component: ${fullBleedMeasure};`
-    : "";
-  let fullBleedSideSpaceComponent = fullBleedSideSpace
-    ? `--full-bleed-side-space--component: ${fullBleedSideSpace};`
-    : "";
-  let style = `${fullBleedStackSpaceComponent} ${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent}`;
+  let style = `${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent} ${fullBleedStackSpaceComponent}`;
 </script>
 
 <style>
   :global(:root) {
-    --full-bleed-stack-space--global: var(--s-1);
     --full-bleed-measure--global: var(--measure);
     --full-bleed-side-space--global: var(--s-1);
+    --full-bleed-stack-space--global: var(--s-1);
   }
 
   .full-bleed-container {
-    --full-bleed-stack-space--component: initial;
     --full-bleed-measure--component: initial;
     --full-bleed-side-space--component: initial;
-    --full-bleed-stack-space: var(
-      --full-bleed-stack-space--component,
-      var(--full-bleed-stack-space--global)
-    );
+    --full-bleed-stack-space--component: initial;
     --full-bleed-measure: var(
       --full-bleed-measure--component,
       var(--full-bleed-measure--global, 60ch)
@@ -38,6 +34,10 @@
     --full-bleed-side-space: var(
       --full-bleed-side-space--component,
       var(--full-bleed-side-space--global, 1rem)
+    );
+    --full-bleed-stack-space: var(
+      --full-bleed-stack-space--component,
+      var(--full-bleed-stack-space--global)
     );
 
     display: grid;
@@ -117,7 +117,7 @@
 </style>
 
 <div>
-  <div class="full-bleed-container" {style}>
+  <div class="full-bleed-container" style="{style}">
     <slot />
   </div>
 </div>

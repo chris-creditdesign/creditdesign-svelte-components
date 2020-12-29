@@ -1,4 +1,10 @@
+import { withKnobs, boolean, select } from "@storybook/addon-knobs";
 import Sidebar from "./view.default.svelte";
+import {
+  spaceOptions,
+  measureOptions,
+  percentOptions,
+} from "../preview-content/options.js";
 
 export default {
   title: "Sidebar",
@@ -6,50 +12,15 @@ export default {
 
 export const Default = () => ({
   Component: Sidebar,
+  decorators: [withKnobs],
   props: {
-    sidebarWidth: "inherit" /* defalut */,
-    sidebarContentMinWidth: "50%;" /* defalut */,
-    sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnLeft: true /* defalut */,
-  },
-});
-
-export const SidebarOnLeft = () => ({
-  Component: Sidebar,
-  props: {
-    sidebarWidth: "inherit" /* defalut */,
-    sidebarContentMinWidth: "50%;" /* defalut */,
-    sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnLeft: false,
-  },
-});
-
-export const ExtraSpace = () => ({
-  Component: Sidebar,
-  props: {
-    sidebarWidth: "inherit" /* defalut */,
-    sidebarContentMinWidth: "50%;" /* defalut */,
-    sidebarSpace: "var(--s3)",
-    sidebarOnLeft: true /* defalut */,
-  },
-});
-
-export const SetWidth = () => ({
-  Component: Sidebar,
-  props: {
-    sidebarWidth: "var(--measure)",
-    sidebarContentMinWidth: "50%;" /* defalut */,
-    sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnLeft: true /* defalut */,
-  },
-});
-
-export const LargeMinWidth = () => ({
-  Component: Sidebar,
-  props: {
-    sidebarWidth: "inherit" /* defalut */,
-    sidebarContentMinWidth: "80%;",
-    sidebarSpace: "var(--s-1)" /* defalut */,
-    sidebarOnLeft: true /* defalut */,
+    sidebarContentMinWidth: select(
+      "sidebarContentMinWidth",
+      percentOptions,
+      "50%"
+    ),
+    sidebarOnLeft: boolean("sidebarOnLeft", true),
+    sidebarSpace: select("sidebarSpace", spaceOptions, "var(--s-1)"),
+    sidebarWidth: select("sidebarWidth", measureOptions, "inherit"),
   },
 });
