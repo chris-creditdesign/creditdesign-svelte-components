@@ -18,6 +18,8 @@ export let spaceOptions = [
 
 export let measureOptions = [
   "inherit",
+  "20ch",
+  "30ch",
   "var(--measure-small)",
   "var(--measure)",
   "var(--measure-big)",

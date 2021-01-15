@@ -40,21 +40,37 @@
       var(--full-bleed-stack-space--global)
     );
 
-    display: grid;
     padding-right: 1rem;
     padding-right: var(--full-bleed-side-space);
     padding-left: 1rem;
     padding-left: var(--full-bleed-side-space);
-    grid-template-columns:
-      1fr
-      1fr
-      1fr
-      1fr
-      min(var(--full-bleed-measure), 100%)
-      1fr
-      1fr
-      1fr
-      1fr;
+  }
+
+  /* If the min() function is not available ie firefox < 75, chrome < 79
+  set everything into a single column, centered layout as a fall back */
+  .full-bleed-container {
+    max-width: 60ch;
+    max-width: var(--full-bleed-measure);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* If the min function is available, then implement the grid layout  */
+  @supports (width: min(60ch, 100%)) {
+    .full-bleed-container {
+      display: grid;
+      max-width: none;
+      grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1fr
+        min(var(--full-bleed-measure), 100%)
+        1fr
+        1fr
+        1fr
+        1fr;
+    }
   }
 
   :global(.full-bleed-container > *) {
