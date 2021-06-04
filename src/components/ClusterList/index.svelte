@@ -13,8 +13,8 @@
 
 <style>
   :global(:root) {
-    --cluster-space: var(--s-1);
-    --cluster-justify-content: flex-start;
+    --cluster-space--global: var(--s-1);
+    --cluster-justify-content--global: flex-start;
   }
 
   .cluster--list {

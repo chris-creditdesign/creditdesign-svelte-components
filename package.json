@@ -1,6 +1,6 @@
 {
   "name": "creditdesign-svelte-components",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Collection fo svelte compontents for layout",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
