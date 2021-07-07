@@ -29,33 +29,22 @@
       var(--cluster-space--global)
     );
 
-    overflow: hidden;
-  }
-
-  .cluster__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: var(--cluster-justify-content);
-    margin: 1rem;
-    margin: calc(var(--cluster-space) / 2 * -1);
+    gap: var(--cluster-space);
   }
 
-  :global(.cluster__inner > *) {
-    margin: calc(var(--cluster-space) / 2);
-  }
-
-  :global(.cluster__split-after) {
-    flex-grow: 1;
-  }
-
-  :global(.cluster__inner > .grow) {
+  :global(.cluster > .cluster__grow) {
     flex-grow: 2;
+  }
+
+  :global(.no-flexbox-gap .cluster > *) {
+    margin: var(--cluster-space);
   }
 </style>
 
 <div class="cluster" style="{style}">
-  <div class="cluster__inner">
-    <slot />
-  </div>
+  <slot />
 </div>

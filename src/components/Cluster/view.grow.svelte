@@ -24,7 +24,7 @@
   clusterJustifyContent="{clusterJustifyContent}"
   clusterSpace="{clusterSpace}"
 >
-  <span class="grow">Item</span>
+  <span class="cluster__grow">Item</span>
   <span>Item</span>
   <span>Item</span>
   <span>Item</span>
