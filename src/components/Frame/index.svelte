@@ -49,7 +49,13 @@
     overflow: hidden;
   }
 
-  :global(.frame > img, .frame > video) {
+  :global(.frame > img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  :global(.frame > video) {
     width: 100%;
     height: 100%;
     object-fit: cover;
