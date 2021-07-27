@@ -2,7 +2,7 @@
 
 > Svelte layout components used to layout interactive graphics and articles.
 
-Preview the compontents in a [Storybook](https://storybook.js.org/) here: https://chris-creditdesign.github.io/creditdesign-svelte-components
+Preview the compontents in a [Storybook](https://storybook.js.org/) here: https://serene-albattani-31205c.netlify.app
 
 ## Setting up
 
