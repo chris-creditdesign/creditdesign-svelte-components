@@ -2,23 +2,33 @@ import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Welcome" />
 
-# Welcome to the `creditdesign-svelte-components`
+# Creditdesign Svelte Components
 
-Styles for each component can be set as props or as a global css rule.
+Welcome to the `creditdesign-svelte-components` storybook.
 
-```svelte
-<Center centerSpace="var(--s-1)"><span>Item</span></Center>
+This a collection of [svelte](https://svelte.dev/) components used to build basic layouts.
+
+## Installation
+
+To install the components from npm:
+
+```bash
+npm install --save-dev creditdesign-svelte-components
 ```
 
-Should be the same as:
+## Useage
 
-```svelte
-<style>
-  :root {
-    --center-space--global: var(--s-1);
-  }
+Import each component into a svelte file with:
 
-</style>
+```js
+import { Stack, Switcher, etc... } from "creditdesign-svelte-components";
+```
 
-<Center><span>Item</span></Center>
+## Load global CSS
+
+The static CSS file can be copied into your project:
+
+```bash
+cat node_modules/creditdesign-svelte-components/static/css/index.css \
+	> public/css/index.css
 ```
