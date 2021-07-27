@@ -1,5 +1,20 @@
 <script>
+  /**
+   * Element with a defined width / height ratio into wich any content can be placed.
+   *
+   * Content will be stretched to fill the Frame area.
+   * Content which overflows the Frame will be clipped off.
+   *
+   * @component
+   */
+
+  /**
+   * @type number
+   */
   export let frameRatioHeight = 0;
+  /**
+   * @type number
+   */
   export let frameRatioWidth = 0;
 
   let frameRatioHeightComponent =
@@ -11,6 +26,7 @@
       ? `--frame-ratio-width--component: ${frameRatioWidth};`
       : "";
   let style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
+
 </script>
 
 <style>
@@ -60,8 +76,9 @@
     height: 100%;
     object-fit: cover;
   }
+
 </style>
 
-<div class="frame" style="{style}">
+<div class="frame" {style}>
   <slot />
 </div>

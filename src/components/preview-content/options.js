@@ -36,10 +36,3 @@ export let justifyContentOptions = [
   "space-around",
   "space-evenly",
 ];
-
-export let frameRatioOptions = {
-  range: true,
-  min: 1,
-  max: 16,
-  step: 1,
-};

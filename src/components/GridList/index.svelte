@@ -1,7 +1,31 @@
 <script>
+  /**
+   * Adjusts number columns depending on the space available.
+   *
+   * The GridList component is a `ul` element and expects its
+   * children to be list items.
+   *
+   * @component
+   */
+
+  /**
+   * Horizontal space between columns.
+   */
   export let gridColumnSpace = "";
+  /**
+   * Vertical space between columns.
+   */
   export let gridRowSpace = "";
+  /**
+   * If `gridSpace` is set this value will override both
+   * `gridColumnSpace` and `gridRowSpace` and set the same
+   * value for both.
+   */
   export let gridSpace = "";
+  /**
+   * Minimum width of each column. Columns will stretch until
+   * there is space to fit in another column of this min with.
+   */
   export let minWidth = "";
 
   if (gridSpace.length) {
@@ -18,6 +42,7 @@
     ? `--grid-min-width--component: ${minWidth};`
     : "";
   let style = `${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`;
+
 </script>
 
 <style>
@@ -62,8 +87,9 @@
     max-width: none;
     padding: 0;
   }
+
 </style>
 
-<ul class="grid--list" style="{style}">
+<ul class="grid--list" {style}>
   <slot />
 </ul>

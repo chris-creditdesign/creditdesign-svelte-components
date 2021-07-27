@@ -1,5 +1,22 @@
 <script>
+  /**
+   * Centers an item vertically within a defined height.
+   *
+   * Expects the item to be centered to have a `cover__centered` class applied.
+   *
+   * Two additional items can be place before and after the centered element.
+   * These will be displayed at the top and bottom of the Cover area.
+   *
+   * @component
+   */
+
+  /**
+   * Height of the Cover element.
+   */
   export let coverHeight = "";
+  /**
+   * Padding within the Cover element - pushes the content away from its edges.
+   */
   export let coverSpace = "";
 
   let coverHeightComponent = coverHeight.length
@@ -9,6 +26,7 @@
     ? `--cover-space--component: ${coverSpace};`
     : "";
   let style = `${coverHeightComponent} ${coverSpaceComponent}`;
+
 </script>
 
 <style>
@@ -56,8 +74,9 @@
   :global(.cover > :last-child:not(.cover__centered)) {
     margin-bottom: 0;
   }
+
 </style>
 
-<div class="cover" style="{style}">
+<div class="cover" {style}>
   <slot />
 </div>

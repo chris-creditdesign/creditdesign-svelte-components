@@ -1,9 +1,23 @@
 <script>
+  /**
+   * To allow Stacks to be nested, the `.stack` div is wrapped in
+   * a `.stack--wrapper` div.
+   *
+   * A child element with `.stack__split-after` applied will push
+   * items below it to the bottom of the container.
+   *
+   * @component
+   */
+
+  /**
+   * Vertical space between child elments.
+   */
   export let stackSpace = "";
 
-  let stackSpaceComponent = stackSpace.length
+  let style = stackSpace.length
     ? `--stack-space--component: ${stackSpace};`
     : "";
+
 </script>
 
 <style>
@@ -18,6 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100%;
   }
 
   :global(.stack > *) {
@@ -29,17 +44,21 @@
     margin-top: var(--stack-space);
   }
 
-  :global(.stack:only-child) {
+  /* So that the Stack area will fill the available height,
+     causing the `.stack__split-after` element to be pushed
+     to the bottom */
+  .sack--wrapper {
     height: 100%;
   }
 
   :global(.stack > .stack__split-after) {
     margin-bottom: auto;
   }
+
 </style>
 
-<div>
-  <div class="stack" style="{stackSpaceComponent}">
+<div class="sack--wrapper">
+  <div class="stack" {style}>
     <slot />
   </div>
 </div>

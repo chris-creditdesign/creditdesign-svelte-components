@@ -1,5 +1,23 @@
 <script>
+  /**
+   * Will switch from a column to a stacked layout below a minimum width.
+   *
+   * If more than seven child elements, the stacked layout is applied automatically.
+   *
+   * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+   * In this case `switcherSpace` is applied as as padding around the child elements.
+   *
+   * @component
+   */
+
+  /**
+   * Component width below wich a column layout will be applied.
+   *
+   */
   export let switcherMinWidth = "";
+  /**
+   * Space between child elements.
+   */
   export let switcherSpace = "";
 
   let switcherMinWidthComponent = switcherMinWidth.length
@@ -9,6 +27,7 @@
     ? `--switcher-space--component: ${switcherSpace};`
     : "";
   let style = `${switcherMinWidthComponent} ${switcherSpaceComponent}`;
+
 </script>
 
 <style>
@@ -32,19 +51,15 @@
       var(--switcher-min-width) - (100% - var(--switcher-space))
     );
 
-    overflow: hidden;
-  }
-
-  .switcher__inner {
     display: flex;
     flex-wrap: wrap;
-    margin: calc((var(--switcher-space) / 2) * -1);
+    gap: var(--switcher-space);
   }
 
-  :global(.switcher__inner > *) {
+  :global(.switcher > *) {
     flex-basis: calc(var(--modifier) * 999);
     flex-grow: 1;
-    margin: calc(var(--switcher-space) / 2);
+    margin: 0;
   }
 
   /*
@@ -60,17 +75,20 @@
 	in total they will all be selected. If there are less than 8,
 	none will be selecetd.
   */
-  :global(.switcher__inner > :nth-last-child(n + 8)) {
+  :global(.switcher > :nth-last-child(n + 8)) {
     flex-basis: 100%;
   }
 
-  :global(.switcher__inner > :nth-last-child(n + 8) ~ *) {
+  :global(.switcher > :nth-last-child(n + 8) ~ *) {
     flex-basis: 100%;
   }
+
+  :global(.no-flexbox-gap .switcher > *) {
+    margin: var(--switcher-space);
+  }
+
 </style>
 
-<div class="switcher" style="{style}">
-  <div class="switcher__inner">
-    <slot />
-  </div>
+<div class="switcher" {style}>
+  <slot />
 </div>

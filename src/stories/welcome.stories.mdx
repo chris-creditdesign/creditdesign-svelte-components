@@ -1,0 +1,24 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Welcome" />
+
+# Welcome to the `creditdesign-svelte-components`
+
+Styles for each component can be set as props or as a global css rule.
+
+```svelte
+<Center centerSpace="var(--s-1)"><span>Item</span></Center>
+```
+
+Should be the same as:
+
+```svelte
+<style>
+  :root {
+    --center-space--global: var(--s-1);
+  }
+
+</style>
+
+<Center><span>Item</span></Center>
+```

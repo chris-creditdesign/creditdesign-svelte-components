@@ -1,5 +1,25 @@
 <script>
+  /**
+   * Will switch from a column to a stacked layout below a minimum width.
+   *
+   * If more than seven child elements, the stacked layout is applied automatically.
+   *
+   * The SwitcherList element is a `ul` and expects its children to be list items.
+   *
+   * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+   * In this case `switcherSpace` is applied as as padding around the child elements.
+   *
+   * @component
+   */
+
+  /**
+   * Component width below wich a column layout will be applied.
+   *
+   */
   export let switcherMinWidth = "";
+  /**
+   * Space between child elements.
+   */
   export let switcherSpace = "";
 
   let switcherMinWidthComponent = switcherMinWidth.length
@@ -9,6 +29,7 @@
     ? `--switcher-space--component: ${switcherSpace};`
     : "";
   let style = `${switcherMinWidthComponent} ${switcherSpaceComponent}`;
+
 </script>
 
 <style>
@@ -32,41 +53,41 @@
       var(--switcher-min-width) - (100% - var(--switcher-space))
     );
 
-    overflow: hidden;
-  }
-
-  .switcher--list__inner {
     display: flex;
     flex-wrap: wrap;
     max-width: none;
     padding: 0;
-    margin: calc((var(--switcher-space) / 2) * -1);
+    margin: 0;
     list-style: none;
+    gap: var(--switcher-space);
   }
 
-  :global(.switcher--list__inner > *) {
+  :global(.switcher--list > *) {
     flex-basis: calc(var(--modifier) * 999);
     flex-grow: 1;
-    margin: calc(var(--switcher-space) / 2);
+    margin: 0;
   }
 
-  :global(.switcher--list__inner > li) {
+  :global(.switcher--list > li) {
     /* Remove default padding */
     padding: 0;
   }
 
   /* If there are more than 7 items, stack them automatically */
-  :global(.switcher--list__inner > :nth-last-child(n + 8)) {
+  :global(.switcher--list > :nth-last-child(n + 8)) {
     flex-basis: 100%;
   }
 
-  :global(.switcher--list__inner > :nth-last-child(n + 8) ~ *) {
+  :global(.switcher--list > :nth-last-child(n + 8) ~ *) {
     flex-basis: 100%;
   }
+
+  :global(.no-flexbox-gap .switcher--list > *) {
+    margin: var(--switcher-space);
+  }
+
 </style>
 
-<div class="switcher--list" style="{style}">
-  <ul class="switcher--list__inner">
-    <slot />
-  </ul>
-</div>
+<ul class="switcher--list" {style}>
+  <slot />
+</ul>

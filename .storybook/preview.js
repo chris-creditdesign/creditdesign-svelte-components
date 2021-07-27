@@ -1,10 +1,9 @@
-import { addParameters } from "@storybook/svelte";
-
-addParameters({
-  docs: {
-    iframeHeight: 600,
-  },
+export const parameters = {
   layout: "fullscreen",
-});
+  controls: {
+    expanded: true,
+  },
+};
 
 import "../static/css/index.css";
+import "../static/css/storybook-fixes.css";

@@ -1,5 +1,24 @@
 <script>
+  /**
+   * Used to cluster list elements in a wrap-abel horizontal row.
+   *
+   * The ClusterList is a `ul` element. Child elements to be list items.
+   *
+   * Adding a `cluster__grow` class to a child element will cause it to stretch to fill available space.
+   *
+   * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+   * In this case `clusterSpace` is applied as as padding around the child elements.
+   *
+   * @component
+   */
+
+  /**
+   * Flexbox justify content.
+   */
   export let clusterJustifyContent = "";
+  /**
+   * Flexbox gap.
+   */
   export let clusterSpace = "";
 
   let clusterJustifyContentComponent = clusterJustifyContent.length
@@ -9,6 +28,7 @@
     ? `--cluster-space--component: ${clusterSpace};`
     : "";
   let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
+
 </script>
 
 <style>
@@ -29,29 +49,14 @@
       var(--cluster-space--global)
     );
 
-    overflow: hidden;
-  }
-
-  .cluster--list__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: var(--cluster-justify-content);
-    margin: 1rem;
-    margin: calc(var(--cluster-space) / 2 * -1);
-  }
-
-  :global(.cluster--list__inner > *) {
-    margin: calc(var(--cluster-space) / 2);
-  }
-
-  :global(.cluster--list__split-after) {
-    flex-grow: 1;
-  }
-
-  :global(.cluster--list ul) {
     max-width: none;
     padding: 0;
+    margin: 0;
+    gap: var(--cluster-space);
     list-style: none;
   }
 
@@ -60,13 +65,16 @@
     padding: 0;
   }
 
-  :global(.cluster--list__inner > .grow) {
+  :global(.cluster--list > .cluster__grow) {
     flex-grow: 2;
   }
+
+  :global(.no-flexbox-gap .cluster--list > li) {
+    margin: var(--cluster-space);
+  }
+
 </style>
 
-<div class="cluster--list" style="{style}">
-  <ul class="cluster--list__inner">
-    <slot />
-  </ul>
-</div>
+<ul class="cluster--list" {style}>
+  <slot />
+</ul>

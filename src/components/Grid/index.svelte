@@ -1,7 +1,28 @@
 <script>
+  /**
+   * Adjusts number columns depending on the space available.
+   *
+   * @component
+   */
+
+  /**
+   * Horizontal space between columns.
+   */
   export let gridColumnSpace = "";
+  /**
+   * Vertical space between columns.
+   */
   export let gridRowSpace = "";
+  /**
+   * If `gridSpace` is set this value will override both
+   * `gridColumnSpace` and `gridRowSpace` and set the same
+   * value for both.
+   */
   export let gridSpace = "";
+  /**
+   * Minimum width of each column. Columns will stretch until
+   * there is space to fit in another column of this min with.
+   */
   export let minWidth = "";
 
   if (gridSpace.length) {
@@ -18,6 +39,7 @@
     ? `--grid-min-width--component: ${minWidth};`
     : "";
   let style = `${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`;
+
 </script>
 
 <style>
@@ -56,8 +78,8 @@
        is used to fit columns into the space provided and
        wrap cells into the row below as needed
        minmax(250px, 1fr) the minimum width of the columns is 250px.
-       If more space is availabel, the columns are expanded to fill
-       the space (as defined by auto-fit rather than auto fill with will
+       If more space is available, the columns are expanded to fill
+       the space (as defined by auto-fit rather than auto fill witch will
        add extra empty columns to fill the space).
        1fr is one fraction of the available space
        min() returns whatever is the minimum value.
@@ -71,8 +93,9 @@
       minmax(min(var(--grid-min-width), 100%), 1fr)
     );
   }
+
 </style>
 
-<div class="grid" style="{style}">
+<div class="grid" {style}>
   <slot />
 </div>

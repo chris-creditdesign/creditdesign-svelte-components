@@ -1,5 +1,17 @@
 <script>
+  /**
+   * Used to horizontally its contents.
+   *
+   * @component
+   */
+
+  /**
+   * Maximum width of contents.
+   */
   export let centerMeasure = "";
+  /**
+   * Padding left and right around contents.
+   */
   export let centerSpace = "";
 
   let centerMeasureComponent = centerMeasure.length
@@ -9,6 +21,7 @@
     ? `--center-space--component: ${centerSpace};`
     : "";
   let style = `${centerMeasureComponent} ${centerSpaceComponent}`;
+
 </script>
 
 <style>
@@ -39,8 +52,9 @@
     margin-right: auto;
     margin-left: auto;
   }
+
 </style>
 
-<div class="center" style="{style}">
+<div class="center" {style}>
   <slot />
 </div>

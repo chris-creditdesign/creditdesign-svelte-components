@@ -1,9 +1,19 @@
 <script>
+  /**
+   * Used to add padding around its contents.
+   *
+   * @component
+   */
+
+  /**
+   * Amount of padding to add
+   */
   export let boxSpace = "";
 
   let boxSpaceComponent = boxSpace.length
     ? `--box-space--component: ${boxSpace};`
     : "";
+
 </script>
 
 <style>
@@ -18,8 +28,9 @@
     padding: 1rem;
     padding: var(--box-space);
   }
+
 </style>
 
-<div class="box" style="{boxSpaceComponent}">
+<div class="box" style={boxSpaceComponent}>
   <slot />
 </div>

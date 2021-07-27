@@ -1,5 +1,22 @@
 <script>
+  /**
+   * Used to cluster child elements in a wrap-abel horizontal row.
+   *
+   * Adding a `cluster__grow` class to a child element will cause it to stretch to fill available space.
+   *
+   * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+   * In this case `clusterSpace` is applied as as padding around the child elements.
+   *
+   * @component
+   */
+
+  /**
+   * Flexbox justify content.
+   */
   export let clusterJustifyContent = "";
+  /**
+   * Flexbox gap.
+   */
   export let clusterSpace = "";
 
   let clusterJustifyContentComponent = clusterJustifyContent.length
@@ -9,6 +26,7 @@
     ? `--cluster-space--component: ${clusterSpace};`
     : "";
   let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
+
 </script>
 
 <style>
@@ -43,8 +61,9 @@
   :global(.no-flexbox-gap .cluster > *) {
     margin: var(--cluster-space);
   }
+
 </style>
 
-<div class="cluster" style="{style}">
+<div class="cluster" {style}>
   <slot />
 </div>
