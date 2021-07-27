@@ -12,7 +12,7 @@
     "stylelint": "stylelint --fix src/components/**/* static/css/**/*.css",
     "eslint": "eslint 'src/components/**/*.{js,svelte}'",
     "storybook": "start-storybook -p 6006 -s ./static",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -s ./static"
   },
   "repository": {
     "type": "git",
