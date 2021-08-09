@@ -1,10 +1,13 @@
 <script>
   /**
-   * To allow Stacks to be nested, the `.stack` div is wrapped in
-   * a `.stack--wrapper` div.
+   * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+   * In this case standard `Stack` margirnsn applied around the child elements.
    *
    * A child element with `.stack__split-after` applied will push
    * items below it to the bottom of the container.
+   *
+   * `.stack-list` set to height 100% that the Stack area will fill the available height,
+   * causing the `.stack__split-after` element to be pushed to the bottom.
    *
    * @component
    */
@@ -32,22 +35,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%;
-  }
+    gap: var(--stack-space);
 
-  :global(.stack > *) {
-    margin: 0;
-  }
-
-  :global(.stack > * + *) {
-    margin-top: 1rem;
-    margin-top: var(--stack-space);
-  }
-
-  /* So that the Stack area will fill the available height,
+    /* So that the Stack area will fill the available height,
      causing the `.stack__split-after` element to be pushed
      to the bottom */
-  .sack--wrapper {
     height: 100%;
   }
 
@@ -55,10 +47,17 @@
     margin-bottom: auto;
   }
 
+  :global(.no-flexbox-gap .stack > *) {
+    margin: 0;
+  }
+
+  :global(.no-flexbox-gap .stack > * + *) {
+    margin-top: 1rem;
+    margin-top: var(--stack-space);
+  }
+
 </style>
 
-<div class="sack--wrapper">
-  <div class="stack" {style}>
-    <slot />
-  </div>
+<div class="stack" {style}>
+  <slot />
 </div>

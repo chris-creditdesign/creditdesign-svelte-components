@@ -78,3 +78,15 @@
     <span class="item">Item</span>
   </Stack>
 </Story>
+
+<Story name="No flexbox gap" let:args args={{ stackSpace: 'var(--s-1)' }}>
+  <div class="no-flexbox-gap">
+    <Stack {...args}>
+      <span class="item">Item</span>
+      <span class="item">Item</span>
+      <span class="item">Item</span>
+      <span class="item">Item</span>
+      <span class="item">Item</span>
+    </Stack>
+  </div>
+</Story>

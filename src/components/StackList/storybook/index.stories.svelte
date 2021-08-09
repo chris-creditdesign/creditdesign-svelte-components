@@ -80,3 +80,15 @@
     <li class="item">Item</li>
   </StackList>
 </Story>
+
+<Story name="With no flexbox gap" let:args args={{ stackSpace: 'var(--s-1)' }}>
+  <div class="no-flexbox-gap">
+    <StackList {...args}>
+      <li class="item">Item</li>
+      <li class="item">Item</li>
+      <li class="item">Item</li>
+      <li class="item">Item</li>
+      <li class="item">Item</li>
+    </StackList>
+  </div>
+</Story>
