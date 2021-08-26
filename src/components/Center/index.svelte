@@ -13,6 +13,13 @@
    * Padding left and right around contents.
    */
   export let centerSpace = "";
+  /**
+   * If true applied flexbox column, align-items: center
+   * to intrinsically center elements within the Center
+   * component which are not full width. Any margin between
+   * child elements will have to be applied without a Stack component.
+   */
+  export let intrinsicallyCenter = false;
 
   let centerMeasureComponent = centerMeasure.length
     ? `--center-measure--component: ${centerMeasure};`
@@ -53,8 +60,18 @@
     margin-left: auto;
   }
 
+  .center--intrinsically-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 </style>
 
-<div class="center" {style}>
+<div
+  class="center"
+  class:center--intrinsically-center={intrinsicallyCenter}
+  {style}
+>
   <slot />
 </div>
