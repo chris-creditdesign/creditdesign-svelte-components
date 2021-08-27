@@ -3,7 +3,12 @@
    * Sidebar content will be placed below or above the main content at
    * the minimum width.
    *
-   * Expects two slots `main-content` and `sidebar`.
+   * Expects only two child elements, slots for `main-content` and `sidebar`. Use `<svelte:fragment>`
+   * elements to avoid adding extra wrapper divs to the rendered html. ie.
+   *
+   * `<svelte:fragment slot="sidebar">...</svelte:fragment>`
+   *
+   *`<svelte:fragment slot="main-content">...</svelte:fragment>`
    *
    * If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
    * In this case `sidebarSpace` is applied as as padding around the `.main-content` and `.sidebar` elements.
@@ -30,6 +35,10 @@
    * If 'inherit' the width of the sidebar will be defined by its contents.
    */
   export let sidebarWidth = "";
+  /**
+   * Sets flexbox align-items on sidebar-wrapper, applied to sidebar and main content.
+   */
+  export let alignItems = "stretch";
 
   let sidebarContentMinWidthComponent = sidebarContentMinWidth.length
     ? `--sidebar-content-min-width--component: ${sidebarContentMinWidth};`
@@ -41,7 +50,7 @@
     ? `--sidebar-width--component: ${sidebarWidth};`
     : "";
 
-  let style = `${sidebarContentMinWidthComponent}  ${sidebarSpaceComponent} ${sidebarWidthComponent}`;
+  let style = `align-items: ${alignItems}; ${sidebarContentMinWidthComponent}  ${sidebarSpaceComponent} ${sidebarWidthComponent}`;
 
 </script>
 
@@ -74,39 +83,39 @@
     gap: var(--sidebar-space);
   }
 
-  .sidebar {
-    flex-basis: var(--sidebar-width);
-    flex-grow: 1;
-    margin: 0;
-  }
-
-  .main-content {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
-    margin: 0;
-  }
-
   :global(.no-flexbox-gap .sidebar--wrapper > *) {
     margin: var(--sidebar-space);
   }
 
+  /* stylelint-disable */
+  /* If data-sidebar-on-left is "true" the first child is the sidebar.
+     If data-sidebar-on-left is "false" the last child is the sidebar. */
+  :global(.sidebar--wrapper[data-sidebar-on-left="true"]
+      > *:first-child, .sidebar--wrapper[data-sidebar-on-left="false"]
+      > *:last-child) {
+    flex-basis: var(--sidebar-width);
+    flex-grow: 1;
+  }
+
+  /* If data-sidebar-on-left is "true" the last child is the main content.
+     If data-sidebar-on-left is "false" the first child is the main content. */
+  :global(.sidebar--wrapper[data-sidebar-on-left="true"]
+      > *:last-child, .sidebar--wrapper[data-sidebar-on-left="false"]
+      > *:first-child) {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
+  }
+  /* stylelint-enable */
+
 </style>
 
-<div class="sidebar--wrapper" {style}>
+<div class="sidebar--wrapper" data-sidebar-on-left={sidebarOnLeft} {style}>
   {#if sidebarOnLeft}
-    <div class="sidebar">
-      <slot name="sidebar" />
-    </div>
-    <div class="main-content">
-      <slot name="main-content" />
-    </div>
+    <slot name="sidebar" />
+    <slot name="main-content" />
   {:else}
-    <div class="main-content">
-      <slot name="main-content" />
-    </div>
-    <div class="sidebar">
-      <slot name="sidebar" />
-    </div>
+    <slot name="main-content" />
+    <slot name="sidebar" />
   {/if}
 </div>

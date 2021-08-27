@@ -36,3 +36,11 @@ export let justifyContentOptions = [
   "space-around",
   "space-evenly",
 ];
+
+export let alignItemsOptions = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "baseline",
+  "stretch",
+];
