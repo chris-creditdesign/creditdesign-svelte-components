@@ -43,13 +43,13 @@
     height: 100%;
   }
 
-  :global(.stack > .stack__split-after) {
-    margin-bottom: auto;
-  }
-
-  .stack > * {
+  :global(.stack > *) {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  :global(.stack > .stack__split-after) {
+    margin-bottom: auto;
   }
 
   :global(.no-flexbox-gap .stack > * + *) {

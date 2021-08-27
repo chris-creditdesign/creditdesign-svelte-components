@@ -45,6 +45,11 @@
     list-style: none;
   }
 
+  :global(.stack > *) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   :global(.stack--list > li) {
     max-width: none;
     padding: 0;
@@ -52,10 +57,6 @@
 
   :global(.stack--list > .stack__split-after) {
     margin-bottom: auto;
-  }
-
-  :global(.no-flexbox-gap .stack--list > *) {
-    margin: 0;
   }
 
   :global(.no-flexbox-gap .stack--list > * + *) {
