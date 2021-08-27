@@ -47,8 +47,9 @@
     margin-bottom: auto;
   }
 
-  :global(.no-flexbox-gap .stack > *) {
-    margin: 0;
+  .stack > * {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   :global(.no-flexbox-gap .stack > * + *) {
