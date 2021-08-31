@@ -72,17 +72,14 @@
       var(--full-bleed-stack-space--global)
     );
 
+    /* If the min() function is not available ie firefox < 75, chrome < 79
+       set everything into a single column, centered layout as a fall back */
+    max-width: 60ch;
+    max-width: var(--full-bleed-measure);
     padding-right: 1rem;
     padding-right: var(--full-bleed-side-space);
     padding-left: 1rem;
     padding-left: var(--full-bleed-side-space);
-  }
-
-  /* If the min() function is not available ie firefox < 75, chrome < 79
-  set everything into a single column, centered layout as a fall back */
-  .full-bleed-container {
-    max-width: 60ch;
-    max-width: var(--full-bleed-measure);
     margin-right: auto;
     margin-left: auto;
   }
@@ -92,6 +89,7 @@
     .full-bleed-container {
       display: grid;
       max-width: none;
+      gap: var(--full-bleed-stack-space, 1rem) 0;
       grid-template-columns:
         1fr
         1fr
@@ -108,11 +106,6 @@
   :global(.full-bleed-container > *) {
     grid-column: 5 / 6;
     margin: 0;
-  }
-
-  :global(.full-bleed-container > * + *) {
-    margin-top: 1rem;
-    margin-top: var(--full-bleed-stack-space);
   }
 
   :global(.full-bleed) {
@@ -165,8 +158,6 @@
 
 </style>
 
-<div>
-  <div class="full-bleed-container" {style}>
-    <slot />
-  </div>
+<div class="full-bleed-container" {style}>
+  <slot />
 </div>
