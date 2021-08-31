@@ -72,6 +72,8 @@
       var(--full-bleed-stack-space--global)
     );
 
+    width: 100%;
+
     /* If the min() function is not available ie firefox < 75, chrome < 79
        set everything into a single column, centered layout as a fall back */
     max-width: 60ch;
