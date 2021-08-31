@@ -107,7 +107,8 @@
 
   :global(.full-bleed-container > *) {
     grid-column: 5 / 6;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   :global(.full-bleed) {
