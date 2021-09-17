@@ -18,6 +18,10 @@
    * Flexbox gap.
    */
   export let clusterSpace = "";
+  /**
+   * Flexbox align-items.
+   */
+  export let alignItems = "center";
 
   let clusterJustifyContentComponent = clusterJustifyContent.length
     ? `--cluster-justify-content--component: ${clusterJustifyContent};`
@@ -25,7 +29,7 @@
   let clusterSpaceComponent = clusterSpace.length
     ? `--cluster-space--component: ${clusterSpace};`
     : "";
-  let style = `${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
+  let style = `align-items: ${alignItems}; ${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
 
 </script>
 
@@ -49,7 +53,6 @@
 
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: var(--cluster-justify-content);
     gap: var(--cluster-space);
   }
