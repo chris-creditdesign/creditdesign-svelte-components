@@ -37,9 +37,11 @@
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^1.4.2",
     "rollup-plugin-svelte": "^5.2.1",
-    "stylelint": "^13.3.3",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0",
+    "stylelint": "^14.2.0",
+    "stylelint-config-html": "^1.0.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-order": "^5.0.0",
     "svelte": "^3.40.2",
     "svelte-loader": "^3.1.2"
   },
@@ -50,6 +52,5 @@
     "src",
     "dist"
   ],
-  "homepage": "http://chris-creditdesign.github.io/creditdesign-svelte-components",
-  "dependencies": {}
+  "homepage": "http://chris-creditdesign.github.io/creditdesign-svelte-components"
 }
