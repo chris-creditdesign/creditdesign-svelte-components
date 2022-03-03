@@ -22,6 +22,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	span {
 		display: flex;
 		align-items: center;
@@ -65,19 +69,38 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Sidebar</h1>
+# Sidebar
 
-	<PropSelect
-		options={percent_options}
-		name="sidebarContentMinWidth"
-		bind:value={sidebarContentMinWidth}
-	/>
-	<PropBoolean name="sidebarOnLeft" bind:value={sidebarOnLeft} />
-	<PropSelect options={space_options} name="sidebarSpace" bind:value={sidebarSpace} />
-	<PropSelect options={measure_options} name="sidebarWidth" bind:value={sidebarWidth} />
-	<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
-</Stack>
+Sidebar content will be placed below or above the main content at the minimum width.
+
+Expects only two child elements, slots for `main-content` and `sidebar`. Use `<svelte:fragment>` elements
+to avoid adding extra wrapper divs to the rendered html. ie:
+
+```svelte
+<svelte:fragment slot="sidebar">...</svelte:fragment>
+
+<svelte:fragment slot="main-content">...</svelte:fragment>
+```
+
+If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+
+In this case `sidebarSpace` is applied as as padding around the `.main-content` and `.sidebar` elements.
+
+## Props
+
+<PropSelect
+	options={percent_options}
+	name="sidebarContentMinWidth"
+	bind:value={sidebarContentMinWidth}
+/>
+<PropBoolean name="sidebarOnLeft" bind:value={sidebarOnLeft} />
+<PropSelect options={space_options} name="sidebarSpace" bind:value={sidebarSpace} />
+<PropSelect options={measure_options} name="sidebarWidth" bind:value={sidebarWidth} />
+<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
+
+Also `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Sidebar {sidebarContentMinWidth} {sidebarOnLeft} {sidebarSpace} {sidebarWidth} {alignItems}>

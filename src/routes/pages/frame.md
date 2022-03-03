@@ -9,6 +9,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.place-holder {
 		font-weight: bold;
 		text-transform: uppercase;
@@ -16,12 +20,22 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Frame</h1>
+# Frame
 
-	<PropNumber name="frameRatioHeight" bind:value={frameRatioHeight} min={0} max={16} />
-	<PropNumber name="frameRatioWidth" bind:value={frameRatioWidth} min={0} max={16} />
-</Stack>
+Element with a defined width / height ratio into wich any content can be placed.
+
+Content will be stretched to fill the Frame area.
+
+Content which overflows the Frame will be clipped off.
+
+## Props
+
+<PropNumber name="frameRatioHeight" bind:value={frameRatioHeight} min={0} max={16} />
+<PropNumber name="frameRatioWidth" bind:value={frameRatioWidth} min={0} max={16} />
+
+Also `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Frame {frameRatioHeight} {frameRatioWidth}>

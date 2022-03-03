@@ -18,7 +18,7 @@
 </style>
 
 <Stack stackSpace="var(--s-2)">
-	<h2>{headline}</h2>
+	<h3>{headline}</h3>
 
 	<input type="range" bind:value={width} min="0" max="100" />
 

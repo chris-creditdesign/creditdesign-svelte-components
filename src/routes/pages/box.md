@@ -11,6 +11,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	span {
 		display: flex;
 		align-items: center;
@@ -22,12 +26,22 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Box</h1>
+# Box
 
-	<PropSelect options={space_options} name="boxSpace" bind:value={boxSpace} />
-</Stack>
+Simple component used to add padding around its contents.
+
+## Props
+
+<PropSelect options={space_options} name="boxSpace" bind:value={boxSpace} />
+
+Also `className`.
+
+## Examples
+
+<Stack stackSpace="var(--s3)">
 
 <SqueezeContainer headline="Default">
 	<Box {boxSpace}><span>Item</span></Box>
 </SqueezeContainer>
+
+</Stack>

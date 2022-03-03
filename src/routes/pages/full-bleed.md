@@ -12,6 +12,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	span {
 		display: flex;
 		align-items: center;
@@ -30,17 +34,39 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>FullBleed</h1>
+# FullBleed
 
-	<PropSelect options={measure_options} name={'fullBleedMeasure'} bind:value={fullBleedMeasure} />
-	<PropSelect options={space_options} name={'fullBleedSideSpace'} bind:value={fullBleedSideSpace} />
-	<PropSelect
-		options={space_options}
-		name={'fullBleedStackSpace'}
-		bind:value={fullBleedStackSpace}
-	/>
-</Stack>
+Creates a centered 'tube of content' with options for elements to break the column
+srpead out to the left and right.
+
+Available classes for child elements are:
+
+- `full-bleed`
+- `full-bleed--2`
+- `full-bleed--3`
+- `full-bleed--4`
+- `full-bleed--left`
+- `full-bleed--left--2`
+- `full-bleed--left--3`
+- `full-bleed--left--4`
+- `full-bleed--right`
+- `full-bleed--right--2`
+- `full-bleed--right--3`
+- `full-bleed--right--4`
+
+## Props
+
+<PropSelect options={measure_options} name={'fullBleedMeasure'} bind:value={fullBleedMeasure} />
+<PropSelect options={space_options} name={'fullBleedSideSpace'} bind:value={fullBleedSideSpace} />
+<PropSelect
+options={space_options}
+name={'fullBleedStackSpace'}
+bind:value={fullBleedStackSpace}
+/>
+
+Also `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<FullBleed {fullBleedMeasure} {fullBleedSideSpace} {fullBleedStackSpace}>

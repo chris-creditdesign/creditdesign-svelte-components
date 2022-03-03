@@ -14,6 +14,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.item {
 		display: flex;
 		align-items: center;
@@ -31,13 +35,19 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Center</h1>
+# Center
 
-	<PropSelect options={measure_options} name="centerMeasure" bind:value={centerMeasure} />
-	<PropSelect options={space_options} name="centerSpace" bind:value={centerSpace} />
-	<PropBoolean name="intrinsicallyCenter" bind:value={intrinsicallyCenter} />
-</Stack>
+Simple component used to horizontally center its contents.
+
+## Props
+
+<PropSelect options={measure_options} name="centerMeasure" bind:value={centerMeasure} />
+<PropSelect options={space_options} name="centerSpace" bind:value={centerSpace} />
+<PropBoolean name="intrinsicallyCenter" bind:value={intrinsicallyCenter} />
+
+Also `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Center {centerSpace} {centerMeasure} {intrinsicallyCenter}><span class="item">Item</span></Center

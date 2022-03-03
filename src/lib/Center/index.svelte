@@ -1,7 +1,7 @@
 <!--
 @component
 
-Used to horizontally its contents.
+Used to horizontally center its contents.
 -->
 <script lang="ts">
 	import type { Space, Measure } from '../types';

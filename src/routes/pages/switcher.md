@@ -12,6 +12,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.item {
 		display: flex;
 		align-items: center;
@@ -23,12 +27,24 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Switcher</h1>
+# Switcher
 
-	<PropSelect options={space_options} name="switcherSpace" bind:value={switcherSpace} />
-	<PropSelect options={measure_options} name="switcherMinWidth" bind:value={switcherMinWidth} />
-</Stack>
+Will switch from a column to a stacked layout below a minimum width.
+
+If more than seven child elements, the stacked layout is applied automatically.
+
+If flexbox gap is not supported, expects a `.no-flexbox-gap` class to be applied to a parent element.
+
+In this case `switcherSpace` is applied as as padding around the child elements.
+
+## Props
+
+<PropSelect options={space_options} name="switcherSpace" bind:value={switcherSpace} />
+<PropSelect options={measure_options} name="switcherMinWidth" bind:value={switcherMinWidth} />
+
+Also `list` and `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Switcher {switcherSpace} {switcherMinWidth}>

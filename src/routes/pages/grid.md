@@ -14,6 +14,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.item {
 		display: flex;
 		align-items: center;
@@ -25,14 +29,24 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Grid</h1>
+# Grid
 
-	<PropSelect options={space_options} name="gridSpace" bind:value={gridSpace} />
-	<PropSelect options={space_options} name="gridColumnSpace" bind:value={gridColumnSpace} />
-	<PropSelect options={space_options} name="gridRowSpace" bind:value={gridRowSpace} />
-	<PropSelect options={measure_options} name="minWidth" bind:value={minWidth} />
-</Stack>
+Grid layout that will adjust number columns depending on the space available.
+
+The props `gridColumnSpace` and `gridRowSpace` can be used to define separate gutters widths between columns and rows.
+
+This will only come into effect if `gridSpace` is not applied or is an empty string - otherwise the `gridSpace` value will be used.
+
+## Props
+
+<PropSelect options={space_options} name="gridSpace" bind:value={gridSpace} />
+<PropSelect options={space_options} name="gridColumnSpace" bind:value={gridColumnSpace} />
+<PropSelect options={space_options} name="gridRowSpace" bind:value={gridRowSpace} />
+<PropSelect options={measure_options} name="minWidth" bind:value={minWidth} />
+
+Also `list` and `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Grid {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>
