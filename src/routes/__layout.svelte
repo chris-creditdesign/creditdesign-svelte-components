@@ -16,6 +16,7 @@
 	import Box from '$lib/Box/index.svelte';
 
 	import '../app.css';
+	import '../css/prism-a11y-dark.css';
 
 	export let pages: string[];
 
@@ -61,6 +62,10 @@
 	}
 </style>
 
+<svelte:head>
+	<title>Creditdesign Svelet Components</title>
+</svelte:head>
+
 <Sidebar
 	className="layout-sidebar-wrapper"
 	sidebarSpace="var(--s1)"
@@ -84,7 +89,7 @@
 
 	<svelte:fragment slot="main-content">
 		<Box className="main-content" boxSpace="var(--s1)">
-			<Stack stackSpace="var(--s3)">
+			<Stack>
 				<slot />
 			</Stack>
 		</Box>

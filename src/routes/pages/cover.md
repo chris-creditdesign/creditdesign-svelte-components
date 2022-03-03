@@ -12,6 +12,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+	
 	.item {
 		display: flex;
 		align-items: center;
@@ -27,12 +31,23 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Cover</h1>
+# Cover
 
-	<PropSelect options={space_options} name="coverSpace" bind:value={coverSpace} />
-	<PropSelect options={height_options} name="coverHeight" bind:value={coverHeight} />
-</Stack>
+Centers an item vertically within a defined height.
+
+Expects the item to be centered to have a `.cover__centered` class applied.
+
+Two additional items can be place before and after the centered element.
+These will be displayed at the top and bottom of the Cover area.
+
+## Props
+
+<PropSelect options={space_options} name="coverSpace" bind:value={coverSpace} />
+<PropSelect options={height_options} name="coverHeight" bind:value={coverHeight} />
+
+Also `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Cover {coverSpace} {coverHeight}>

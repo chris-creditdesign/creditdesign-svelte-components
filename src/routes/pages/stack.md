@@ -10,6 +10,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.item {
 		display: flex;
 		align-items: center;
@@ -34,11 +38,25 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Stack</h1>
+# Stack
 
-	<PropSelect options={space_options} name="stackSpace" bind:value={stackSpace} />
-</Stack>
+If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
+
+In this case standard `Stack` margirns applied around the child elements.
+
+A child element with `.stack__split-after` applied will push
+items below it to the bottom of the container. NB - this is currently broken.
+
+<!--`.stack-list` set to height 100% that the Stack area will fill the available height,
+causing the `.stack__split-after` element to be pushed to the bottom.-->
+
+## Props
+
+<PropSelect options={space_options} name="stackSpace" bind:value={stackSpace} />
+
+Also `list` and `className`.
+
+## Examples
 
 <SqueezeContainer headline="Default">
 	<Stack {stackSpace}>
@@ -67,16 +85,17 @@
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 
-		<Stack stackSpace="var(--s-3)">
-			<span class="item item--nested">Item</span>
-			<span class="item item--nested">Item</span>
-			<span class="item item--nested">Item</span>
-		</Stack>
+    	<Stack stackSpace="var(--s-3)">
+    		<span class="item item--nested">Item</span>
+    		<span class="item item--nested">Item</span>
+    		<span class="item item--nested">Item</span>
+    	</Stack>
 
-		<span class="item">Item</span>
-		<span class="item">Item</span>
-		<span class="item">Item</span>
-	</Stack>
+    	<span class="item">Item</span>
+    	<span class="item">Item</span>
+    	<span class="item">Item</span>
+    </Stack>
+
 </SqueezeContainer>
 
 <SqueezeContainer headline="No flexbox gap">

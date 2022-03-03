@@ -17,6 +17,10 @@
 </script>
 
 <style>
+	h2 {
+		margin-top: var(--s1);
+	}
+
 	.item {
 		display: flex;
 		align-items: center;
@@ -47,18 +51,31 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<h1>Cluster</h1>
+# Cluster
 
-	<PropSelect options={space_options} name="clusterSpace" bind:value={clusterSpace} />
+Used to cluster child elements in a wrap-able horizontal row.
 
-	<PropSelect
-		options={justify_content_options}
-		name="clusterJustifyContent"
-		bind:value={clusterJustifyContent}
-	/>
-	<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
-</Stack>
+Adding a `.cluster__grow` class to a child element will cause it to stretch to fill available space.
+
+If flexbox gap is not supported, expects a `.no-flexbox-gap` class to be applied to a parent element.
+In this case the `clusterSpace` prop is applied as as padding around the child elements.
+
+## Props
+
+<PropSelect options={space_options} name="clusterSpace" bind:value={clusterSpace} />
+
+<PropSelect
+	options={justify_content_options}
+	name="clusterJustifyContent"
+	bind:value={clusterJustifyContent}
+/>
+<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
+
+Also `list` and `className`.
+
+## Examples
+
+<Stack stackSpace="var(--s3)">
 
 <SqueezeContainer headline="Default">
 	<Cluster {clusterSpace} {clusterJustifyContent} {alignItems}>
@@ -148,3 +165,5 @@
 		<li class="item">List item</li>
 	</Cluster>
 </SqueezeContainer>
+
+</Stack>
