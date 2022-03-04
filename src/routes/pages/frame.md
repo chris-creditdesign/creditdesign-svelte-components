@@ -17,12 +17,17 @@
 		font-weight: bold;
 		text-transform: uppercase;
 		background-color: #ececec;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
 
 # Frame
 
-Element with a defined width / height ratio into wich any content can be placed.
+Element with a defined width / height ratio into which any content can be placed.
 
 Content will be stretched to fill the Frame area.
 
