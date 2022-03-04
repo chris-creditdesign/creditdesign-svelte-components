@@ -69,17 +69,17 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 		list-style: none;
 	}
 
-	:global(.cluster[role='list'] > li) {
-		max-width: none;
-		padding: 0;
-	}
-
 	:global(.cluster > .cluster__grow) {
 		flex-grow: 2;
 	}
 
 	:global(.no-flexbox-gap .cluster > *) {
 		margin: var(--cluster-space);
+	}
+
+	:global(.cluster[role='list'] > li) {
+		max-width: none;
+		padding: 0;
 	}
 </style>
 

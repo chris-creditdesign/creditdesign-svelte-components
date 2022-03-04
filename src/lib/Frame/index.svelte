@@ -38,11 +38,11 @@ Content which overflows the Frame will be clipped off.
 		--frame-ratio-width: var(--frame-ratio-width--component, var(--frame-ratio-width--global));
 
 		position: relative;
-		aspect-ratio: var(--frame-ratio-width) / var(--frame-ratio-height);
-		overflow: hidden;
 		display: flex;
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		aspect-ratio: var(--frame-ratio-width) / var(--frame-ratio-height);
 	}
 
 	:global(.frame > img) {

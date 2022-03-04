@@ -49,6 +49,7 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 		/*	So that the Stack area will fill the available height,
 			causing the `.stack__split-after` element to be pushed
 			to the bottom */
+
 		/* height: 100%; */
 	}
 

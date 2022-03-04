@@ -4,53 +4,47 @@
  * @author ericwbailey
  */
 
-p code, li code {
+p code,
+li code {
 	background-color: #ffa07a;
 	padding-inline-start: 0.2em;
 	padding-inline-end: 0.2em;
 	border-radius: 2px;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
-	color: #f8f8f2;
-	background: none;
+code[class*='language-'],
+pre[class*='language-'] {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
 	hyphens: none;
+	line-height: 1.5;
+	color: #f8f8f2;
+	text-align: left;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	tab-size: 4;
+	white-space: pre;
+	background: none;
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
 	padding: 1em;
 	margin: 0.5em 0;
 	overflow: auto;
 	border-radius: 0.3em;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
 	background: #2b2b2b;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
 	padding: 0.1em;
-	border-radius: 0.3em;
 	white-space: normal;
+	border-radius: 0.3em;
 }
 
 .token.comment,
@@ -124,21 +118,21 @@ pre[class*="language-"] {
 }
 
 @media screen and (-ms-high-contrast: active) {
-	code[class*="language-"],
-	pre[class*="language-"] {
+	code[class*='language-'],
+	pre[class*='language-'] {
 		color: windowText;
 		background: window;
 	}
 
-	:not(pre) > code[class*="language-"],
-	pre[class*="language-"] {
+	:not(pre) > code[class*='language-'],
+	pre[class*='language-'] {
 		background: window;
 	}
 
 	.token.important {
-		background: highlight;
-		color: window;
 		font-weight: normal;
+		color: window;
+		background: highlight;
 	}
 
 	.token.atrule,
