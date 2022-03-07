@@ -45,12 +45,14 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 		flex-direction: column;
 		justify-content: flex-start;
 		gap: var(--stack-space);
+	}
 
+	.stack:only-child {
 		/*	So that the Stack area will fill the available height,
 			causing the `.stack__split-after` element to be pushed
-			to the bottom */
-
-		/* height: 100%; */
+			to the bottom - but only when the stack is the only
+			child of its parent element */
+		block-size: 100%;
 	}
 
 	.stack[role='list'] {
@@ -58,17 +60,15 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	}
 
 	:global(.stack > *) {
-		margin-top: 0;
-		margin-bottom: 0;
+		margin-block: 0;
 	}
 
 	:global(.stack > .stack__split-after) {
-		margin-bottom: auto;
+		margin-block-end: auto;
 	}
 
 	:global(.no-flexbox-gap .stack > * + *) {
-		margin-top: 1rem;
-		margin-top: var(--stack-space);
+		margin-block-start: var(--stack-space, 1rem);
 	}
 </style>
 

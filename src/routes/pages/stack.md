@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Space } from '$lib/types';
 	import Stack from '$lib/Stack/index.svelte';
+	import Sidebar from "$lib/Sidebar/index.svelte";
+	import Cover from "$lib/Cover/index.svelte";
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
 	import PropSelect from '$lib/PropSelect/index.svelte';
 
@@ -30,6 +32,15 @@
 
 	.stack__split-after {
 		background-color: mediumaquamarine;
+	}
+
+	.item-extra {
+		background-color: orange;
+	}
+
+	.item-in-cover {
+		background-color: coral;
+		height: 100%;
 	}
 
 	.test-container {
@@ -80,15 +91,47 @@ Also `list` and `className`.
 	</div>
 </SqueezeContainer>
 
+<SqueezeContainer headline="With split after and extra item">
+	<div class="test-container">
+	<span class="item item-extra">This is an extra item, out side of the stack.</span>
+		<Stack {stackSpace}>
+			<span class="item">Item</span>
+			<span class="item">Item</span>
+			<span class="item">Item</span>
+			<span class="item stack__split-after">.stack__split-after</span>
+			<span class="item">Item</span>
+		</Stack>
+	</div>
+</SqueezeContainer>
+
+<SqueezeContainer headline="Test">
+	<Sidebar>
+		<svelte:fragment slot="sidebar">
+			<Stack {stackSpace}>
+				<span class="item">Item</span>
+				<span class="item">Item</span>
+				<span class="item">Item</span>
+				<span class="item stack__split-after">.stack__split-after</span>
+				<span class="item">Item</span>
+			</Stack>
+		</svelte:fragment>
+		<svelte:fragment slot="main-content">
+		<Cover coverSpace="0">
+			<span class="item item-in-cover">Item in cover</span>
+		</Cover>
+		</svelte:fragment>
+	</Sidebar>
+</SqueezeContainer>
+
 <SqueezeContainer headline="With nested stack">
 	<Stack {stackSpace}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 
     	<Stack stackSpace="var(--s-3)">
-    		<span class="item item--nested">Item</span>
-    		<span class="item item--nested">Item</span>
-    		<span class="item item--nested">Item</span>
+    		<span class="item item--nested">Nested item</span>
+    		<span class="item item--nested">Nested item</span>
+    		<span class="item item--nested">Nested item</span>
     	</Stack>
 
     	<span class="item">Item</span>
