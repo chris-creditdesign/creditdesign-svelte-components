@@ -20,8 +20,8 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list: boolean = false;
-	export let className: string = '';
+	export let list = false;
+	export let className = '';
 
 	$: style = '';
 

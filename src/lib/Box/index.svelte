@@ -10,7 +10,7 @@ Used to add padding around its contents.
 	 * Amount of padding to add
 	 */
 	export let boxSpace: Space = '';
-	export let className: string = '';
+	export let className = '';
 
 	let boxSpaceComponent = '';
 

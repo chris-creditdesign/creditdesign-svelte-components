@@ -3,8 +3,8 @@
 
 	export let value: number;
 	export let name: string;
-	export let min: number = 0;
-	export let max: number = 100;
+	export let min = 0;
+	export let max = 100;
 
 	let id = name.toLowerCase();
 </script>

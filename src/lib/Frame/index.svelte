@@ -7,12 +7,12 @@ Content will be stretched to fill the Frame area.
 Content which overflows the Frame will be clipped off.
 -->
 <script lang="ts">
-	export let frameRatioHeight: number = 0;
-	export let frameRatioWidth: number = 0;
-	export let className: string = '';
+	export let frameRatioHeight = 0;
+	export let frameRatioWidth = 0;
+	export let className = '';
 
-	let frameRatioHeightComponent: string = '';
-	let frameRatioWidthComponent: string = '';
+	let frameRatioHeightComponent = '';
+	let frameRatioWidthComponent = '';
 	$: style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
 
 	$: {

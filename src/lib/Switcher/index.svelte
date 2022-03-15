@@ -22,11 +22,11 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 	/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list: boolean = false;
-	export let className: string = '';
+	export let list = false;
+	export let className = '';
 
-	let switcherMinWidthComponent: string = '';
-	let switcherSpaceComponent: string = '';
+	let switcherMinWidthComponent = '';
+	let switcherSpaceComponent = '';
 	$: style = `${switcherMinWidthComponent} ${switcherSpaceComponent}`;
 
 	$: {

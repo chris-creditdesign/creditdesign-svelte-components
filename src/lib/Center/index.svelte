@@ -20,11 +20,11 @@ Used to horizontally center its contents.
 	 * component which are not full width. Any margin between
 	 * child elements will have to be applied without a Stack component.
 	 */
-	export let intrinsicallyCenter: boolean = false;
-	export let className: string = '';
+	export let intrinsicallyCenter = false;
+	export let className = '';
 
-	let centerMeasureComponent: string = '';
-	let centerSpaceComponent: string = '';
+	let centerMeasureComponent = '';
+	let centerSpaceComponent = '';
 
 	$: style = `${centerMeasureComponent} ${centerSpaceComponent}`;
 

@@ -26,12 +26,12 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 	/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list: boolean = false;
-	export let className: string = '';
+	export let list = false;
+	export let className = '';
 
-	let clusterJustifyContentComponent: string = '';
-	let clusterSpaceComponent: string = '';
-	let style: string = '';
+	let clusterJustifyContentComponent = '';
+	let clusterSpaceComponent = '';
+	let style = '';
 
 	$: {
 		if (clusterJustifyContent.length > 0) {

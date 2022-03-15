@@ -28,12 +28,12 @@ Grid layout that will adjust number columns depending on the space available.
 	/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list: boolean = false;
-	export let className: string = '';
+	export let list = false;
+	export let className = '';
 
-	let gridColumnSpaceComponent: string = '';
-	let gridRowSpaceComponent: string = '';
-	let minWidthComponent: string = '';
+	let gridColumnSpaceComponent = '';
+	let gridRowSpaceComponent = '';
+	let minWidthComponent = '';
 
 	$: style = `${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`;
 

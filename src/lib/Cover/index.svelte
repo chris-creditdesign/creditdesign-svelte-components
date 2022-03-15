@@ -19,10 +19,10 @@ These will be displayed at the top and bottom of the Cover area.
 	 * Padding within the Cover element - pushes the content away from its edges.
 	 */
 	export let coverSpace: Space = '';
-	export let className: string = '';
+	export let className = '';
 
-	let coverHeightComponent: string = '';
-	let coverSpaceComponent: string = '';
+	let coverHeightComponent = '';
+	let coverSpaceComponent = '';
 
 	$: style = `${coverHeightComponent} ${coverSpaceComponent}`;
 

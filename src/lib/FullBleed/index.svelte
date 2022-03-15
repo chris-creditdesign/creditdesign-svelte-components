@@ -33,11 +33,11 @@ Available classes for child elements are:
 	 * Vertical space between content items.
 	 */
 	export let fullBleedStackSpace: Space = '';
-	export let className: string = '';
+	export let className = '';
 
-	let fullBleedMeasureComponent: string = '';
-	let fullBleedSideSpaceComponent: string = '';
-	let fullBleedStackSpaceComponent: string = '';
+	let fullBleedMeasureComponent = '';
+	let fullBleedSideSpaceComponent = '';
+	let fullBleedStackSpaceComponent = '';
 	$: style = `${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent} ${fullBleedStackSpaceComponent}`;
 
 	$: {

@@ -27,7 +27,7 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	 * If true the sidebar will be on the left / below the main content.
 	 * If false the sidebar will be on the right / above.
 	 */
-	export let sidebarOnLeft: boolean = true;
+	export let sidebarOnLeft = true;
 	/**
 	 * Side of gutter between the sidebar and the main content.
 	 */
@@ -40,11 +40,11 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	 * Sets flexbox align-items on sidebar-wrapper, applied to sidebar and main content.
 	 */
 	export let alignItems: AlignItems = 'stretch';
-	export let className: string = '';
+	export let className = '';
 
-	let sidebarContentMinWidthComponent: string = '';
-	let sidebarSpaceComponent: string = '';
-	let sidebarWidthComponent: string = '';
+	let sidebarContentMinWidthComponent = '';
+	let sidebarSpaceComponent = '';
+	let sidebarWidthComponent = '';
 	$: style = `align-items: ${alignItems}; ${sidebarContentMinWidthComponent} ${sidebarSpaceComponent} ${sidebarWidthComponent}`;
 
 	$: {
