@@ -10,6 +10,8 @@
 </script>
 
 <script lang="ts">
+	import type { Page } from './types';
+
 	import Sidebar from '$lib/Sidebar/index.svelte';
 	import Stack from '$lib/Stack/index.svelte';
 	import Cluster from '$lib/Cluster/index.svelte';
@@ -18,7 +20,9 @@
 	import '../app.css';
 	import '../css/prism-a11y-dark.css';
 
-	export let pages: string[];
+	export let pages: Page[];
+
+	console.log(pages);
 
 	const pascal_case = (str: string): string => {
 		let split_string = str.split('-');
@@ -51,7 +55,27 @@
 		background-color: bisque;
 	}
 
-	.list-item {
+	:global(table) {
+		border-collapse: collapse;
+	}
+
+	:global(thead) {
+		border-block-end: 2px solid #000;
+	}
+
+	:global(th) {
+		text-align: start;
+	}
+
+	:global(h1 + *) {
+		margin-block-start: var(--s1) !important;
+	}
+
+	:global(h2) {
+		margin-block-start: var(--s1) !important;
+	}
+
+	/* .list-item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -59,12 +83,10 @@
 		height: 50px;
 		padding: var(--s0);
 		background-color: pink;
-	}
+	} */
 </style>
 
-<svelte:head>
-	<title>Creditdesign Svelet Components</title>
-</svelte:head>
+<svelte:head><title>Creditdesign svelte components</title></svelte:head>
 
 <Sidebar
 	className="layout-sidebar-wrapper"
@@ -77,11 +99,20 @@
 			<Stack>
 				<h2><a href="/">Home</a></h2>
 				<nav>
-					<Cluster list={true}>
+					<ul>
 						{#each pages as page}
-							<li><a class="list-item" href={`/pages/${page}`}>{pascal_case(page)}</a></li>
+							<li>
+								<a class="list-item" href={`/${page.name}`}>{pascal_case(page.name)}</a>
+								<ul>
+									{#each page.children as child}
+										<li>
+											<a href={`/${page.name}/${child}`}>{child}</a>
+										</li>
+									{/each}
+								</ul>
+							</li>
 						{/each}
-					</Cluster>
+					</ul>
 				</nav>
 			</Stack>
 		</Box>

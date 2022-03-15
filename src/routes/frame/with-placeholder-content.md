@@ -9,10 +9,6 @@
 </script>
 
 <style>
-	h2 {
-		margin-top: var(--s1);
-	}
-
 	.place-holder {
 		font-weight: bold;
 		text-transform: uppercase;
@@ -25,40 +21,16 @@
 	}
 </style>
 
-# Frame
-
-Element with a defined width / height ratio into which any content can be placed.
-
-Content will be stretched to fill the Frame area.
-
-Content which overflows the Frame will be clipped off.
+# Frame - with placeholder content
 
 ## Props
 
 <PropNumber name="frameRatioHeight" bind:value={frameRatioHeight} min={0} max={16} />
 <PropNumber name="frameRatioWidth" bind:value={frameRatioWidth} min={0} max={16} />
 
-Also `className`.
+## Example
 
-## Examples
-
-<SqueezeContainer headline="Default">
-	<Frame {frameRatioHeight} {frameRatioWidth}>
-		<img src="/img/image.jpg" alt="Test." />
-	</Frame>
-</SqueezeContainer>
-
-<SqueezeContainer headline="With video">
-	<Frame {frameRatioHeight} {frameRatioWidth}>
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<video poster="/video/video.jpg" playsinline={true} autoplay={true} loop={true}>
-			<source src="/video/video.webm" type="video/webm" />
-			<source src="/video/video.mp4" type="video/mp4" />
-		</video>
-	</Frame>
-</SqueezeContainer>
-
-<SqueezeContainer headline="With placeholder content">
+<SqueezeContainer>
 	<Frame {frameRatioHeight} {frameRatioWidth}>
 		<div class="place-holder">
 			<p>Image pending</p>

@@ -14,10 +14,6 @@
 </script>
 
 <style>
-	h2 {
-		margin-top: var(--s1);
-	}
-
 	.item {
 		display: flex;
 		align-items: center;
@@ -31,12 +27,6 @@
 
 # Grid
 
-Grid layout that will adjust number columns depending on the space available.
-
-The props `gridColumnSpace` and `gridRowSpace` can be used to define separate gutters widths between columns and rows.
-
-This will only come into effect if `gridSpace` is not applied or is an empty string - otherwise the `gridSpace` value will be used.
-
 ## Props
 
 <PropSelect options={space_options} name="gridSpace" bind:value={gridSpace} />
@@ -44,11 +34,9 @@ This will only come into effect if `gridSpace` is not applied or is an empty str
 <PropSelect options={space_options} name="gridRowSpace" bind:value={gridRowSpace} />
 <PropSelect options={measure_options} name="minWidth" bind:value={minWidth} />
 
-Also `list` and `className`.
+## Example
 
-## Examples
-
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Grid {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
@@ -57,17 +45,5 @@ Also `list` and `className`.
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
-	</Grid>
-</SqueezeContainer>
-
-<SqueezeContainer headline="Aria role list">
-	<Grid {gridSpace} {gridColumnSpace} {gridRowSpace} {minWidth} list={true}>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
-		<li class="item">List item</li>
 	</Grid>
 </SqueezeContainer>

@@ -1,21 +1,10 @@
 <script lang="ts">
 	import type { Space, Measure } from '$lib/types';
 	import FullBleed from '$lib/FullBleed/index.svelte';
-	import Stack from '$lib/Stack/index.svelte';
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
-	import PropSelect from '$lib/PropSelect/index.svelte';
-	import { space_options, measure_options } from '../../preview-content/options';
-
-	let fullBleedMeasure: Measure = 'var(--measure)';
-	let fullBleedSideSpace: Space = 'var(--s-1)';
-	let fullBleedStackSpace: Space = 'var(--s-1)';
 </script>
 
 <style>
-	h2 {
-		margin-top: var(--s1);
-	}
-
 	span {
 		display: flex;
 		align-items: center;
@@ -54,22 +43,34 @@ Available classes for child elements are:
 - `full-bleed--right--3`
 - `full-bleed--right--4`
 
+## Usage
+
+```svelte
+<script>
+	import { FullBleed } from 'creditdesign-svelte-components';
+</script>
+
+<FullBleed>
+	<span class="full-bleed">.full-bleed</span>
+	<span>Item</span>
+	<span class="full-bleed--2">.full-bleed--2</span>
+	...
+</FullBleed>
+```
+
 ## Props
 
-<PropSelect options={measure_options} name={'fullBleedMeasure'} bind:value={fullBleedMeasure} />
-<PropSelect options={space_options} name={'fullBleedSideSpace'} bind:value={fullBleedSideSpace} />
-<PropSelect
-options={space_options}
-name={'fullBleedStackSpace'}
-bind:value={fullBleedStackSpace}
-/>
+| Property name         | Default value    |
+| --------------------- | ---------------- |
+| `fullBleedMeasure`    | `var(--measure)` |
+| `fullBleedSideSpace`  | `var(--s-1)`     |
+| `fullBleedStackSpace` | `var(--s-1)`     |
+| `className`           | `""`             |
 
-Also `className`.
+## Default
 
-## Examples
-
-<SqueezeContainer headline="Default">
-	<FullBleed {fullBleedMeasure} {fullBleedSideSpace} {fullBleedStackSpace}>
+<SqueezeContainer>
+	<FullBleed>
 		<span>Item</span>
 		<span class="full-bleed">.full-bleed</span>
 		<span>Item</span>
@@ -95,26 +96,5 @@ Also `className`.
 		<span>Item</span>
 		<span class="full-bleed--right-4">.full-bleed--right-4</span>
 		<span>Item</span>
-	</FullBleed>
-</SqueezeContainer>
-
-<SqueezeContainer headline="With text and images">
-	<FullBleed {fullBleedMeasure} {fullBleedSideSpace} {fullBleedStackSpace}>
-		<p>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
-			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
-			laudantium quas voluptatem incidunt qui?
-		</p>
-		<img class="full-bleed--4" src="/img/image.jpg" alt="Test." />
-		<p>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
-			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
-			laudantium quas voluptatem incidunt qui?
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
-			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
-			laudantium quas voluptatem incidunt qui?
-		</p>
 	</FullBleed>
 </SqueezeContainer>

@@ -22,10 +22,6 @@
 </script>
 
 <style>
-	h2 {
-		margin-top: var(--s1);
-	}
-
 	span {
 		display: flex;
 		align-items: center;
@@ -40,7 +36,7 @@
 	}
 
 	.sidebar__main-content {
-		height: 100vh;
+		height: 50vh;
 	}
 
 	.sidebar__content {
@@ -86,24 +82,45 @@ If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied 
 
 In this case `sidebarSpace` is applied as as padding around the `.main-content` and `.sidebar` elements.
 
+## Usage
+
+```svelte
+<script>
+	import { Sidebar } from 'creditdesign-svelte-components';
+</script>
+
+<Sidebar
+	sidebarContentMinWidth="75%"
+	sidebarOnLeft={true}
+	sidebarSpace="var(--s-1)"
+	sidebarWidth="inherit"
+	alignItems="stretch"
+	className="test"
+>
+	<svelte:fragment slot="sidebar">
+		<span>Sidebar</span>
+	</svelte:fragment>
+	<svelte:fragment slot="main-content">
+		<span>Main content</span>
+	</svelte:fragment>
+</Sidebar>
+```
+
 ## Props
 
-<PropSelect
-	options={percent_options}
-	name="sidebarContentMinWidth"
-	bind:value={sidebarContentMinWidth}
-/>
-<PropBoolean name="sidebarOnLeft" bind:value={sidebarOnLeft} />
-<PropSelect options={space_options} name="sidebarSpace" bind:value={sidebarSpace} />
-<PropSelect options={measure_options} name="sidebarWidth" bind:value={sidebarWidth} />
-<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
-
-Also `className`.
+| Property name            | Default value |
+| ------------------------ | ------------- |
+| `sidebarContentMinWidth` | `75%`         |
+| `sidebarOnLeft`          | `true`        |
+| `sidebarSpace`           | `var(--s-1)`  |
+| `sidebarWidth`           | `inherit`     |
+| `alignItems`             | `stretch`     |
+| `className`              | `""`          |
 
 ## Examples
 
-<SqueezeContainer headline="Default">
-	<Sidebar {sidebarContentMinWidth} {sidebarOnLeft} {sidebarSpace} {sidebarWidth} {alignItems}>
+<SqueezeContainer>
+	<Sidebar>
 		<svelte:fragment slot="sidebar">
 			<span class="sidebar__content">Sidebar</span>
 		</svelte:fragment>
@@ -111,51 +128,4 @@ Also `className`.
 			<span class="sidebar__main-content">Main content</span>
 		</svelte:fragment>
 	</Sidebar>
-</SqueezeContainer>
-
-<SqueezeContainer headline="With content">
-	<Sidebar {sidebarContentMinWidth} {sidebarOnLeft} {sidebarSpace} {sidebarWidth} {alignItems}>
-		<svelte:fragment slot="sidebar">
-			<nav>
-				<Cluster list={true}>
-					<li>
-						<a href="https://www.nature.com" class="list-item">Sidebar item</a>
-					</li>
-					<li>
-						<a href="https://www.nature.com" class="list-item">Sidebar item</a>
-					</li>
-					<li>
-						<a href="https://www.nature.com" class="list-item">Sidebar item</a>
-					</li>
-					<li>
-						<a href="https://www.nature.com" class="list-item">Sidebar item</a>
-					</li>
-					<li>
-						<a href="https://www.nature.com" class="list-item">Sidebar item</a>
-					</li>
-				</Cluster>
-			</nav>
-		</svelte:fragment>
-		<svelte:fragment slot="main-content">
-			<Stack>
-				<span class="item">Item</span>
-				<span class="item">Item</span>
-				<span class="item">Item</span>
-				<span class="item">Item</span>
-				<span class="item">Item</span>
-			</Stack>
-		</svelte:fragment>
-	</Sidebar>
-</SqueezeContainer>
-
-<SqueezeContainer headline="With no flexbox gap">
-	<div class="no-flexbox-gap">
-		<Sidebar {sidebarContentMinWidth} {sidebarOnLeft} {sidebarSpace} {sidebarWidth} {alignItems}>
-			<svelte:fragment slot="sidebar"><span class="sidebar__content">Sidebar</span></svelte:fragment
-			>
-			<svelte:fragment slot="main-content">
-				<span class="sidebar__main-content">Main content</span>
-			</svelte:fragment>
-		</Sidebar>
-	</div>
 </SqueezeContainer>

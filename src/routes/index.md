@@ -2,12 +2,6 @@
 	import Stack from "$lib/Stack/index.svelte";
 </script>
 
-<style>
-	h2 {
-		margin-top: var(--s1);
-	}
-</style>
-
 # Creditdesign Svelte Components
 
 Welcome to `creditdesign-svelte-components`, a collection of [svelte](https://svelte.dev/) components used to build simple css layouts.
