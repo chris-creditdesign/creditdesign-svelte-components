@@ -1,6 +1,7 @@
 export { default as Box } from './Box/index.svelte';
 export { default as Center } from './Center/index.svelte';
 export { default as Cluster } from './Cluster/index.svelte';
+export { default as Cover } from './Cover/index.svelte';
 export { default as Frame } from './Frame/index.svelte';
 export { default as FullBleed } from './FullBleed/index.svelte';
 export { default as Grid } from './Grid/index.svelte';
