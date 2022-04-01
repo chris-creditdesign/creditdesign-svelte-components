@@ -23,7 +23,29 @@
 	}
 </style>
 
-# Switcher
+# Switcher list
+
+If the list property is true, a `ul` element will be rendered instead of the standard `div`.
+
+```svelte
+<Switcher list={true}>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+	...
+</Switcher>
+```
+
+results in:
+
+```html
+<ul class="switcher">
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+	...
+</ul>
+```
 
 ## Props
 
@@ -33,9 +55,9 @@
 ## Example
 
 <SqueezeContainer headline="Default">
-	<Switcher {switcherSpace} {switcherMinWidth}>
-		<span class="item">Item</span>
-		<span class="item">Item</span>
-		<span class="item">Item</span>
+	<Switcher {switcherSpace} {switcherMinWidth} list={true}>
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item</li>
 	</Switcher>
 </SqueezeContainer>

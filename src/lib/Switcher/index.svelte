@@ -57,8 +57,11 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 		gap: var(--switcher-space);
 	}
 
-	.switcher[role='list'] {
+	ul.switcher {
 		list-style: none;
+		padding: 0;
+		max-width: none;
+		margin-block: 0;
 	}
 
 	:global(.switcher > *) {
@@ -92,6 +95,12 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 	}
 </style>
 
-<div class={`switcher ${className}`} role={list ? 'list' : null} {style}>
-	<slot />
-</div>
+{#if list}
+	<ul class={`switcher ${className}`} {style}>
+		<slot />
+	</ul>
+{:else}
+	<div class={`switcher ${className}`} {style}>
+		<slot />
+	</div>
+{/if}

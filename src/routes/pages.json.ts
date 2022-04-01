@@ -1,4 +1,4 @@
-import type { Page } from './types';
+import type { Page } from '../types';
 
 export const get = async () => {
 	// https://vitejs.dev/guide/features.html#glob-import

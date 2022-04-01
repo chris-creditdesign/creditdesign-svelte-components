@@ -10,39 +10,29 @@
 </script>
 
 <script lang="ts">
-	import type { Page } from './types';
+	import type { Page } from '../types';
 
 	import Sidebar from '$lib/Sidebar/index.svelte';
 	import Stack from '$lib/Stack/index.svelte';
-	import Cluster from '$lib/Cluster/index.svelte';
 	import Box from '$lib/Box/index.svelte';
+	import ToggleSection from '$lib/ToggleSection/index.svelte';
+	import { pascalCase } from '$lib/utils';
 
 	import '../app.css';
 	import '../css/prism-a11y-dark.css';
 
 	export let pages: Page[];
-
-	console.log(pages);
-
-	const pascal_case = (str: string): string => {
-		let split_string = str.split('-');
-
-		let formatted_string = split_string
-			.map((s) => {
-				let first_letter = s.charAt(0).toUpperCase();
-				let remainder = s.slice(1);
-
-				return `${first_letter}${remainder}`;
-			})
-			.reduce((previousValue, currentValue) => {
-				return `${previousValue}${currentValue}`;
-			}, '');
-
-		return formatted_string;
-	};
 </script>
 
 <style>
+	a {
+		text-decoration: none;
+	}
+
+	h3 {
+		margin-block: 0;
+	}
+
 	:global(.layout-sidebar-wrapper) {
 		min-height: 100vh;
 	}
@@ -74,16 +64,6 @@
 	:global(h2) {
 		margin-block-start: var(--s1) !important;
 	}
-
-	/* .list-item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		max-width: none;
-		height: 50px;
-		padding: var(--s0);
-		background-color: pink;
-	} */
 </style>
 
 <svelte:head><title>Creditdesign svelte components</title></svelte:head>
@@ -97,22 +77,30 @@
 	<svelte:fragment slot="sidebar">
 		<Box className="sidebar" boxSpace="var(--s1)">
 			<Stack>
-				<h2><a href="/">Home</a></h2>
 				<nav>
-					<ul>
+					<Stack list={true} stackSpace="var(--s1)">
+						<li>
+							<a href="/">Home</a>
+						</li>
 						{#each pages as page}
-							<li>
-								<a class="list-item" href={`/${page.name}`}>{pascal_case(page.name)}</a>
-								<ul>
-									{#each page.children as child}
-										<li>
-											<a href={`/${page.name}/${child}`}>{child}</a>
-										</li>
-									{/each}
-								</ul>
+							<li class="list-item list-item--parent">
+								<ToggleSection {page} buttonMessage={`View more ${pascalCase(page.name)} examples`}>
+									<svelte:fragment slot="title">
+										<h3><a href={`/${page.name}`}>{pascalCase(page.name)}</a></h3>
+									</svelte:fragment>
+									<svelte:fragment slot="content">
+										<Stack list={true} stackSpace="0">
+											{#each page.children as child}
+												<li class="list-item list-item--child">
+													<a href={`/${page.name}/${child}`}>{child}</a>
+												</li>
+											{/each}
+										</Stack>
+									</svelte:fragment>
+								</ToggleSection>
 							</li>
 						{/each}
-					</ul>
+					</Stack>
 				</nav>
 			</Stack>
 		</Box>

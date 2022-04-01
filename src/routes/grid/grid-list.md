@@ -25,9 +25,9 @@
 	}
 </style>
 
-# Grid - with ARIA role list
+# Grid list
 
-If the list property is true, a ‘list’ role will be applied to the resulting div so that it can function as a list.
+If the list property is true, a `ul` element will be rendered instead of the standard `div`.
 
 ```svelte
 <Grid list={true}>
@@ -40,11 +40,11 @@ If the list property is true, a ‘list’ role will be applied to the resulting
 Will result in
 
 ```html
-<div class="grid" role="list">
+<ul class="grid">
 	<li class="item">List item</li>
 	<li class="item">List item</li>
 	...
-</div>
+</ul>
 ```
 
 ## Props

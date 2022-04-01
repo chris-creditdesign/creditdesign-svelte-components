@@ -95,11 +95,20 @@ Grid layout that will adjust number columns depending on the space available.
 		grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width), 100%), 1fr));
 	}
 
-	.grid[role='list'] {
+	ul.grid {
 		list-style: none;
+		padding: 0;
+		max-width: none;
+		margin-block: 0;
 	}
 </style>
 
-<div class={`grid ${className}`} role={list ? 'list' : null} {style}>
-	<slot />
-</div>
+{#if list}
+	<ul class={`grid ${className}`} {style}>
+		<slot />
+	</ul>
+{:else}
+	<div class={`grid ${className}`} {style}>
+		<slot />
+	</div>
+{/if}

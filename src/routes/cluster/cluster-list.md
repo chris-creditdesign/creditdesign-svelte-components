@@ -47,9 +47,9 @@
 	}
 </style>
 
-# Cluster - with ARIA role list
+# Cluster list
 
-If the list property is true, a 'list' role will be applied to the resulting div so that it can function as a list.
+If the list property is true, a `ul` element will be rendered instead of the standard `div`.
 
 ```svelte
 <Cluster list={true}>
@@ -63,12 +63,12 @@ If the list property is true, a 'list' role will be applied to the resulting div
 results in:
 
 ```html
-<div class="cluster" role="list">
+<ul class="cluster">
 	<li>List item</li>
 	<li>List item</li>
 	<li>List item</li>
 	...
-</div>
+</ul>
 ```
 
 ## Props
@@ -84,7 +84,7 @@ results in:
 
 ## Example
 
-<SqueezeContainer headline="ARIA role list">
+<SqueezeContainer>
 	<Cluster {clusterSpace} {clusterJustifyContent} {alignItems} list={true}>
 		<li class="item">List item</li>
 		<li class="item">List item</li>
@@ -94,4 +94,45 @@ results in:
 		<li class="item">List item</li>
 		<li class="item">List item</li>
 	</Cluster>
+</SqueezeContainer>
+
+## Stack of Cluster lists
+
+<SqueezeContainer>
+<Stack stackSpace="var(--s2)">
+<Cluster {clusterSpace} {clusterJustifyContent} {alignItems} list={true}>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+	<li class="item">List item</li>
+</Cluster>
+
+<Cluster {clusterSpace} {clusterJustifyContent} {alignItems} list={true}>
+
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+
+</Cluster>
+
+<Cluster {clusterSpace} {clusterJustifyContent} {alignItems} list={true}>
+
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+<li class="item">List item</li>
+
+</Cluster>
+
+</Stack>
 </SqueezeContainer>

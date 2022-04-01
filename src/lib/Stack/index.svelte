@@ -55,8 +55,11 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 		block-size: 100%;
 	}
 
-	.stack[role='list'] {
+	ul.stack {
 		list-style: none;
+		padding: 0;
+		max-width: none;
+		margin-block: 0;
 	}
 
 	:global(.stack > *) {
@@ -72,6 +75,12 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	}
 </style>
 
-<div class={`stack ${className}`} role={list ? 'list' : null} {style}>
-	<slot />
-</div>
+{#if list}
+	<ul class={`stack ${className}`} {style}>
+		<slot />
+	</ul>
+{:else}
+	<div class={`stack ${className}`} {style}>
+		<slot />
+	</div>
+{/if}

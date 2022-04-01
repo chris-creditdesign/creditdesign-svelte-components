@@ -65,8 +65,11 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 		gap: var(--cluster-space);
 	}
 
-	.cluster[role='list'] {
+	ul.cluster {
 		list-style: none;
+		padding: 0;
+		max-width: none;
+		margin-block: 0;
 	}
 
 	:global(.cluster > .cluster__grow) {
@@ -83,6 +86,12 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 	}
 </style>
 
-<div class={`cluster ${className}`} role={list ? 'list' : null} {style}>
-	<slot />
-</div>
+{#if list}
+	<ul class={`cluster ${className}`} {style}>
+		<slot />
+	</ul>
+{:else}
+	<div class={`cluster ${className}`} {style}>
+		<slot />
+	</div>
+{/if}
