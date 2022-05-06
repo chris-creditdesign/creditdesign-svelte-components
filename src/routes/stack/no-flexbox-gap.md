@@ -53,7 +53,7 @@
 
 ## Examples
 
-<SqueezeContainer headline="No flexbox gap">
+<SqueezeContainer>
 	<div class="no-flexbox-gap">
 		<Stack {stackSpace}>
 			<span class="item">Item</span>

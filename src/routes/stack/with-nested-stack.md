@@ -55,7 +55,7 @@ The parent Stack's `stackSpace` should not cascade in to the child Stack.
 
 ## Example
 
-<SqueezeContainer headline="With nested stack">
+<SqueezeContainer>
 	<Stack {stackSpace}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>

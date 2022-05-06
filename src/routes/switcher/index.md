@@ -44,7 +44,7 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 
 ## Default
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Switcher {switcherSpace} {switcherMinWidth}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>

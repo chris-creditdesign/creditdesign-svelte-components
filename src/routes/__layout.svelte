@@ -1,12 +1,15 @@
 <script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit';
+
 	export const prerender = true;
-	export async function load({ fetch }) {
+
+	export const load: Load = async ({ fetch }) => {
 		const res = await fetch('/pages.json');
 		const { pages } = await res.json();
 		return {
 			props: { pages }
 		};
-	}
+	};
 </script>
 
 <script lang="ts">
@@ -84,7 +87,7 @@
 						</li>
 						{#each pages as page}
 							<li class="list-item list-item--parent">
-								<ToggleSection {page} buttonMessage={`View more ${pascalCase(page.name)} examples`}>
+								<ToggleSection buttonMessage={`View more ${pascalCase(page.name)} examples`}>
 									<svelte:fragment slot="title">
 										<h3><a href={`/${page.name}`}>{pascalCase(page.name)}</a></h3>
 									</svelte:fragment>

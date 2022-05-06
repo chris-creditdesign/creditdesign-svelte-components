@@ -17,7 +17,7 @@
 
 ## Example - with an image
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Frame {frameRatioHeight} {frameRatioWidth}>
 		<img src="/img/image.jpg" alt="Test." />
 	</Frame>

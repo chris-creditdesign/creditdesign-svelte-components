@@ -32,7 +32,7 @@
 
 ## Example
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Switcher {switcherSpace} {switcherMinWidth}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>

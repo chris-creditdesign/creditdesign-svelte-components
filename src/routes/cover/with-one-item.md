@@ -36,7 +36,7 @@
 
 ## Examples
 
-<SqueezeContainer headline="With three items">
+<SqueezeContainer>
 	<Cover {coverSpace} {coverHeight}>
 		<span class="item cover__centered">.cover__centered</span>
 	</Cover>

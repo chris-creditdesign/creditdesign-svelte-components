@@ -48,7 +48,7 @@ Content which overflows the Frame will be clipped off.
 
 ## Default
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Frame>
 		<img src="/img/image.jpg" alt="Test." />
 	</Frame>

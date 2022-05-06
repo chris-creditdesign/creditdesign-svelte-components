@@ -53,7 +53,7 @@
 
 ## Examples
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Stack {stackSpace}>
 		<span class="item">Item</span>
 		<span class="item">Item</span>

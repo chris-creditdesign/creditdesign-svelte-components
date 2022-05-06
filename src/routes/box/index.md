@@ -41,6 +41,6 @@ Simple component used to add padding around its contents.
 
 ## Default
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Box><span>Item</span></Box>
 </SqueezeContainer>

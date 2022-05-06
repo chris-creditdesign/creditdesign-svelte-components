@@ -47,7 +47,7 @@ In this case the `switcherSpace` property will be applied as margin around each 
 
 ## Example
 
-<SqueezeContainer headline="With no flexbox gap">
+<SqueezeContainer>
 	<div class="no-flexbox-gap">
 		<Switcher {switcherSpace} {switcherMinWidth}>
 			<span class="item">Item</span>

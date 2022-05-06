@@ -34,7 +34,7 @@ This is the maximum amount of items that can be arranged side by side.
 
 ## Example
 
-<SqueezeContainer headline="With seven items">
+<SqueezeContainer>
 	<Switcher {switcherSpace} {switcherMinWidth}>
 		<span class="item">One</span>
 		<span class="item">Two</span>

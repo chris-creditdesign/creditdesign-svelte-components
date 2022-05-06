@@ -75,7 +75,7 @@ results in:
 
 ## Example
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Stack {stackSpace} list={true}>
 		<li class="item">Item</li>
 		<li class="item">Item</li>

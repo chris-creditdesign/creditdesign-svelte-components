@@ -34,7 +34,7 @@ In this case the child elements should be stacked vertically by default as eight
 
 ## Example
 
-<SqueezeContainer headline="With eight items">
+<SqueezeContainer>
 	<Switcher {switcherSpace} {switcherMinWidth}>
 		<span class="item">One</span>
 		<span class="item">Two</span>

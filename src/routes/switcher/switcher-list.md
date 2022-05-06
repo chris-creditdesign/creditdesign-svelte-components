@@ -54,7 +54,7 @@ results in:
 
 ## Example
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Switcher {switcherSpace} {switcherMinWidth} list={true}>
 		<li class="item">Item</li>
 		<li class="item">Item</li>

@@ -53,7 +53,7 @@
 
 ## Examples
 
-<SqueezeContainer headline="With split after">
+<SqueezeContainer>
 	<div class="test-container">
 		<Stack {stackSpace}>
 			<span class="item">Item</span>

@@ -57,7 +57,7 @@ In this case the `clusterSpace` prop is applied as as padding around the child e
 
 ## Default
 
-<SqueezeContainer headline="Default">
+<SqueezeContainer>
 	<Cluster>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
