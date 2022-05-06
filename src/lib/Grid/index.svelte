@@ -31,11 +31,10 @@ Grid layout that will adjust number columns depending on the space available.
 	export let list = false;
 	export let className = '';
 
+	let tag = list ? 'ul' : 'div';
+
 	let gridColumnSpaceComponent = '';
 	let gridRowSpaceComponent = '';
-	let minWidthComponent = '';
-
-	$: style = `${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`;
 
 	$: {
 		if (gridSpace.length > 0) {
@@ -49,10 +48,8 @@ Grid layout that will adjust number columns depending on the space available.
 				gridRowSpaceComponent = `--grid-row-space--component: ${gridRowSpace};`;
 			}
 		}
-		if (minWidth.length > 0) {
-			minWidthComponent = `--grid-min-width--component: ${minWidth};`;
-		}
 	}
+	$: minWidthComponent = minWidth.length > 0 ? `--grid-min-width--component: ${minWidth};` : '';
 </script>
 
 <style>
@@ -95,7 +92,7 @@ Grid layout that will adjust number columns depending on the space available.
 		grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width), 100%), 1fr));
 	}
 
-	ul.grid {
+	:global(ul.grid) {
 		list-style: none;
 		padding: 0;
 		max-width: none;
@@ -103,12 +100,10 @@ Grid layout that will adjust number columns depending on the space available.
 	}
 </style>
 
-{#if list}
-	<ul class={`grid ${className}`} {style}>
-		<slot />
-	</ul>
-{:else}
-	<div class={`grid ${className}`} {style}>
-		<slot />
-	</div>
-{/if}
+<svelte:element
+	this={tag}
+	class={`grid ${className}`}
+	style={`${gridColumnSpaceComponent} ${gridRowSpaceComponent} ${minWidthComponent}`}
+>
+	<slot />
+</svelte:element>

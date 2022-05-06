@@ -35,22 +35,16 @@ Available classes for child elements are:
 	export let fullBleedStackSpace: Space = '';
 	export let className = '';
 
-	let fullBleedMeasureComponent = '';
-	let fullBleedSideSpaceComponent = '';
-	let fullBleedStackSpaceComponent = '';
-	$: style = `${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent} ${fullBleedStackSpaceComponent}`;
-
-	$: {
-		if (fullBleedMeasure.length > 0) {
-			fullBleedMeasureComponent = `--full-bleed-measure--component: ${fullBleedMeasure};`;
-		}
-		if (fullBleedSideSpace.length > 0) {
-			fullBleedSideSpaceComponent = `--full-bleed-side-space--component: ${fullBleedSideSpace};`;
-		}
-		if (fullBleedStackSpace.length > 0) {
-			fullBleedStackSpaceComponent = `--full-bleed-stack-space--component: ${fullBleedStackSpace};`;
-		}
-	}
+	$: fullBleedMeasureComponent =
+		fullBleedMeasure.length > 0 ? `--full-bleed-measure--component: ${fullBleedMeasure};` : '';
+	$: fullBleedSideSpaceComponent =
+		fullBleedSideSpace.length > 0
+			? `--full-bleed-side-space--component: ${fullBleedSideSpace};`
+			: '';
+	$: fullBleedStackSpaceComponent =
+		fullBleedStackSpace.length > 0
+			? `--full-bleed-stack-space--component: ${fullBleedStackSpace};`
+			: '';
 </script>
 
 <style>
@@ -165,6 +159,9 @@ Available classes for child elements are:
 	}
 </style>
 
-<div class={`full-bleed-container ${className}`} {style}>
+<div
+	class={`full-bleed-container ${className}`}
+	style={`${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent} ${fullBleedStackSpaceComponent}`}
+>
 	<slot />
 </div>

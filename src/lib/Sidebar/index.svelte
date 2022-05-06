@@ -42,22 +42,15 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	export let alignItems: AlignItems = 'stretch';
 	export let className = '';
 
-	let sidebarContentMinWidthComponent = '';
-	let sidebarSpaceComponent = '';
-	let sidebarWidthComponent = '';
-	$: style = `align-items: ${alignItems}; ${sidebarContentMinWidthComponent} ${sidebarSpaceComponent} ${sidebarWidthComponent}`;
-
-	$: {
-		if (sidebarContentMinWidth.length > 0) {
-			sidebarContentMinWidthComponent = `--sidebar-content-min-width--component: ${sidebarContentMinWidth};`;
-		}
-		if (sidebarSpace.length > 0) {
-			sidebarSpaceComponent = `--sidebar-space--component: ${sidebarSpace};`;
-		}
-		if (sidebarWidth.length > 0) {
-			sidebarWidthComponent = `--sidebar-width--component: ${sidebarWidth};`;
-		}
-	}
+	$: sidebarContentMinWidthComponent =
+		sidebarContentMinWidth.length > 0
+			? `--sidebar-content-min-width--component: ${sidebarContentMinWidth};`
+			: '';
+	$: sidebarSpaceComponent =
+		sidebarSpace.length > 0 ? `--sidebar-space--component: ${sidebarSpace};` : '';
+	$: sidebarWidthComponent =
+		sidebarWidth.length > 0 ? `--sidebar-width--component: ${sidebarWidth};` : '';
+	$: alignItemsComponent = `align-items: ${alignItems};`;
 </script>
 
 <style>
@@ -107,7 +100,16 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	/* stylelint-enable */
 </style>
 
-<div class={`sidebar--wrapper ${className}`} data-sidebar-on-left={sidebarOnLeft} {style}>
+<div
+	class={`sidebar--wrapper ${className}`}
+	data-sidebar-on-left={sidebarOnLeft}
+	style={`
+		${sidebarContentMinWidthComponent}
+		${sidebarSpaceComponent}
+		${sidebarWidthComponent}
+		${alignItemsComponent}
+	`}
+>
 	{#if sidebarOnLeft}
 		<slot name="sidebar" />
 		<slot name="main-content" />

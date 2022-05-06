@@ -11,18 +11,10 @@ Content which overflows the Frame will be clipped off.
 	export let frameRatioWidth = 0;
 	export let className = '';
 
-	let frameRatioHeightComponent = '';
-	let frameRatioWidthComponent = '';
-	$: style = `${frameRatioHeightComponent} ${frameRatioWidthComponent}`;
-
-	$: {
-		if (frameRatioHeight > 0) {
-			frameRatioHeightComponent = `--frame-ratio-height--component: ${frameRatioHeight};`;
-		}
-		if (frameRatioWidth > 0) {
-			frameRatioWidthComponent = `--frame-ratio-width--component: ${frameRatioWidth};`;
-		}
-	}
+	$: frameRatioHeightComponent =
+		frameRatioHeight > 0 ? `--frame-ratio-height--component: ${frameRatioHeight};` : '';
+	$: frameRatioWidthComponent =
+		frameRatioWidth > 0 ? `--frame-ratio-width--component: ${frameRatioWidth};` : '';
 </script>
 
 <style>
@@ -58,6 +50,9 @@ Content which overflows the Frame will be clipped off.
 	}
 </style>
 
-<div class={`frame ${className}`} {style}>
+<div
+	class={`frame ${className}`}
+	style={`${frameRatioHeightComponent} ${frameRatioWidthComponent}`}
+>
 	<slot />
 </div>

@@ -25,18 +25,12 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 	export let list = false;
 	export let className = '';
 
-	let switcherMinWidthComponent = '';
-	let switcherSpaceComponent = '';
-	$: style = `${switcherMinWidthComponent} ${switcherSpaceComponent}`;
+	let tag = list ? 'ul' : 'div';
 
-	$: {
-		if (switcherMinWidth.length > 0) {
-			switcherMinWidthComponent = `--switcher-min-width--component: ${switcherMinWidth};`;
-		}
-		if (switcherSpace.length > 0) {
-			switcherSpaceComponent = `--switcher-space--component: ${switcherSpace};`;
-		}
-	}
+	$: switcherMinWidthComponent =
+		switcherMinWidth.length > 0 ? `--switcher-min-width--component: ${switcherMinWidth};` : '';
+	$: switcherSpaceComponent =
+		switcherSpace.length > 0 ? `--switcher-space--component: ${switcherSpace};` : '';
 </script>
 
 <style>
@@ -57,7 +51,7 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 		gap: var(--switcher-space);
 	}
 
-	ul.switcher {
+	:global(ul.switcher) {
 		list-style: none;
 		padding: 0;
 		max-width: none;
@@ -95,12 +89,10 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 	}
 </style>
 
-{#if list}
-	<ul class={`switcher ${className}`} {style}>
-		<slot />
-	</ul>
-{:else}
-	<div class={`switcher ${className}`} {style}>
-		<slot />
-	</div>
-{/if}
+<svelte:element
+	this={tag}
+	class={`switcher ${className}`}
+	style={`${switcherMinWidthComponent} ${switcherSpaceComponent}`}
+>
+	<slot />
+</svelte:element>

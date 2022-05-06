@@ -12,13 +12,7 @@ Used to add padding around its contents.
 	export let boxSpace: Space = '';
 	export let className = '';
 
-	let boxSpaceComponent = '';
-
-	$: {
-		if (boxSpace.length > 0) {
-			boxSpaceComponent = `--box-space--component: ${boxSpace};`;
-		}
-	}
+	$: boxSpaceComponent = boxSpace.length > 0 ? `--box-space--component: ${boxSpace};` : '';
 </script>
 
 <style>

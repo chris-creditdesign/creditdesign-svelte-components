@@ -23,19 +23,10 @@ Used to horizontally center its contents.
 	export let intrinsicallyCenter = false;
 	export let className = '';
 
-	let centerMeasureComponent = '';
-	let centerSpaceComponent = '';
-
-	$: style = `${centerMeasureComponent} ${centerSpaceComponent}`;
-
-	$: {
-		if (centerMeasure.length > 0) {
-			centerMeasureComponent = `--center-measure--component: ${centerMeasure};`;
-		}
-		if (centerSpace.length > 0) {
-			centerSpaceComponent = `--center-space--component: ${centerSpace};`;
-		}
-	}
+	$: centerMeasureComponent =
+		centerMeasure.length > 0 ? `--center-measure--component: ${centerMeasure};` : '';
+	$: centerSpaceComponent =
+		centerSpace.length > 0 ? `--center-space--component: ${centerSpace};` : '';
 </script>
 
 <style>
@@ -68,6 +59,10 @@ Used to horizontally center its contents.
 	}
 </style>
 
-<div class={`center ${className}`} class:center--intrinsically-center={intrinsicallyCenter} {style}>
+<div
+	class={`center ${className}`}
+	class:center--intrinsically-center={intrinsicallyCenter}
+	style={`${centerMeasureComponent} ${centerSpaceComponent}`}
+>
 	<slot />
 </div>

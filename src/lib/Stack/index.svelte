@@ -14,22 +14,18 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	import type { Space } from '../types';
 
 	/**
-	 * Vertical space between child elments.
+	 * Vertical space between child elements.
 	 */
 	export let stackSpace: Space = '';
 	/**
-	 * Apply the ARIA `list` role.
+	 * If true a ul element will be rendered instead of the standard div.
 	 */
 	export let list = false;
 	export let className = '';
 
-	$: style = '';
+	let tag = list ? 'ul' : 'div';
 
-	$: {
-		if (stackSpace.length > 0) {
-			style = `--stack-space--component: ${stackSpace};`;
-		}
-	}
+	$: stackSpaceComponent = stackSpace.length > 0 ? `--stack-space--component: ${stackSpace};` : '';
 </script>
 
 <style>
@@ -55,7 +51,7 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 		block-size: 100%;
 	}
 
-	ul.stack {
+	:global(ul.stack) {
 		list-style: none;
 		padding: 0;
 		max-width: none;
@@ -75,12 +71,6 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	}
 </style>
 
-{#if list}
-	<ul class={`stack ${className}`} {style}>
-		<slot />
-	</ul>
-{:else}
-	<div class={`stack ${className}`} {style}>
-		<slot />
-	</div>
-{/if}
+<svelte:element this={tag} class={`stack ${className}`} style={stackSpaceComponent}>
+	<slot />
+</svelte:element>

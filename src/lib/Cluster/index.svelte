@@ -29,19 +29,15 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 	export let list = false;
 	export let className = '';
 
-	let clusterJustifyContentComponent = '';
-	let clusterSpaceComponent = '';
-	let style = '';
+	let tag = list ? 'ul' : 'div';
 
-	$: {
-		if (clusterJustifyContent.length > 0) {
-			clusterJustifyContentComponent = `--cluster-justify-content--component: ${clusterJustifyContent};`;
-		}
-		if (clusterSpace.length > 0) {
-			clusterSpaceComponent = `--cluster-space--component: ${clusterSpace};`;
-		}
-		style = `align-items: ${alignItems}; ${clusterJustifyContentComponent} ${clusterSpaceComponent}`;
-	}
+	$: alignItemsComponent = `align-items: ${alignItems};`;
+	$: clusterJustifyContentComponent =
+		clusterJustifyContent.length > 0
+			? `--cluster-justify-content--component: ${clusterJustifyContent};`
+			: '';
+	$: clusterSpaceComponent =
+		clusterSpace.length > 0 ? `--cluster-space--component: ${clusterSpace};` : '';
 </script>
 
 <style>
@@ -65,7 +61,7 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 		gap: var(--cluster-space);
 	}
 
-	ul.cluster {
+	:global(ul.cluster) {
 		list-style: none;
 		padding: 0;
 		max-width: none;
@@ -86,12 +82,14 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 	}
 </style>
 
-{#if list}
-	<ul class={`cluster ${className}`} {style}>
-		<slot />
-	</ul>
-{:else}
-	<div class={`cluster ${className}`} {style}>
-		<slot />
-	</div>
-{/if}
+<svelte:element
+	this={tag}
+	class={`cluster ${className}`}
+	style={`
+		${alignItemsComponent}
+		${clusterJustifyContentComponent}
+		${clusterSpaceComponent}
+	`}
+>
+	<slot />
+</svelte:element>

@@ -21,19 +21,9 @@ These will be displayed at the top and bottom of the Cover area.
 	export let coverSpace: Space = '';
 	export let className = '';
 
-	let coverHeightComponent = '';
-	let coverSpaceComponent = '';
-
-	$: style = `${coverHeightComponent} ${coverSpaceComponent}`;
-
-	$: {
-		if (coverHeight.length > 0) {
-			coverHeightComponent = `--cover-height--component: ${coverHeight};`;
-		}
-		if (coverSpace.length > 0) {
-			coverSpaceComponent = `--cover-space--component: ${coverSpace};`;
-		}
-	}
+	$: coverHeightComponent =
+		coverHeight.length > 0 ? `--cover-height--component: ${coverHeight};` : '';
+	$: coverSpaceComponent = coverSpace.length > 0 ? `--cover-space--component: ${coverSpace};` : '';
 </script>
 
 <style>
@@ -77,6 +67,6 @@ These will be displayed at the top and bottom of the Cover area.
 	}
 </style>
 
-<div class={`cover ${className}`} {style}>
+<div class={`cover ${className}`} style={`${coverHeightComponent} ${coverSpaceComponent}`}>
 	<slot />
 </div>
