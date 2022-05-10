@@ -26,34 +26,18 @@
 		background-color: lightblue;
 	}
 
-	.item--short {
-		height: 50px;
-	}
-
-	.item--tall {
-		height: 150px;
-	}
-
-	.item--outer {
-		background-color: lightsalmon;
-	}
-
-	.cluster__grow {
+	.flex-grow\:2 {
 		background-color: pink;
-	}
-
-	:global(.test) {
-		border: 1px solid red;
 	}
 </style>
 
-# Cluster - with a `cluster__grow` child element
+# Cluster - with a flex grow child element
 
-Here a child element with the class `cluster__grow` applied will will have a `flex-grow` property of 2 - causing it to grow to stretch horizontally to fill the available space.
+Here a child element with the class `.flex-grow:2` applied will will have a `flex-grow` property of 2 - causing it to grow to stretch horizontally to fill the available space.
 
 ```svelte
 <Cluster>
-	<span class="cluster__grow">.cluster__grow</span>
+	<span class="flex-grow:2">.flex-grow:2</span>
 	<span>Item</span>
 	<span>Item</span>
 	<span>Item</span>
@@ -76,7 +60,7 @@ Here a child element with the class `cluster__grow` applied will will have a `fl
 
 <SqueezeContainer>
 	<Cluster {clusterSpace} {clusterJustifyContent} {alignItems}>
-		<span class="item cluster__grow">.cluster__grow</span>
+		<span class="item flex-grow:2">.flex-grow:2</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>

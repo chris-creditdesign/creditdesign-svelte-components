@@ -17,39 +17,6 @@ Content which overflows the Frame will be clipped off.
 		frameRatioWidth > 0 ? `--frame-ratio-width--component: ${frameRatioWidth};` : '';
 </script>
 
-<style>
-	:global(:root) {
-		--frame-ratio-height--global: 9;
-		--frame-ratio-width--global: 16;
-	}
-
-	.frame {
-		--frame-ratio-height--component: initial;
-		--frame-ratio-width--component: initial;
-		--frame-ratio-height: var(--frame-ratio-height--component, var(--frame-ratio-height--global));
-		--frame-ratio-width: var(--frame-ratio-width--component, var(--frame-ratio-width--global));
-
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		aspect-ratio: var(--frame-ratio-width) / var(--frame-ratio-height);
-	}
-
-	:global(.frame > img) {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	:global(.frame > video) {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-</style>
-
 <div
 	class={`frame ${className}`}
 	style={`${frameRatioHeightComponent} ${frameRatioWidthComponent}`}

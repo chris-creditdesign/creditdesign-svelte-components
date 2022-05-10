@@ -19,7 +19,7 @@
 
 Used to cluster child elements in a wrap-able horizontal row.
 
-Adding a `.cluster__grow` class to a child element will cause it to stretch to fill available space.
+Adding a `.flex-grow:2` class, or flex-grow CSS rule to a child element will cause it to stretch to fill available space.
 
 If flexbox gap is not supported, expects a `.no-flexbox-gap` class to be applied to a parent element.
 In this case the `clusterSpace` prop is applied as as padding around the child elements.

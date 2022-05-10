@@ -16,28 +16,6 @@
 		height: 100px;
 		background-color: lightblue;
 	}
-
-	.item--nested {
-		background-color: pink;
-	}
-
-	.stack__split-after {
-		background-color: mediumaquamarine;
-	}
-
-	.item-extra {
-		background-color: orange;
-	}
-
-	.item-in-cover {
-		background-color: coral;
-		height: 100%;
-	}
-
-	.test-container {
-		width: 100%;
-		height: 100vh;
-	}
 </style>
 
 # Stack
@@ -46,7 +24,7 @@ If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied 
 
 In this case the `stackSpace` becomes margins applied around the child elements.
 
-A child element with `.stack__split-after` applied will push items below it to the bottom of the container, if the `Stack` component is the only child of its parent.
+A child element with the class `.margin-block-end:auto` or equivalent style applied will push items below it to the bottom of the container, if the `Stack` component is the only child of its parent.
 
 ## Usage
 

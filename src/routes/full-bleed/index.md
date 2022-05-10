@@ -17,10 +17,6 @@
 	span:nth-child(2n) {
 		background-color: pink;
 	}
-
-	img {
-		max-width: 100%;
-	}
 </style>
 
 # FullBleed
@@ -30,7 +26,7 @@ srpead out to the left and right.
 
 Available classes for child elements are:
 
-- `full-bleed`
+- `full-bleed--1`
 - `full-bleed--2`
 - `full-bleed--3`
 - `full-bleed--4`
@@ -72,7 +68,7 @@ Available classes for child elements are:
 <SqueezeContainer>
 	<FullBleed>
 		<span>Item</span>
-		<span class="full-bleed">.full-bleed</span>
+		<span class="full-bleed--1">.full-bleed</span>
 		<span>Item</span>
 		<span class="full-bleed--2">.full-bleed--2</span>
 		<span>Item</span>

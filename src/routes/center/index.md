@@ -15,11 +15,6 @@
 		padding: var(--s1);
 		background-color: lightblue;
 	}
-
-	.item--small {
-		max-width: max-content;
-		background-color: lightgray;
-	}
 </style>
 
 # Center

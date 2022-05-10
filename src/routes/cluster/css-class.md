@@ -27,23 +27,23 @@
 	}
 </style>
 
-# Cluster
+# Cluster - CSS class
 
-## Props
+Can also be applied as as standalone CSS class.
 
-<PropSelect options={space_options} name="clusterSpace" bind:value={clusterSpace} />
+## Default
 
-<PropSelect
-	options={justify_content_options}
-	name="clusterJustifyContent"
-	bind:value={clusterJustifyContent}
-/>
-<PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
-
-## Example
+```html
+<div class="cluster">
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	...
+</div>
+```
 
 <SqueezeContainer>
-	<Cluster {clusterSpace} {clusterJustifyContent} {alignItems}>
+	<div class="cluster">
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
@@ -51,5 +51,31 @@
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
-	</Cluster>
+	</div>
+</SqueezeContainer>
+
+## With CSS custom properties appiled
+
+```html
+<div
+	class="cluster"
+	style="--cluster-justify-content--component: flex-end; --cluster-space--component: var(--s2); align-items: baseline;"
+>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	...
+</div>
+```
+
+<SqueezeContainer>
+	<div class="cluster" style="--cluster-justify-content--component: flex-end; --cluster-space--component: var(--s2); align-items: baseline;">
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+	</div>
 </SqueezeContainer>

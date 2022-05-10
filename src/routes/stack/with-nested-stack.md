@@ -8,7 +8,7 @@
 
 	import { space_options } from '../../preview-content/options';
 
-	let stackSpace: Space = 'var(--s-1)';
+	let stackSpace: Space = 'var(--s2)';
 </script>
 
 <style>
@@ -24,24 +24,6 @@
 
 	.item--nested {
 		background-color: pink;
-	}
-
-	.stack__split-after {
-		background-color: mediumaquamarine;
-	}
-
-	.item-extra {
-		background-color: orange;
-	}
-
-	.item-in-cover {
-		background-color: coral;
-		height: 100%;
-	}
-
-	.test-container {
-		width: 100%;
-		height: 100vh;
 	}
 </style>
 

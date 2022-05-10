@@ -1,6 +1,6 @@
 {
 	"name": "creditdesign-svelte-components",
-	"version": "1.0.03",
+	"version": "2.0.0",
 	"description": "Collection fo svelte compontents for layout",
 	"scripts": {
 		"dev": "svelte-kit dev",

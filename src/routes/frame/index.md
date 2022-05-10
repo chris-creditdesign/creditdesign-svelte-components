@@ -5,19 +5,6 @@
 	import PropNumber from '$lib/PropNumber/index.svelte';
 </script>
 
-<style>
-	.place-holder {
-		font-weight: bold;
-		text-transform: uppercase;
-		background-color: #ececec;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-</style>
-
 # Frame
 
 Element with a defined width / height ratio into which any content can be placed.

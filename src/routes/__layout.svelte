@@ -21,6 +21,7 @@
 	import ToggleSection from '$lib/ToggleSection/index.svelte';
 	import { pascalCase } from '$lib/utils';
 
+	import '$lib/index.css';
 	import '../app.css';
 	import '../css/prism-a11y-dark.css';
 
@@ -35,38 +36,6 @@
 	h3 {
 		margin-block: 0;
 	}
-
-	:global(.layout-sidebar-wrapper) {
-		min-height: 100vh;
-	}
-
-	:global(.sidebar) {
-		background-color: aquamarine;
-	}
-
-	:global(.main-content) {
-		background-color: bisque;
-	}
-
-	:global(table) {
-		border-collapse: collapse;
-	}
-
-	:global(thead) {
-		border-block-end: 2px solid #000;
-	}
-
-	:global(th) {
-		text-align: start;
-	}
-
-	:global(h1 + *) {
-		margin-block-start: var(--s1) !important;
-	}
-
-	:global(h2) {
-		margin-block-start: var(--s1) !important;
-	}
 </style>
 
 <svelte:head><title>Creditdesign svelte components</title></svelte:head>
@@ -78,7 +47,7 @@
 	sidebarWidth="20ch"
 >
 	<svelte:fragment slot="sidebar">
-		<Box className="sidebar" boxSpace="var(--s1)">
+		<Box className="layout-sidebar" boxSpace="var(--s1)">
 			<Stack>
 				<nav>
 					<Stack list={true} stackSpace="var(--s1)">

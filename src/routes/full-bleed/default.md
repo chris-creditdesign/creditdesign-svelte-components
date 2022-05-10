@@ -24,10 +24,6 @@
 	span:nth-child(2n) {
 		background-color: pink;
 	}
-
-	img {
-		max-width: 100%;
-	}
 </style>
 
 # FullBleed
@@ -47,7 +43,7 @@ bind:value={fullBleedStackSpace}
 <SqueezeContainer>
 	<FullBleed {fullBleedMeasure} {fullBleedSideSpace} {fullBleedStackSpace}>
 		<span>Item</span>
-		<span class="full-bleed">.full-bleed</span>
+		<span class="full-bleed--1">.full-bleed</span>
 		<span>Item</span>
 		<span class="full-bleed--2">.full-bleed--2</span>
 		<span>Item</span>

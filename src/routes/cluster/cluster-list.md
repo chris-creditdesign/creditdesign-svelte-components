@@ -25,26 +25,6 @@
 		height: 100px;
 		background-color: lightblue;
 	}
-
-	.item--short {
-		height: 50px;
-	}
-
-	.item--tall {
-		height: 150px;
-	}
-
-	.item--outer {
-		background-color: lightsalmon;
-	}
-
-	.cluster__grow {
-		background-color: pink;
-	}
-
-	:global(.test) {
-		border: 1px solid red;
-	}
 </style>
 
 # Cluster list

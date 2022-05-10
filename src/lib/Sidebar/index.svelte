@@ -24,10 +24,10 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	 */
 	export let sidebarContentMinWidth: PercentWidth = '';
 	/**
-	 * If true the sidebar will be on the left / below the main content.
-	 * If false the sidebar will be on the right / above.
+	 * If false the sidebar will be on the right / below the main content.
+	 * If true the sidebar will be on the left / above.
 	 */
-	export let sidebarOnLeft = true;
+	export let sidebarOnRight = false;
 	/**
 	 * Side of gutter between the sidebar and the main content.
 	 */
@@ -54,55 +54,11 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 </script>
 
 <style>
-	:global(:root) {
-		--sidebar-content-min-width--global: 75%;
-		--sidebar-space--global: var(--s-1);
-		--sidebar-width--global: inherit;
-	}
-
-	.sidebar--wrapper {
-		--sidebar-content-min-width--component: initial;
-		--sidebar-space--component: initial;
-		--sidebar-width--component: initial;
-		--sidebar-content-min-width: var(
-			--sidebar-content-min-width--component,
-			var(--sidebar-content-min-width--global)
-		);
-		--sidebar-space: var(--sidebar-space--component, var(--sidebar-space--global));
-		--sidebar-width: var(--sidebar-width--component, var(--sidebar-width--global));
-
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--sidebar-space);
-	}
-
-	:global(.no-flexbox-gap .sidebar--wrapper > *) {
-		margin: var(--sidebar-space);
-	}
-
-	/* stylelint-disable */
-	/* If data-sidebar-on-left is "true" the first child is the sidebar.
-     If data-sidebar-on-left is "false" the last child is the sidebar. */
-	:global(.sidebar--wrapper[data-sidebar-on-left='true']
-			> *:first-child, .sidebar--wrapper[data-sidebar-on-left='false'] > *:last-child) {
-		flex-basis: var(--sidebar-width);
-		flex-grow: 1;
-	}
-
-	/* If data-sidebar-on-left is "true" the last child is the main content.
-     If data-sidebar-on-left is "false" the first child is the main content. */
-	:global(.sidebar--wrapper[data-sidebar-on-left='true']
-			> *:last-child, .sidebar--wrapper[data-sidebar-on-left='false'] > *:first-child) {
-		flex-basis: 0;
-		flex-grow: 999;
-		min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
-	}
-	/* stylelint-enable */
 </style>
 
 <div
-	class={`sidebar--wrapper ${className}`}
-	data-sidebar-on-left={sidebarOnLeft}
+	class={`sidebar ${className}`}
+	class:sidebar-on-right={sidebarOnRight}
 	style={`
 		${sidebarContentMinWidthComponent}
 		${sidebarSpaceComponent}
@@ -110,11 +66,11 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 		${alignItemsComponent}
 	`}
 >
-	{#if sidebarOnLeft}
-		<slot name="sidebar" />
+	{#if sidebarOnRight}
 		<slot name="main-content" />
+		<slot name="sidebar" />
 	{:else}
-		<slot name="main-content" />
 		<slot name="sidebar" />
+		<slot name="main-content" />
 	{/if}
 </div>

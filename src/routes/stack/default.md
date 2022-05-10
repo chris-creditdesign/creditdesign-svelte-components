@@ -21,28 +21,6 @@
 		height: 100px;
 		background-color: lightblue;
 	}
-
-	.item--nested {
-		background-color: pink;
-	}
-
-	.stack__split-after {
-		background-color: mediumaquamarine;
-	}
-
-	.item-extra {
-		background-color: orange;
-	}
-
-	.item-in-cover {
-		background-color: coral;
-		height: 100%;
-	}
-
-	.test-container {
-		width: 100%;
-		height: 100vh;
-	}
 </style>
 
 # Stack

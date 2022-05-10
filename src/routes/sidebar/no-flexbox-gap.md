@@ -15,14 +15,14 @@
 	} from '../../preview-content/options';
 
 	let sidebarContentMinWidth: PercentWidth = '75%';
-	let sidebarOnLeft: boolean = true;
+	let sidebarOnRight: boolean = false;
 	let sidebarSpace: Space = 'var(--s-1)';
 	let sidebarWidth: Measure = 'inherit';
 	let alignItems: AlignItems = 'stretch';
 </script>
 
 <style>
-	span {
+	.sidebar__main-content, .sidebar__content {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -39,16 +39,6 @@
 		min-height: 100px;
 		background-color: pink;
 	}
-
-	.item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		max-width: none;
-		height: 100px;
-		background-color: lightblue;
-	}
 </style>
 
 # Sidebar - with no flexbox gap
@@ -60,7 +50,7 @@
 	name="sidebarContentMinWidth"
 	bind:value={sidebarContentMinWidth}
 />
-<PropBoolean name="sidebarOnLeft" bind:value={sidebarOnLeft} />
+<PropBoolean name="sidebarOnRight" bind:value={sidebarOnRight} />
 <PropSelect options={space_options} name="sidebarSpace" bind:value={sidebarSpace} />
 <PropSelect options={measure_options} name="sidebarWidth" bind:value={sidebarWidth} />
 <PropSelect options={align_items_options} name="alignItems" bind:value={alignItems} />
@@ -69,12 +59,12 @@
 
 <SqueezeContainer>
 	<div class="no-flexbox-gap">
-		<Sidebar {sidebarContentMinWidth} {sidebarOnLeft} {sidebarSpace} {sidebarWidth} {alignItems}>
+		<Sidebar {sidebarContentMinWidth} {sidebarOnRight} {sidebarSpace} {sidebarWidth} {alignItems}>
 			<svelte:fragment slot="sidebar">
-				<span class="sidebar__content">Sidebar</span>
+				<div class="sidebar__content">Sidebar</div>
 			</svelte:fragment>
 			<svelte:fragment slot="main-content">
-				<span class="sidebar__main-content">Main content</span>
+				<div class="sidebar__main-content">Main content</div>
 			</svelte:fragment>
 		</Sidebar>
 	</div>

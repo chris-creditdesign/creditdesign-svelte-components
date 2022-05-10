@@ -12,15 +12,6 @@
 </script>
 
 <style>
-	span {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		max-width: none;
-		min-height: 100px;
-		background-color: lightblue;
-	}
-
 	img {
 		max-width: 100%;
 	}

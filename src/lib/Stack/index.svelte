@@ -28,49 +28,6 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 	$: stackSpaceComponent = stackSpace.length > 0 ? `--stack-space--component: ${stackSpace};` : '';
 </script>
 
-<style>
-	:global(:root) {
-		--stack-space--global: var(--s-1);
-	}
-
-	.stack {
-		--stack-space--component: initial;
-		--stack-space: var(--stack-space--component, var(--stack-space--global));
-
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		gap: var(--stack-space);
-	}
-
-	.stack:only-child {
-		/*	So that the Stack area will fill the available height,
-			causing the `.stack__split-after` element to be pushed
-			to the bottom - but only when the stack is the only
-			child of its parent element */
-		block-size: 100%;
-	}
-
-	:global(ul.stack) {
-		list-style: none;
-		padding: 0;
-		max-width: none;
-		margin-block: 0;
-	}
-
-	:global(.stack > *) {
-		margin-block: 0;
-	}
-
-	:global(.stack > .stack__split-after) {
-		margin-block-end: auto;
-	}
-
-	:global(.no-flexbox-gap .stack > * + *) {
-		margin-block-start: var(--stack-space, 1rem);
-	}
-</style>
-
 <svelte:element this={tag} class={`stack ${className}`} style={stackSpaceComponent}>
 	<slot />
 </svelte:element>

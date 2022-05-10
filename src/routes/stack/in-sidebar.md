@@ -22,26 +22,13 @@
 		background-color: lightblue;
 	}
 
-	.item--nested {
-		background-color: pink;
-	}
-
-	.stack__split-after {
+	.margin-block-end\:auto {
 		background-color: mediumaquamarine;
-	}
-
-	.item-extra {
-		background-color: orange;
 	}
 
 	.item-in-cover {
 		background-color: coral;
 		height: 100%;
-	}
-
-	.test-container {
-		width: 100%;
-		height: 100vh;
 	}
 </style>
 
@@ -60,7 +47,7 @@
 				<span class="item">Item</span>
 				<span class="item">Item</span>
 				<span class="item">Item</span>
-				<span class="item stack__split-after">.stack__split-after</span>
+				<span class="item margin-block-end:auto">.margin-block-end:auto</span>
 				<span class="item">Item</span>
 			</Stack>
 		</svelte:fragment>

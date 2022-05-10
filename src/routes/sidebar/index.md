@@ -15,14 +15,14 @@
 	} from '../../preview-content/options';
 
 	let sidebarContentMinWidth: PercentWidth = '75%';
-	let sidebarOnLeft: boolean = true;
+	let sidebarOnRight: boolean = false;
 	let sidebarSpace: Space = 'var(--s-1)';
 	let sidebarWidth: Measure = 'inherit';
 	let alignItems: AlignItems = 'stretch';
 </script>
 
 <style>
-	span {
+	.sidebar__main-content, .sidebar__content {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -31,36 +31,12 @@
 		background-color: lightblue;
 	}
 
-	nav {
-		max-width: none;
-	}
-
 	.sidebar__main-content {
 		height: 50vh;
 	}
 
 	.sidebar__content {
 		min-height: 100px;
-		background-color: pink;
-	}
-
-	.item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		max-width: none;
-		height: 100px;
-		background-color: lightblue;
-	}
-
-	.list-item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		max-width: none;
-		height: 50px;
-		padding: var(--s-1);
 		background-color: pink;
 	}
 </style>
@@ -91,17 +67,17 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 
 <Sidebar
 	sidebarContentMinWidth="75%"
-	sidebarOnLeft={true}
+	sidebarOnRight={false}
 	sidebarSpace="var(--s-1)"
 	sidebarWidth="inherit"
 	alignItems="stretch"
 	className="test"
 >
 	<svelte:fragment slot="sidebar">
-		<span>Sidebar</span>
+		<div>Sidebar</div>
 	</svelte:fragment>
 	<svelte:fragment slot="main-content">
-		<span>Main content</span>
+		<div>Main content</div>
 	</svelte:fragment>
 </Sidebar>
 ```
@@ -111,7 +87,7 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 | Property name            | Default value |
 | ------------------------ | ------------- |
 | `sidebarContentMinWidth` | `75%`         |
-| `sidebarOnLeft`          | `true`        |
+| `sidebarOnRight`         | `false`       |
 | `sidebarSpace`           | `var(--s-1)`  |
 | `sidebarWidth`           | `inherit`     |
 | `alignItems`             | `stretch`     |
@@ -122,10 +98,10 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 <SqueezeContainer>
 	<Sidebar>
 		<svelte:fragment slot="sidebar">
-			<span class="sidebar__content">Sidebar</span>
+			<div class="sidebar__content">Sidebar</div>
 		</svelte:fragment>
 		<svelte:fragment slot="main-content">
-			<span class="sidebar__main-content">Main content</span>
+			<div class="sidebar__main-content">Main content</div>
 		</svelte:fragment>
 	</Sidebar>
 </SqueezeContainer>

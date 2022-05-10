@@ -22,21 +22,12 @@
 		background-color: lightblue;
 	}
 
-	.item--nested {
-		background-color: pink;
-	}
-
-	.stack__split-after {
+	.margin-block-end\:auto {
 		background-color: mediumaquamarine;
 	}
 
 	.item-extra {
 		background-color: orange;
-	}
-
-	.item-in-cover {
-		background-color: coral;
-		height: 100%;
 	}
 
 	.test-container {
@@ -45,7 +36,7 @@
 	}
 </style>
 
-# Stack - with `stack__split-after` and extra item
+# Stack - with 'split after' and extra item
 
 The stack should not be split because it is not the only child of its parent.
 
@@ -62,7 +53,7 @@ The stack should not be split because it is not the only child of its parent.
 			<span class="item">Item</span>
 			<span class="item">Item</span>
 			<span class="item">Item</span>
-			<span class="item stack__split-after">.stack__split-after</span>
+			<span class="item margin-block-end:auto">.margin-block-end:auto</span>
 			<span class="item">Item</span>
 		</Stack>
 	</div>
