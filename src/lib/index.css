@@ -94,7 +94,7 @@
 html,
 body,
 div,
-span,
+aside,
 section,
 main,
 article,
@@ -104,9 +104,10 @@ img,
 video,
 iframe,
 svg,
+canvas,
 footer,
 a {
-	max-width: none;
+  max-width: none;
 }
 
 /* -------------------------------------------------------------------------- */
