@@ -3,10 +3,11 @@
 /*                                    Frame                                   */
 
 /* -------------------------------------------------------------------------- */
-:root {
+@at-root :root {
 	--frame-ratio-height--global: 9;
 	--frame-ratio-width--global: 16;
 }
+
 .frame {
 	--frame-ratio-height--component: initial;
 	--frame-ratio-width--component: initial;

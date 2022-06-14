@@ -3,7 +3,7 @@
 /*                                  FullBleed                                 */
 
 /* -------------------------------------------------------------------------- */
-:root {
+@at-root :root {
 	--full-bleed-measure--global: var(--measure);
 	--full-bleed-side-space--global: var(--s-1);
 	--full-bleed-stack-space--global: var(--s-1);

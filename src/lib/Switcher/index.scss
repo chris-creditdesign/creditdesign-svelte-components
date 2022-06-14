@@ -3,7 +3,7 @@
 /*                                  Switcher                                  */
 
 /* -------------------------------------------------------------------------- */
-:root {
+@at-root :root {
 	--switcher-min-width--global: var(--measure);
 	--switcher-space--global: var(--s-1);
 }

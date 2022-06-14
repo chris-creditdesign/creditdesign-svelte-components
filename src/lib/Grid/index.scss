@@ -3,7 +3,7 @@
 /*                                    Grid                                    */
 
 /* -------------------------------------------------------------------------- */
-:root {
+@at-root :root {
 	--grid-space--global: var(--s-1);
 	--grid-column-space--global: var(--grid-space--global);
 	--grid-min-width--global: var(--measure-small);

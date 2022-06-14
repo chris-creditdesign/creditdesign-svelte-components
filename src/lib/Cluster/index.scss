@@ -3,7 +3,7 @@
 /*                                   Cluster                                  */
 
 /* -------------------------------------------------------------------------- */
-:root {
+@at-root :root {
 	--cluster-space--global: var(--s-1);
 	--cluster-justify-content--global: flex-start;
 }
