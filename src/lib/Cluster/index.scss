@@ -1,0 +1,40 @@
+/* -------------------------------------------------------------------------- */
+
+/*                                   Cluster                                  */
+
+/* -------------------------------------------------------------------------- */
+:root {
+	--cluster-space--global: var(--s-1);
+	--cluster-justify-content--global: flex-start;
+}
+
+.cluster {
+	--cluster-justify-content--component: initial;
+	--cluster-space--component: initial;
+	--cluster-justify-content: var(
+		--cluster-justify-content--component,
+		var(--cluster-justify-content--global)
+	);
+	--cluster-space: var(--cluster-space--component, var(--cluster-space--global));
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: var(--cluster-justify-content);
+	gap: var(--cluster-space);
+}
+
+.no-flexbox-gap .cluster > * {
+	margin: var(--cluster-space);
+}
+
+ul.cluster {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+ul.cluster > li {
+	max-width: none;
+	padding: 0;
+}

@@ -1,0 +1,17 @@
+/* -------------------------------------------------------------------------- */
+
+/*                                     Box                                    */
+
+/* -------------------------------------------------------------------------- */
+
+:root {
+	--box-space--global: var(--s-1);
+}
+
+.box {
+	--box-space--component: initial;
+	--box-space: var(--box-space--component, var(--box-space--global, 1rem));
+
+	padding: 1rem;
+	padding: var(--box-space);
+}

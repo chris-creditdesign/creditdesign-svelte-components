@@ -1,0 +1,47 @@
+/* -------------------------------------------------------------------------- */
+
+/*                                   Sidebar                                  */
+
+/* -------------------------------------------------------------------------- */
+:root {
+	--sidebar-content-min-width--global: 75%;
+	--sidebar-space--global: var(--s-1);
+	--sidebar-width--global: inherit;
+}
+
+.sidebar {
+	--sidebar-content-min-width--component: initial;
+	--sidebar-space--component: initial;
+	--sidebar-width--component: initial;
+	--sidebar-content-min-width: var(
+		--sidebar-content-min-width--component,
+		var(--sidebar-content-min-width--global)
+	);
+	--sidebar-space: var(--sidebar-space--component, var(--sidebar-space--global));
+	--sidebar-width: var(--sidebar-width--component, var(--sidebar-width--global));
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sidebar-space);
+}
+
+.no-flexbox-gap .sidebar > * {
+	margin: var(--sidebar-space);
+}
+
+/* stylelint-disable */
+/* If sidebar-on-left is "true" the first child is the sidebar.
+	If sidebar-on-left is "false" the last child is the sidebar. */
+.sidebar:not(.sidebar-on-right) > *:first-child, .sidebar.sidebar-on-right > *:last-child {
+	flex-basis: var(--sidebar-width);
+	flex-grow: 1;
+}
+
+/* If sidebar-on-left is "true" the last child is the main content.
+	If sidebar-on-left is "false" the first child is the main content. */
+.sidebar:not(.sidebar-on-right) > *:last-child, .sidebar.sidebar-on-right > *:first-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
+}
+/* stylelint-enable */

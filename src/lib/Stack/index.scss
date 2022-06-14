@@ -1,0 +1,43 @@
+/* -------------------------------------------------------------------------- */
+
+/*                                    Stack                                   */
+
+/* -------------------------------------------------------------------------- */
+:root {
+	--stack-space--global: var(--s-1);
+}
+
+.stack {
+	--stack-space--component: initial;
+	--stack-space: var(--stack-space--component, var(--stack-space--global));
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: var(--stack-space);
+}
+
+.stack:only-child {
+	/*	So that the Stack area will fill the available height,
+		causing the `.stack__split-after` element to be pushed
+		to the bottom - but only when the stack is the only
+		child of its parent element */
+	block-size: 100%;
+}
+
+ul.stack {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.stack > * {
+	margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.no-flexbox-gap .stack > * + * {
+	margin-block-start: var(--stack-space, 1rem);
+}

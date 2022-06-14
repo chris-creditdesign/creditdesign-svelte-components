@@ -61,13 +61,13 @@
 										<h3><a href={`/${page.name}`}>{pascalCase(page.name)}</a></h3>
 									</svelte:fragment>
 									<svelte:fragment slot="content">
-										<Stack list={true} stackSpace="0">
+										<ul>
 											{#each page.children as child}
 												<li class="list-item list-item--child">
 													<a href={`/${page.name}/${child}`}>{child}</a>
 												</li>
 											{/each}
-										</Stack>
+										</ul>
 									</svelte:fragment>
 								</ToggleSection>
 							</li>

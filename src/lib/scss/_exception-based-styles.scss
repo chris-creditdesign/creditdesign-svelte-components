@@ -1,0 +1,25 @@
+/* ------------------------- Exception based styling ------------------------ */
+* {
+	box-sizing: border-box;
+	max-width: var(--measure);
+}
+
+/* All elements should have a max width of --measure except these */
+html,
+body,
+div,
+aside,
+section,
+main,
+article,
+header,
+figure,
+img,
+video,
+iframe,
+svg,
+canvas,
+footer,
+a {
+  max-width: none;
+}

@@ -1,93 +1,456 @@
 /* -------------------------------------------------------------------------- */
+/*                                     Box                                    */
+/* -------------------------------------------------------------------------- */
+:root {
+  --box-space--global: var(--s-1);
+}
 
-/*                              Custom properties                             */
+.box {
+  --box-space--component: initial;
+  --box-space: var(--box-space--component, var(--box-space--global, 1rem));
+  padding: 1rem;
+  padding: var(--box-space);
+}
 
 /* -------------------------------------------------------------------------- */
-
+/*                                   Center                                   */
+/* -------------------------------------------------------------------------- */
 :root {
-	/* ------------------------------ Modular scale ----------------------------- */
-	font-size: 1rem;
+  --center-measure--global: var(--measure);
+  --center-space--global: var(--s-1);
+}
 
-	/* Sizes to use */
-	--ratio: 1.5;
-	--s-6: calc(var(--s-5) / var(--ratio));
-	--s-5: calc(var(--s-4) / var(--ratio));
-	--s-4: calc(var(--s-3) / var(--ratio));
-	--s-3: calc(var(--s-2) / var(--ratio));
-	--s-2: calc(var(--s-1) / var(--ratio));
-	--s-1: calc(var(--s0) / var(--ratio));
-	--s0: 1rem;
-	--s1: calc(var(--s0) * var(--ratio));
-	--s2: calc(var(--s1) * var(--ratio));
-	--s3: calc(var(--s2) * var(--ratio));
-	--s4: calc(var(--s3) * var(--ratio));
-	--s5: calc(var(--s4) * var(--ratio));
-	--s6: calc(var(--s5) * var(--ratio));
-	--s7: calc(var(--s6) * var(--ratio));
-	--s8: calc(var(--s7) * var(--ratio));
+.center {
+  --center-measure--component: initial;
+  --center-space--component: initial;
+  --center-measure: var(--center-measure--component, var(--center-measure--global, 60ch));
+  --center-space: var(--center-space--component, var(--center-space--global, 1rem));
+  box-sizing: content-box;
+  max-width: 60ch;
+  max-width: var(--center-measure);
+  padding-right: 1rem;
+  padding-right: var(--center-space);
+  padding-left: 1rem;
+  padding-left: var(--center-space);
+  margin-right: auto;
+  margin-left: auto;
+}
 
-	/* Useful to for fallback values */
-	--no-space: 0;
+.center.intrinsically-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-	/* --------------------------------- Measure -------------------------------- */
-	--measure: 60ch;
-	--measure-big: calc(var(--measure) * var(--ratio));
-	--measure-small: calc(var(--measure) / var(--ratio));
+/* -------------------------------------------------------------------------- */
+/*                                   Cluster                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --cluster-space--global: var(--s-1);
+  --cluster-justify-content--global: flex-start;
+}
 
-	/* --------------------------------- Spacing -------------------------------- */
-	--space: var(--s-1);
-	--cover-space: 1rem;
-	--cover-height: 100vh;
+.cluster {
+  --cluster-justify-content--component: initial;
+  --cluster-space--component: initial;
+  --cluster-justify-content: var(
+  	--cluster-justify-content--component,
+  	var(--cluster-justify-content--global)
+  );
+  --cluster-space: var(--cluster-space--component, var(--cluster-space--global));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--cluster-justify-content);
+  gap: var(--cluster-space);
+}
 
-	/* ---------------------- Global styles for components ---------------------- */
+.no-flexbox-gap .cluster > * {
+  margin: var(--cluster-space);
+}
 
-	/* ----------------------------------- Box ---------------------------------- */
-	--box-space--global: var(--s-1);
+ul.cluster {
+  max-width: none;
+  padding: 0;
+  list-style: none;
+  margin-block: 0;
+}
 
-	/* --------------------------------- Center --------------------------------- */
-	--center-measure--global: var(--measure);
-	--center-space--global: var(--s-1);
+ul.cluster > li {
+  max-width: none;
+  padding: 0;
+}
 
-	/* --------------------------------- Cluster -------------------------------- */
-	--cluster-space--global: var(--s-1);
-	--cluster-justify-content--global: flex-start;
+/* -------------------------------------------------------------------------- */
+/*                                    Cover                                   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --cover-height--global: 100vh;
+  --cover-space--global: var(--s-1);
+}
 
-	/* ---------------------------------- Cover --------------------------------- */
-	--cover-height--global: 100vh;
-	--cover-space--global: var(--s-1);
+.cover {
+  --cover-height--component: initial;
+  --cover-space--component: initial;
+  --cover-height: var(--cover-height--component, var(--cover-height--global, 100vh));
+  --cover-space: var(--cover-space--component, var(--cover-space--global, 1rem));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: var(--cover-height);
+  padding: 1rem;
+  padding: var(--cover-space);
+  overflow: hidden;
+}
 
-	/* ---------------------------------- Frame --------------------------------- */
-	--frame-ratio-height--global: 9;
-	--frame-ratio-width--global: 16;
+/* stylelint-disable-next-line no-descending-specificity */
+.cover > * {
+  margin-block-start: var(--s-1, 1rem);
+  margin-block-end: var(--s-1, 1rem);
+}
 
-	/* -------------------------------- FullBleed ------------------------------- */
-	--full-bleed-measure--global: var(--measure);
-	--full-bleed-side-space--global: var(--s-1);
-	--full-bleed-stack-space--global: var(--s-1);
+.cover > .cover__centered {
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
 
-	/* ---------------------------------- Grid ---------------------------------- */
-	--grid-space--global: var(--s-1);
-	--grid-column-space--global: var(--grid-space--global);
-	--grid-min-width--global: var(--measure-small);
-	--grid-row-space--global: var(--grid-space--global);
+.cover > :first-child:not(.cover__centered) {
+  margin-block-start: 0;
+}
 
-	/* --------------------------------- Sidebar -------------------------------- */
-	--sidebar-content-min-width--global: 75%;
-	--sidebar-space--global: var(--s-1);
-	--sidebar-width--global: inherit;
+.cover > :last-child:not(.cover__centered) {
+  margin-block-end: 0;
+}
 
-	/* ---------------------------------- Stack --------------------------------- */
-	--stack-space--global: var(--s-1);
+/* -------------------------------------------------------------------------- */
+/*                                    Frame                                   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --frame-ratio-height--global: 9;
+  --frame-ratio-width--global: 16;
+}
 
-	/* --------------------------------- Swither -------------------------------- */
-	--switcher-min-width--global: var(--measure);
-	--switcher-space--global: var(--s-1);
+.frame {
+  --frame-ratio-height--component: initial;
+  --frame-ratio-width--component: initial;
+  --frame-ratio-height: var(--frame-ratio-height--component, var(--frame-ratio-height--global));
+  --frame-ratio-width: var(--frame-ratio-width--component, var(--frame-ratio-width--global));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: var(--frame-ratio-width)/var(--frame-ratio-height);
+}
+
+.frame > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  FullBleed                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+  --full-bleed-measure--global: var(--measure);
+  --full-bleed-side-space--global: var(--s-1);
+  --full-bleed-stack-space--global: var(--s-1);
+}
+
+.full-bleed {
+  --full-bleed-measure--component: initial;
+  --full-bleed-side-space--component: initial;
+  --full-bleed-stack-space--component: initial;
+  --full-bleed-measure: var(
+  	--full-bleed-measure--component,
+  	var(--full-bleed-measure--global, 60ch)
+  );
+  --full-bleed-side-space: var(
+  	--full-bleed-side-space--component,
+  	var(--full-bleed-side-space--global, 1rem)
+  );
+  --full-bleed-stack-space: var(
+  	--full-bleed-stack-space--component,
+  	var(--full-bleed-stack-space--global)
+  );
+  width: 100%;
+  /* If the min() function is not available ie firefox < 75, chrome < 79
+  set everything into a single column, centered layout as a fall back */
+  max-width: 60ch;
+  max-width: var(--full-bleed-measure);
+  padding-inline-end: var(--full-bleed-side-space);
+  padding-inline-start: var(--full-bleed-side-space);
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+}
+
+/* If the min function is available, then implement the grid layout  */
+@supports (width: min(60ch, 100%)) {
+  .full-bleed {
+    display: grid;
+    max-width: none;
+    gap: var(--full-bleed-stack-space, 1rem) 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr min(var(--full-bleed-measure), 100%) 1fr 1fr 1fr 1fr;
+  }
+}
+/* stylelint-disable-next-line no-descending-specificity */
+.full-bleed > * {
+  grid-column: 5/6;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.full-bleed--1 {
+  grid-column: 1/10;
+}
+
+.full-bleed--2 {
+  grid-column: 2/9;
+}
+
+.full-bleed--3 {
+  grid-column: 3/8;
+}
+
+.full-bleed--4 {
+  grid-column: 4/7;
+}
+
+.full-bleed--left {
+  grid-column: 1/6;
+}
+
+.full-bleed--left-2 {
+  grid-column: 2/6;
+}
+
+.full-bleed--left-3 {
+  grid-column: 3/6;
+}
+
+.full-bleed--left-4 {
+  grid-column: 4/6;
+}
+
+.full-bleed--right {
+  grid-column: 5/10;
+}
+
+.full-bleed--right-2 {
+  grid-column: 5/9;
+}
+
+.full-bleed--right-3 {
+  grid-column: 5/8;
+}
+
+.full-bleed--right-4 {
+  grid-column: 5/7;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Grid                                    */
+/* -------------------------------------------------------------------------- */
+:root {
+  --grid-space--global: var(--s-1);
+  --grid-column-space--global: var(--grid-space--global);
+  --grid-min-width--global: var(--measure-small);
+  --grid-row-space--global: var(--grid-space--global);
+}
+
+.grid {
+  --grid-column-space--component: initial;
+  --grid-min-width--component: initial;
+  --grid-row-space--component: initial;
+  --grid-column-space: var(--grid-column-space--component, var(--grid-column-space--global));
+  --grid-min-width: var(--grid-min-width--component, var(--grid-min-width--global));
+  --grid-row-space: var(--grid-row-space--component, var(--grid-row-space--global));
+  display: grid;
+  /* Set a gutter between each grid item */
+  column-gap: var(--grid-column-space);
+  row-gap: var(--grid-row-space);
+  /*	repeat() to repeat columns as many times as needed
+  	auto-fit instead of of set number of columns,
+  	is used to fit columns into the space provided and
+  	wrap cells into the row below as needed
+  	minmax(250px, 1fr) the minimum width of the columns is 250px.
+  	If more space is available, the columns are expanded to fill
+  	the space (as defined by auto-fit rather than auto fill witch will
+  	add extra empty columns to fill the space).
+  	1fr is one fraction of the available space
+  	min() returns whatever is the minimum value.
+  	in this case --grid-min-width will be returned unless it is less
+  	than 100% width. In this case 100% width will be returned.
+  	The minmax function will then require columns to be a minimum width
+  	of 100% width - this will create a 1 column layout.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width), 100%), 1fr));
+}
+
+ul.grid {
+  max-width: none;
+  padding: 0;
+  list-style: none;
+  margin-block: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Sidebar                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --sidebar-content-min-width--global: 75%;
+  --sidebar-space--global: var(--s-1);
+  --sidebar-width--global: inherit;
+}
+
+.sidebar {
+  --sidebar-content-min-width--component: initial;
+  --sidebar-space--component: initial;
+  --sidebar-width--component: initial;
+  --sidebar-content-min-width: var(
+  	--sidebar-content-min-width--component,
+  	var(--sidebar-content-min-width--global)
+  );
+  --sidebar-space: var(--sidebar-space--component, var(--sidebar-space--global));
+  --sidebar-width: var(--sidebar-width--component, var(--sidebar-width--global));
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-space);
+}
+
+.no-flexbox-gap .sidebar > * {
+  margin: var(--sidebar-space);
+}
+
+/* stylelint-disable */
+/* If sidebar-on-left is "true" the first child is the sidebar.
+	If sidebar-on-left is "false" the last child is the sidebar. */
+.sidebar:not(.sidebar-on-right) > *:first-child, .sidebar.sidebar-on-right > *:last-child {
+  flex-basis: var(--sidebar-width);
+  flex-grow: 1;
+}
+
+/* If sidebar-on-left is "true" the last child is the main content.
+	If sidebar-on-left is "false" the first child is the main content. */
+.sidebar:not(.sidebar-on-right) > *:last-child, .sidebar.sidebar-on-right > *:first-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
+}
+
+/* stylelint-enable */
+/* -------------------------------------------------------------------------- */
+/*                                    Stack                                   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --stack-space--global: var(--s-1);
+}
+
+.stack {
+  --stack-space--component: initial;
+  --stack-space: var(--stack-space--component, var(--stack-space--global));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--stack-space);
+}
+
+.stack:only-child {
+  /*	So that the Stack area will fill the available height,
+  	causing the `.stack__split-after` element to be pushed
+  	to the bottom - but only when the stack is the only
+  	child of its parent element */
+  block-size: 100%;
+}
+
+ul.stack {
+  max-width: none;
+  padding: 0;
+  list-style: none;
+  margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.stack > * {
+  margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.no-flexbox-gap .stack > * + * {
+  margin-block-start: var(--stack-space, 1rem);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Switcher                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+  --switcher-min-width--global: var(--measure);
+  --switcher-space--global: var(--s-1);
+}
+
+.switcher {
+  --switcher-min-width--component: initial;
+  --switcher-space--component: initial;
+  --switcher-min-width: var(--switcher-min-width--component, var(--switcher-min-width--global));
+  --switcher-space: var(--switcher-space--component, var(--switcher-space--global));
+  --modifier: calc(var(--switcher-min-width) - (100% - var(--switcher-space)));
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--switcher-space);
+}
+
+ul.switcher {
+  max-width: none;
+  padding: 0;
+  list-style: none;
+  margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > * {
+  flex-basis: calc(var(--modifier) * 999);
+  flex-grow: 1;
+  margin: 0;
+}
+
+/*	If there are 8 or more items, stack them automatically.
+	`:nth-last-child(n + 8)`
+	First select every element that is 8 or more elements from
+	the end of the list, counting backwards.
+	`:nth-last-child(n + 8) ~ *`
+	Then select every element that is a general sibling of an elemnet
+	that is 8 or more elements from the end of the list i.e. every elemement
+	that comes after the selected element.
+	Combining these selectors means that if there are 8 or more elements
+	in total they will all be selected. If there are less than 8,
+	none will be selecetd.
+*/
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > :nth-last-child(n+8) {
+  flex-basis: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > :nth-last-child(n+8) ~ * {
+  flex-basis: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.no-flexbox-gap .switcher > * {
+  margin: var(--switcher-space);
 }
 
 /* ------------------------- Exception based styling ------------------------ */
 * {
-	box-sizing: border-box;
-	max-width: var(--measure);
+  box-sizing: border-box;
+  max-width: var(--measure);
 }
 
 /* All elements should have a max width of --measure except these */
@@ -110,467 +473,47 @@ a {
   max-width: none;
 }
 
-/* -------------------------------------------------------------------------- */
-
-/*                                     Box                                    */
-
-/* -------------------------------------------------------------------------- */
-
-.box {
-	--box-space--component: initial;
-	--box-space: var(--box-space--component, var(--box-space--global, 1rem));
-
-	padding: 1rem;
-	padding: var(--box-space);
+:root {
+  /* ------------------------------ Modular scale ----------------------------- */
+  font-size: 1rem;
+  /* Sizes to use */
+  --ratio: 1.5;
+  --s-6: calc(var(--s-5) / var(--ratio));
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --s6: calc(var(--s5) * var(--ratio));
+  --s7: calc(var(--s6) * var(--ratio));
+  --s8: calc(var(--s7) * var(--ratio));
+  /* Useful to for fallback values */
+  --no-space: 0;
+  /* --------------------------------- Measure -------------------------------- */
+  --measure: 60ch;
+  --measure-big: calc(var(--measure) * var(--ratio));
+  --measure-small: calc(var(--measure) / var(--ratio));
+  /* --------------------------------- Spacing -------------------------------- */
+  --space: var(--s-1);
+  --cover-space: 1rem;
+  --cover-height: 100vh;
 }
 
 /* -------------------------------------------------------------------------- */
-
-/*                                   Center                                   */
-
-/* -------------------------------------------------------------------------- */
-
-.center {
-	--center-measure--component: initial;
-	--center-space--component: initial;
-	--center-measure: var(--center-measure--component, var(--center-measure--global, 60ch));
-	--center-space: var(--center-space--component, var(--center-space--global, 1rem));
-
-	box-sizing: content-box;
-	max-width: 60ch;
-	max-width: var(--center-measure);
-	padding-right: 1rem;
-	padding-right: var(--center-space);
-	padding-left: 1rem;
-	padding-left: var(--center-space);
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.center.intrinsically-center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                   Cluster                                  */
-
-/* -------------------------------------------------------------------------- */
-
-.cluster {
-	--cluster-justify-content--component: initial;
-	--cluster-space--component: initial;
-	--cluster-justify-content: var(
-		--cluster-justify-content--component,
-		var(--cluster-justify-content--global)
-	);
-	--cluster-space: var(--cluster-space--component, var(--cluster-space--global));
-
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: var(--cluster-justify-content);
-	gap: var(--cluster-space);
-}
-
-.no-flexbox-gap .cluster > * {
-	margin: var(--cluster-space);
-}
-
-ul.cluster {
-	max-width: none;
-	padding: 0;
-	list-style: none;
-	margin-block: 0;
-}
-
-ul.cluster > li {
-	max-width: none;
-	padding: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                    Cover                                   */
-
-/* -------------------------------------------------------------------------- */
-
-.cover {
-	--cover-height--component: initial;
-	--cover-space--component: initial;
-	--cover-height: var(--cover-height--component, var(--cover-height--global, 100vh));
-	--cover-space: var(--cover-space--component, var(--cover-space--global, 1rem));
-
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	min-height: var(--cover-height);
-	padding: 1rem;
-	padding: var(--cover-space);
-	overflow: hidden;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.cover > * {
-	margin-block-start: var(--s-1, 1rem);
-	margin-block-end: var(--s-1, 1rem);
-}
-
-.cover > .cover__centered {
-	margin-block-start: auto;
-	margin-block-end: auto;
-}
-
-.cover > :first-child:not(.cover__centered) {
-	margin-block-start: 0;
-}
-
-.cover > :last-child:not(.cover__centered) {
-	margin-block-end: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                    Frame                                   */
-
-/* -------------------------------------------------------------------------- */
-
-.frame {
-	--frame-ratio-height--component: initial;
-	--frame-ratio-width--component: initial;
-	--frame-ratio-height: var(--frame-ratio-height--component, var(--frame-ratio-height--global));
-	--frame-ratio-width: var(--frame-ratio-width--component, var(--frame-ratio-width--global));
-
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	aspect-ratio: var(--frame-ratio-width) / var(--frame-ratio-height);
-}
-
-.frame > img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.frame > video {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                  FullBleed                                 */
-
-/* -------------------------------------------------------------------------- */
-
-.full-bleed {
-	--full-bleed-measure--component: initial;
-	--full-bleed-side-space--component: initial;
-	--full-bleed-stack-space--component: initial;
-	--full-bleed-measure: var(
-		--full-bleed-measure--component,
-		var(--full-bleed-measure--global, 60ch)
-	);
-	--full-bleed-side-space: var(
-		--full-bleed-side-space--component,
-		var(--full-bleed-side-space--global, 1rem)
-	);
-	--full-bleed-stack-space: var(
-		--full-bleed-stack-space--component,
-		var(--full-bleed-stack-space--global)
-	);
-
-	width: 100%;
-
-	/* If the min() function is not available ie firefox < 75, chrome < 79
-	set everything into a single column, centered layout as a fall back */
-	max-width: 60ch;
-	max-width: var(--full-bleed-measure);
-	padding-inline-end: var(--full-bleed-side-space);
-	padding-inline-start: var(--full-bleed-side-space);
-	margin-inline-end: auto;
-	margin-inline-start: auto;
-}
-
-/* If the min function is available, then implement the grid layout  */
-@supports (width: min(60ch, 100%)) {
-	.full-bleed {
-		display: grid;
-		max-width: none;
-		gap: var(--full-bleed-stack-space, 1rem) 0;
-		grid-template-columns:
-			1fr
-			1fr
-			1fr
-			1fr
-			min(var(--full-bleed-measure), 100%)
-			1fr
-			1fr
-			1fr
-			1fr;
-	}
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.full-bleed > * {
-	grid-column: 5 / 6;
-	margin-block-start: 0;
-	margin-block-end: 0;
-}
-
-.full-bleed--1 {
-	grid-column: 1 / 10;
-}
-
-.full-bleed--2 {
-	grid-column: 2 / 9;
-}
-
-.full-bleed--3 {
-	grid-column: 3 / 8;
-}
-
-.full-bleed--4 {
-	grid-column: 4 / 7;
-}
-
-.full-bleed--left {
-	grid-column: 1 / 6;
-}
-
-.full-bleed--left-2 {
-	grid-column: 2 / 6;
-}
-
-.full-bleed--left-3 {
-	grid-column: 3 / 6;
-}
-
-.full-bleed--left-4 {
-	grid-column: 4 / 6;
-}
-
-.full-bleed--right {
-	grid-column: 5 / 10;
-}
-
-.full-bleed--right-2 {
-	grid-column: 5 / 9;
-}
-
-.full-bleed--right-3 {
-	grid-column: 5 / 8;
-}
-
-.full-bleed--right-4 {
-	grid-column: 5 / 7;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                    Grid                                    */
-
-/* -------------------------------------------------------------------------- */
-
-.grid {
-	--grid-column-space--component: initial;
-	--grid-min-width--component: initial;
-	--grid-row-space--component: initial;
-	--grid-column-space: var(--grid-column-space--component, var(--grid-column-space--global));
-	--grid-min-width: var(--grid-min-width--component, var(--grid-min-width--global));
-	--grid-row-space: var(--grid-row-space--component, var(--grid-row-space--global));
-
-	display: grid;
-
-	/* Set a gutter between each grid item */
-	column-gap: var(--grid-column-space);
-	row-gap: var(--grid-row-space);
-
-	/*	repeat() to repeat columns as many times as needed
-		auto-fit instead of of set number of columns,
-		is used to fit columns into the space provided and
-		wrap cells into the row below as needed
-		minmax(250px, 1fr) the minimum width of the columns is 250px.
-		If more space is available, the columns are expanded to fill
-		the space (as defined by auto-fit rather than auto fill witch will
-		add extra empty columns to fill the space).
-		1fr is one fraction of the available space
-		min() returns whatever is the minimum value.
-		in this case --grid-min-width will be returned unless it is less
-		than 100% width. In this case 100% width will be returned.
-		The minmax function will then require columns to be a minimum width
-		of 100% width - this will create a 1 column layout.
-	*/
-	grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width), 100%), 1fr));
-}
-
-ul.grid {
-	max-width: none;
-	padding: 0;
-	list-style: none;
-	margin-block: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                   Sidebar                                  */
-
-/* -------------------------------------------------------------------------- */
-
-.sidebar {
-	--sidebar-content-min-width--component: initial;
-	--sidebar-space--component: initial;
-	--sidebar-width--component: initial;
-	--sidebar-content-min-width: var(
-		--sidebar-content-min-width--component,
-		var(--sidebar-content-min-width--global)
-	);
-	--sidebar-space: var(--sidebar-space--component, var(--sidebar-space--global));
-	--sidebar-width: var(--sidebar-width--component, var(--sidebar-width--global));
-
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--sidebar-space);
-}
-
-.no-flexbox-gap .sidebar > * {
-	margin: var(--sidebar-space);
-}
-
-/* stylelint-disable */
-/* If sidebar-on-left is "true" the first child is the sidebar.
-	If sidebar-on-left is "false" the last child is the sidebar. */
-.sidebar:not(.sidebar-on-right) > *:first-child, .sidebar.sidebar-on-right > *:last-child {
-	flex-basis: var(--sidebar-width);
-	flex-grow: 1;
-}
-
-/* If sidebar-on-left is "true" the last child is the main content.
-	If sidebar-on-left is "false" the first child is the main content. */
-.sidebar:not(.sidebar-on-right) > *:last-child, .sidebar.sidebar-on-right > *:first-child {
-	flex-basis: 0;
-	flex-grow: 999;
-	min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
-}
-/* stylelint-enable */
-
-/* -------------------------------------------------------------------------- */
-
-/*                                    Stack                                   */
-
-/* -------------------------------------------------------------------------- */
-
-.stack {
-	--stack-space--component: initial;
-	--stack-space: var(--stack-space--component, var(--stack-space--global));
-
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	gap: var(--stack-space);
-}
-
-.stack:only-child {
-	/*	So that the Stack area will fill the available height,
-		causing the `.stack__split-after` element to be pushed
-		to the bottom - but only when the stack is the only
-		child of its parent element */
-	block-size: 100%;
-}
-
-ul.stack {
-	max-width: none;
-	padding: 0;
-	list-style: none;
-	margin-block: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.stack > * {
-	margin-block: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.no-flexbox-gap .stack > * + * {
-	margin-block-start: var(--stack-space, 1rem);
-}
-
-/* -------------------------------------------------------------------------- */
-
-/*                                  Switcher                                  */
-
-/* -------------------------------------------------------------------------- */
-
-.switcher {
-	--switcher-min-width--component: initial;
-	--switcher-space--component: initial;
-	--switcher-min-width: var(--switcher-min-width--component, var(--switcher-min-width--global));
-	--switcher-space: var(--switcher-space--component, var(--switcher-space--global));
-	--modifier: calc(var(--switcher-min-width) - (100% - var(--switcher-space)));
-
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--switcher-space);
-}
-
-ul.switcher {
-	max-width: none;
-	padding: 0;
-	list-style: none;
-	margin-block: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.switcher > * {
-	flex-basis: calc(var(--modifier) * 999);
-	flex-grow: 1;
-	margin: 0;
-}
-
-/*	If there are 8 or more items, stack them automatically.
-	`:nth-last-child(n + 8)`
-	First select every element that is 8 or more elements from
-	the end of the list, counting backwards.
-	`:nth-last-child(n + 8) ~ *`
-	Then select every element that is a general sibling of an elemnet
-	that is 8 or more elements from the end of the list i.e. every elemement
-	that comes after the selected element.
-	Combining these selectors means that if there are 8 or more elements
-	in total they will all be selected. If there are less than 8,
-	none will be selecetd.
-*/
-
-/* stylelint-disable-next-line no-descending-specificity */
-.switcher > :nth-last-child(n + 8) {
-	flex-basis: 100%;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.switcher > :nth-last-child(n + 8) ~ * {
-	flex-basis: 100%;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-.no-flexbox-gap .switcher > * {
-	margin: var(--switcher-space);
-}
-
-/* -------------------------------------------------------------------------- */
-
 /*                                  Utilities                                 */
-
 /* -------------------------------------------------------------------------- */
-
 .flex-grow\:2 {
-	flex-grow: 2;
+  flex-grow: 2;
 }
 
 .margin-block-end\:auto {
-	margin-block-end: auto;
+  margin-block-end: auto;
 }
+
+/*# sourceMappingURL=index.css.map */
