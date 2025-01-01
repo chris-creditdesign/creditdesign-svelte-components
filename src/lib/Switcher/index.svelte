@@ -11,26 +11,40 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 <script lang="ts">
 	import type { Measure, Space } from '../types';
 
-	/**
+	
+	
+	
+	interface Props {
+		/**
 	 * Component width below wich a column layout will be applied.
 	 */
-	export let switcherMinWidth: Measure = '';
-	/**
+		switcherMinWidth?: Measure;
+		/**
 	 * Space between child elements.
 	 */
-	export let switcherSpace: Space = '';
-	/**
+		switcherSpace?: Space;
+		/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list = false;
-	export let className = '';
+		list?: boolean;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		switcherMinWidth = '',
+		switcherSpace = '',
+		list = false,
+		className = '',
+		children
+	}: Props = $props();
 
 	let tag = list ? 'ul' : 'div';
 
-	$: switcherMinWidthComponent =
-		switcherMinWidth.length > 0 ? `--switcher-min-width--component: ${switcherMinWidth};` : '';
-	$: switcherSpaceComponent =
-		switcherSpace.length > 0 ? `--switcher-space--component: ${switcherSpace};` : '';
+	let switcherMinWidthComponent =
+		$derived(switcherMinWidth.length > 0 ? `--switcher-min-width--component: ${switcherMinWidth};` : '');
+	let switcherSpaceComponent =
+		$derived(switcherSpace.length > 0 ? `--switcher-space--component: ${switcherSpace};` : '');
 </script>
 
 <style>
@@ -41,5 +55,5 @@ In this case `switcherSpace` is applied as as padding around the child elements.
 	class={`switcher ${className}`}
 	style={`${switcherMinWidthComponent} ${switcherSpaceComponent}`}
 >
-	<slot />
+	{@render children?.()}
 </svelte:element>

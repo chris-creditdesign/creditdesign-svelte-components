@@ -1,3 +1,15 @@
+export interface NavigationNode {
+	key: string;
+	order: number;
+	parent?: string;
+	title: string;
+	path: string;
+}
+
+export interface ProcessedNavigationNode extends NavigationNode {
+	children: ProcessedNavigationNode[];
+}
+
 export type Space =
 	| 'var(--s-6)'
 	| 'var(--s-5)'

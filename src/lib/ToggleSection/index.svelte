@@ -2,9 +2,15 @@
 	import { onMount } from 'svelte';
 	import Cluster from '$lib/Cluster/index.svelte';
 
-	export let buttonMessage: any;
+	interface Props {
+		buttonMessage: any;
+		title?: import('svelte').Snippet;
+		content?: import('svelte').Snippet;
+	}
 
-	let expanded = true;
+	let { buttonMessage, title, content }: Props = $props();
+
+	let expanded = $state(true);
 
 	let handleButtonClick = () => {
 		expanded = !expanded;
@@ -33,9 +39,9 @@
 </style>
 
 <Cluster clusterJustifyContent="space-between">
-	<slot name="title" />
+	{@render title?.()}
 
-	<button aria-expanded={expanded} on:click={handleButtonClick}>
+	<button aria-expanded={expanded} onclick={handleButtonClick}>
 		<span class="visually-hidden">{buttonMessage}</span>
 
 		<svg viewBox="0 0 10 10" aria-hidden="true" focusable="false">
@@ -45,5 +51,5 @@
 	</button>
 </Cluster>
 {#if expanded}
-	<slot name="content" />
+	{@render content?.()}
 {/if}

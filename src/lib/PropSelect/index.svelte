@@ -1,9 +1,13 @@
 <script lang="ts">
 	import Stack from '$lib/Stack/index.svelte';
 
-	export let options: string[];
-	export let value: string;
-	export let name: string;
+	interface Props {
+		options: string[];
+		value: string;
+		name: string;
+	}
+
+	let { options, value = $bindable(), name }: Props = $props();
 
 	let id = name.toLowerCase();
 </script>

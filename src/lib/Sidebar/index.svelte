@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
 <!--
 @component
 
@@ -8,7 +9,7 @@ to avoid adding extra wrapper divs to the rendered html. ie.
 	 
 `<svelte:fragment slot="sidebar">...</svelte:fragment>`
 	 
-`<svelte:fragment slot="main-content">...</svelte:fragment>`
+`<svelte:fragment slot="mainContent">...</svelte:fragment>`
 	 
 If flexbox gap is not supported, expects a `no-flexbox-gap` class to be applied to a parent element.
 
@@ -67,10 +68,10 @@ In this case `sidebarSpace` is applied as as padding around the `.main-content` 
 	`}
 >
 	{#if sidebarOnRight}
-		<slot name="main-content" />
+		<slot name="mainContent" />
 		<slot name="sidebar" />
 	{:else}
 		<slot name="sidebar" />
-		<slot name="main-content" />
+		<slot name="mainContent" />
 	{/if}
 </div>

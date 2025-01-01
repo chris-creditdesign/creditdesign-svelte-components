@@ -1,23 +1,18 @@
-import adapter from '@sveltejs/adapter-netlify';
-import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
-import mdsvexConfig from './mdsvex.config.js';
+import adapter from '@sveltejs/adapter-netlify';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', ...mdsvexConfig.extensions],
-
-	// Consult https://github.com/sveltejs/svelte-preprocess
+	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: [preprocess({}), mdsvex(mdsvexConfig)],
+	preprocess: [vitePreprocess(), mdsvex()],
 
 	kit: {
-		adapter: adapter({
-			// if true, will split your app into multiple functions
-			// instead of creating a single one for the entire app
-			split: false
-		})
-	}
+		adapter: adapter()
+	},
+
+	extensions: ['.svelte', '.svx']
 };
 
 export default config;

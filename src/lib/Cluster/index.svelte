@@ -11,33 +11,49 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 <script lang="ts">
 	import type { Space, AlignItems, JustifyContent } from '../types';
 
-	/**
+	
+	
+	
+	
+	interface Props {
+		/**
 	 * Flexbox justify content.
 	 */
-	export let clusterJustifyContent: JustifyContent = '';
-	/**
+		clusterJustifyContent?: JustifyContent;
+		/**
 	 * Flexbox gap.
 	 */
-	export let clusterSpace: Space = '';
-	/**
+		clusterSpace?: Space;
+		/**
 	 * Flexbox align-items.
 	 */
-	export let alignItems: AlignItems = 'center';
-	/**
+		alignItems?: AlignItems;
+		/**
 	 * Apply the ARIA `list` role.
 	 */
-	export let list = false;
-	export let className = '';
+		list?: boolean;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		clusterJustifyContent = '',
+		clusterSpace = '',
+		alignItems = 'center',
+		list = false,
+		className = '',
+		children
+	}: Props = $props();
 
 	let tag = list ? 'ul' : 'div';
 
-	$: alignItemsComponent = `align-items: ${alignItems};`;
-	$: clusterJustifyContentComponent =
-		clusterJustifyContent.length > 0
+	let alignItemsComponent = $derived(`align-items: ${alignItems};`);
+	let clusterJustifyContentComponent =
+		$derived(clusterJustifyContent.length > 0
 			? `--cluster-justify-content--component: ${clusterJustifyContent};`
-			: '';
-	$: clusterSpaceComponent =
-		clusterSpace.length > 0 ? `--cluster-space--component: ${clusterSpace};` : '';
+			: '');
+	let clusterSpaceComponent =
+		$derived(clusterSpace.length > 0 ? `--cluster-space--component: ${clusterSpace};` : '');
 </script>
 
 <svelte:element
@@ -49,5 +65,5 @@ In this case `clusterSpace` is applied as as padding around the child elements.
 		${clusterSpaceComponent}
 	`}
 >
-	<slot />
+	{@render children?.()}
 </svelte:element>

@@ -6,27 +6,41 @@ Used to horizontally center its contents.
 <script lang="ts">
 	import type { Space, Measure } from '../types';
 
-	/**
+	
+	
+	
+	interface Props {
+		/**
 	 * Maximum width of contents.
 	 */
-	export let centerMeasure: Measure = '';
-	/**
+		centerMeasure?: Measure;
+		/**
 	 * Padding left and right around contents.
 	 */
-	export let centerSpace: Space = '';
-	/**
+		centerSpace?: Space;
+		/**
 	 * If true applied flexbox column, align-items: center
 	 * to intrinsically center elements within the Center
 	 * component which are not full width. Any margin between
 	 * child elements will have to be applied without a Stack component.
 	 */
-	export let intrinsicallyCenter = false;
-	export let className = '';
+		intrinsicallyCenter?: boolean;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	$: centerMeasureComponent =
-		centerMeasure.length > 0 ? `--center-measure--component: ${centerMeasure};` : '';
-	$: centerSpaceComponent =
-		centerSpace.length > 0 ? `--center-space--component: ${centerSpace};` : '';
+	let {
+		centerMeasure = '',
+		centerSpace = '',
+		intrinsicallyCenter = false,
+		className = '',
+		children
+	}: Props = $props();
+
+	let centerMeasureComponent =
+		$derived(centerMeasure.length > 0 ? `--center-measure--component: ${centerMeasure};` : '');
+	let centerSpaceComponent =
+		$derived(centerSpace.length > 0 ? `--center-space--component: ${centerSpace};` : '');
 </script>
 
 <div
@@ -34,5 +48,5 @@ Used to horizontally center its contents.
 	class:intrinsically-center={intrinsicallyCenter}
 	style={`${centerMeasureComponent} ${centerSpaceComponent}`}
 >
-	<slot />
+	{@render children?.()}
 </div>

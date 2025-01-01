@@ -1,10 +1,19 @@
 <script lang="ts">
 	import Stack from '$lib/Stack/index.svelte';
 
-	export let value: number;
-	export let name: string;
-	export let min = 0;
-	export let max = 100;
+	interface Props {
+		value: number;
+		name: string;
+		min?: number;
+		max?: number;
+	}
+
+	let {
+		value = $bindable(),
+		name,
+		min = 0,
+		max = 100
+	}: Props = $props();
 
 	let id = name.toLowerCase();
 </script>

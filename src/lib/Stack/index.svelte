@@ -13,21 +13,33 @@ causing the `.stack__split-after` element to be pushed to the bottom.
 <script lang="ts">
 	import type { Space } from '../types';
 
-	/**
+	
+	
+	interface Props {
+		/**
 	 * Vertical space between child elements.
 	 */
-	export let stackSpace: Space = '';
-	/**
+		stackSpace?: Space;
+		/**
 	 * If true a ul element will be rendered instead of the standard div.
 	 */
-	export let list = false;
-	export let className = '';
+		list?: boolean;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		stackSpace = '',
+		list = false,
+		className = '',
+		children
+	}: Props = $props();
 
 	let tag = list ? 'ul' : 'div';
 
-	$: stackSpaceComponent = stackSpace.length > 0 ? `--stack-space--component: ${stackSpace};` : '';
+	let stackSpaceComponent = $derived(stackSpace.length > 0 ? `--stack-space--component: ${stackSpace};` : '');
 </script>
 
 <svelte:element this={tag} class={`stack ${className}`} style={stackSpaceComponent}>
-	<slot />
+	{@render children?.()}
 </svelte:element>

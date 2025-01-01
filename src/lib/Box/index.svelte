@@ -6,15 +6,21 @@ Used to add padding around its contents.
 <script lang="ts">
 	import type { Space } from '../types';
 
-	/**
+	
+	interface Props {
+		/**
 	 * Amount of padding to add
 	 */
-	export let boxSpace: Space = '';
-	export let className = '';
+		boxSpace?: Space;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	$: boxSpaceComponent = boxSpace.length > 0 ? `--box-space--component: ${boxSpace};` : '';
+	let { boxSpace = '', className = '', children }: Props = $props();
+
+	let boxSpaceComponent = $derived(boxSpace.length > 0 ? `--box-space--component: ${boxSpace};` : '');
 </script>
 
 <div class={`box ${className}`} style={boxSpaceComponent}>
-	<slot />
+	{@render children?.()}
 </div>

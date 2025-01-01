@@ -21,35 +21,49 @@ Available classes for child elements are:
 -->
 <script lang="ts">
 	import type { Space, Measure } from '../types';
-	/**
+	
+	
+	
+	interface Props {
+		/**
 	 * Max width of the main content column.
 	 */
-	export let fullBleedMeasure: Measure = '';
-	/**
+		fullBleedMeasure?: Measure;
+		/**
 	 * Padding left and right.
 	 */
-	export let fullBleedSideSpace: Space = '';
-	/**
+		fullBleedSideSpace?: Space;
+		/**
 	 * Vertical space between content items.
 	 */
-	export let fullBleedStackSpace: Space = '';
-	export let className = '';
+		fullBleedStackSpace?: Space;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	$: fullBleedMeasureComponent =
-		fullBleedMeasure.length > 0 ? `--full-bleed-measure--component: ${fullBleedMeasure};` : '';
-	$: fullBleedSideSpaceComponent =
-		fullBleedSideSpace.length > 0
+	let {
+		fullBleedMeasure = '',
+		fullBleedSideSpace = '',
+		fullBleedStackSpace = '',
+		className = '',
+		children
+	}: Props = $props();
+
+	let fullBleedMeasureComponent =
+		$derived(fullBleedMeasure.length > 0 ? `--full-bleed-measure--component: ${fullBleedMeasure};` : '');
+	let fullBleedSideSpaceComponent =
+		$derived(fullBleedSideSpace.length > 0
 			? `--full-bleed-side-space--component: ${fullBleedSideSpace};`
-			: '';
-	$: fullBleedStackSpaceComponent =
-		fullBleedStackSpace.length > 0
+			: '');
+	let fullBleedStackSpaceComponent =
+		$derived(fullBleedStackSpace.length > 0
 			? `--full-bleed-stack-space--component: ${fullBleedStackSpace};`
-			: '';
+			: '');
 </script>
 
 <div
 	class={`full-bleed ${className}`}
 	style={`${fullBleedMeasureComponent} ${fullBleedSideSpaceComponent} ${fullBleedStackSpaceComponent}`}
 >
-	<slot />
+	{@render children?.()}
 </div>

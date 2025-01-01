@@ -7,19 +7,29 @@ Content will be stretched to fill the Frame area.
 Content which overflows the Frame will be clipped off.
 -->
 <script lang="ts">
-	export let frameRatioHeight = 0;
-	export let frameRatioWidth = 0;
-	export let className = '';
+	interface Props {
+		frameRatioHeight?: number;
+		frameRatioWidth?: number;
+		className?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	$: frameRatioHeightComponent =
-		frameRatioHeight > 0 ? `--frame-ratio-height--component: ${frameRatioHeight};` : '';
-	$: frameRatioWidthComponent =
-		frameRatioWidth > 0 ? `--frame-ratio-width--component: ${frameRatioWidth};` : '';
+	let {
+		frameRatioHeight = 0,
+		frameRatioWidth = 0,
+		className = '',
+		children
+	}: Props = $props();
+
+	let frameRatioHeightComponent =
+		$derived(frameRatioHeight > 0 ? `--frame-ratio-height--component: ${frameRatioHeight};` : '');
+	let frameRatioWidthComponent =
+		$derived(frameRatioWidth > 0 ? `--frame-ratio-width--component: ${frameRatioWidth};` : '');
 </script>
 
 <div
 	class={`frame ${className}`}
 	style={`${frameRatioHeightComponent} ${frameRatioWidthComponent}`}
 >
-	<slot />
+	{@render children?.()}
 </div>

@@ -1,8 +1,12 @@
 <script lang="ts">
 	import Cluster from '$lib/Cluster/index.svelte';
 
-	export let value: boolean;
-	export let name: string;
+	interface Props {
+		value: boolean;
+		name: string;
+	}
+
+	let { value = $bindable(), name }: Props = $props();
 
 	let id = name.toLowerCase();
 </script>
