@@ -1,3 +1,5 @@
+import { error } from "@sveltejs/kit";
+
 export async function load({ params }) {
 	const keys = params.page.split("/").filter(d => d.length > 0);
 	try {
@@ -14,10 +16,6 @@ export async function load({ params }) {
 			metadata: page.metadata
 		}
 	} catch (e) {
-		console.log("This is an error");
-		return {
-			status: 404,
-			error: new Error(`Could not find ${params.page}`)
-		}
+		error(404, "Page not found");
 	}
 }
