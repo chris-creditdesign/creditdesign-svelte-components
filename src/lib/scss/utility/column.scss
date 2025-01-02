@@ -1,0 +1,18 @@
+/**
+ * Central, single columns for content
+*/
+.u-column {
+  margin-inline: auto;
+  max-width: var(--measure-page);
+  padding-inline: var(--s-1);
+
+  /* stylelint-disable-next-line media-feature-range-notation -- Use max-width for old mobile browser support. */
+  @media (min-width: 450px) {
+    // If the page is more than 450px wide, increase the padding
+    padding-inline: var(--s-1);
+  }
+
+  &.l-with-sidebar {
+    width: 100%;
+  }
+}

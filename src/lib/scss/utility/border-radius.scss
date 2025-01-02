@@ -1,0 +1,5 @@
+.u-border-radius {
+  --border-radius: initial;
+
+  border-radius: var(--border-radius, var(--s-1));
+}

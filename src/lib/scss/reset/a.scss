@@ -1,0 +1,18 @@
+a {
+    color: var(--color-link);
+    text-decoration: underline;
+    fill: var(--color-link);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-link-active);
+    background-color: var(--color-outline);
+    outline: 3px solid var(--color-outline);
+    fill: var(--color-link-active);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}

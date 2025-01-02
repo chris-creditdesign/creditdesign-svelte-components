@@ -1,0 +1,9 @@
+/* On a properly designed responsive site the text-size-adjust behavior is not needed,
+   so developers can elect to turn it off by specifying a value of none 
+   https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust
+   */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}

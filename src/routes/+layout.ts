@@ -1,4 +1,4 @@
-import type { Load } from '@sveltejs/kit';
+import type { LayoutLoad } from './$types.d.ts'
 import { findNavigationEntries } from "$lib/utils/find-navigation-entries.ts";
 
 type MetaData = {
@@ -8,7 +8,7 @@ type MetaData = {
 	title: string;
 };
 
-export const load: Load = async () => {
+export const load: LayoutLoad = async ({ params, url }) => {
 	const paths: Record<string, { metadata: MetaData }> = import.meta.glob('../content/**/*.svx', { eager: true });
 
 	const pages = Object.keys(paths)
@@ -19,5 +19,5 @@ export const load: Load = async () => {
 
 	const navigationEntries = findNavigationEntries(pages);
 
-	return { navigationEntries }
+	return { navigationEntries, url: url.pathname, params }
 }

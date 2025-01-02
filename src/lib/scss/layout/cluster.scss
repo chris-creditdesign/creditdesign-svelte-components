@@ -1,0 +1,41 @@
+@at-root :root {
+    --cluster-space--global: var(--s-1);
+    --cluster-justify-content--global: flex-start;
+    --cluster-align-items--global: center;
+}
+
+@mixin styles {
+    .l-cluster {
+        --cluster-justify-content--component: initial;
+        --cluster-space--component: initial;
+        --cluster-align-items--component: initial;
+        --cluster-justify-content: var(--cluster-justify-content--component,
+                var(--cluster-justify-content--global));
+        --cluster-align-items: var(--cluster-align-items--component,
+                var(--cluster-align-items--global));
+        --cluster-space: var(--cluster-space--component,
+                var(--cluster-space--global));
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: var(--cluster-justify-content);
+        align-items: var(--cluster-align-items);
+        gap: var(--cluster-space);
+    }
+
+    .no-flexbox-gap .l-cluster>* {
+        margin: var(--cluster-space);
+    }
+
+    ul.l-cluster {
+        max-width: none;
+        padding: 0;
+        list-style: none;
+        margin-block: 0;
+    }
+
+    ul.l-cluster>li {
+        max-width: none;
+        padding: 0;
+    }
+}

@@ -1,0 +1,5 @@
+.u-padding-block {
+  --padding-block: initial;
+
+  padding-block: var(--padding-block, var(--s-1));
+}

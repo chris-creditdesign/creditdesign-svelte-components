@@ -1,0 +1,5 @@
+:root {
+	--measure-big: calc(var(--measure) * var(--ratio));
+	--measure-page: calc(var(--measure) * var(--ratio) * var(--ratio));
+	--measure-small: calc(var(--measure) / var(--ratio));
+}

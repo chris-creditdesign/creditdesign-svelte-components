@@ -1,0 +1,12 @@
+/* Prevent Superscripts and Subscripts from Affecting Line-Height */
+/* https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/ */
+sup,
+sub {
+	position: relative;
+	top: -0.4em;
+	vertical-align: baseline;
+}
+
+sub {
+	top: 0.4em;
+}

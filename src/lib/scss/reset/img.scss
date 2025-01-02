@@ -1,0 +1,17 @@
+/**
+ * [1] Allow for fluid image sizing while maintaining aspect ratio
+ * [2] Remove phantom whitespace
+ * [3] Visually offset ALT text from surrounding copy
+ * [4] Set up backgrounds for optimal LQIP
+ * [5] Set up margin for optimal shape-outside
+ * Based on https://youtu.be/345V2MU3E_w
+ */
+ img {
+    max-width: 100%; /* [1] */
+    height: auto; /* [1] */
+    vertical-align: middle; /* [2] */
+    font-style: italic; /* [3] */
+    background-repeat: no-repeat; /* [4] */
+    background-size: cover; /* [4] */
+    shape-margin: 0.75rem; /* [5] */
+}

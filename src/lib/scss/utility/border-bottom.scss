@@ -1,0 +1,9 @@
+.u-border-bottom {
+  --border-bottom-color: initial;
+  --border-bottom-style: initial;
+  --border-bottom-width: initial;
+
+  border-bottom-width: var(--border-bottom-width, 1px);
+  border-bottom-style: var(--border-bottom-style, solid);
+  border-bottom-color: var(--border-bottom-color, var(--color-text));
+}

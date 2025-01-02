@@ -1,0 +1,34 @@
+@at-root :root {
+	--stack-space--global: var(--s-1);
+}
+
+@mixin styles {
+	.l-stack {
+		--stack-space--component: initial;
+		--stack-space: var(--stack-space--component, var(--stack-space--global));
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: var(--stack-space);
+	}
+
+	.l-stack:only-child {
+		/*	So that the Stack area will fill the available height,
+		causing the `.stack__split-after` element to be pushed
+		to the bottom - but only when the stack is the only
+		child of its parent element */
+		block-size: 100%;
+	}
+
+	ul.l-stack {
+		max-width: none;
+		padding: 0;
+		list-style: none;
+		margin-block: 0;
+	}
+
+	.l-stack > * {
+		margin-block: 0;
+	}
+}

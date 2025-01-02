@@ -1,0 +1,18 @@
+/* elements */
+@use "./a.scss";
+@use "./body.scss";
+@use "./button.scss";
+@use "./code.scss";
+@use "./figcaption.scss";
+@use "./headings.scss";
+@use "./hr.scss";
+@use "./html";
+@use "./img";
+@use "./list.scss";
+@use "./sup.scss";
+@use "./target.scss";
+@use "./textarea.scss";
+
+/* adjustments */
+@use "./font-inherit.scss";
+@use "./line-height-tighter.scss";

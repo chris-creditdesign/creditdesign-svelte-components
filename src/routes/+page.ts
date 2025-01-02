@@ -1,6 +1,7 @@
+import type { PageLoad } from './$types.d.ts'
 import { error } from '@sveltejs/kit'
 
-export async function load() {
+export const load: PageLoad = async () => {
 	try {
 		const post = await import('../content/index.svx')
 

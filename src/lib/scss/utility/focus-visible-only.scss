@@ -1,0 +1,9 @@
+@supports selector(:focus-visible) {
+  .u-focus-visible-only:is(:hover, :focus) {
+      outline: none;
+    }
+
+  .u-focus-visible-only:is(:focus-visible) {
+      outline: 3px solid var(--color-outline);
+  }
+}

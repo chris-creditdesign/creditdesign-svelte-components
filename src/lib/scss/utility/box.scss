@@ -1,0 +1,5 @@
+.u-box {
+  --padding-box: initial;
+
+  padding: var(--box--padding, var(--s-1));
+}

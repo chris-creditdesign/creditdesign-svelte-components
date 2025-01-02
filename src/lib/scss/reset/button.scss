@@ -1,0 +1,45 @@
+/* Buttons */
+/* TO CHECK */
+
+button {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  width: fit-content;
+  padding: var(--s-3) var(--s-2);
+  font-size: inherit;
+  border-style: solid;
+  border-width: 1px;
+}
+
+button:disabled {
+	opacity: 0.5;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus {
+  color: var(--color--link-active);
+  background-color: var(--color--outline);
+  border-color: var(--color--link-active);
+  outline: 3px solid var(--color--outline);
+  fill: var(--color--link-active);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0.5px);
+}
+
+button:not(:disabled):active,
+button:not(:disabled)[aria-expanded="true"] {
+  color: var(--color--button-expanded);
+  background-color: var(--color--button-background-expanded);
+  fill: var(--color--button-expanded);
+}
+
+@at-root .no-flexbox-gap button > * + * {
+  margin-left: var(--s-2);
+}

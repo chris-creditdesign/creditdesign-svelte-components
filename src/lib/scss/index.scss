@@ -1,14 +1,25 @@
-@import "../Box/index.scss";
-@import "../Center/index.scss";
-@import "../Cluster/index.scss";
-@import "../Cover/index.scss";
-@import "../Frame/index.scss";
-@import "../FullBleed/index.scss";
-@import "../Grid/index.scss";
-@import "../Sidebar/index.scss";
-@import "../Stack/index.scss";
-@import "../Switcher/index.scss";
+@charset "UTF-8";
 
-@import "./exception-based-styles.scss";
-@import "./modular-scale.scss";
-@import "./utilities.scss";
+/* Custom for each project */
+// @use "./brand/index.scss" as *;
+
+@use "./custom-properties/index.scss" as *;
+@use "./reset/index.scss" as *;
+
+/* Layout */
+@use "./layout/cluster.scss" as cluster;
+@use "./layout/grid.scss" as grid;
+@use "./layout/sidebar.scss" as sidebar;
+@use "./layout/stack.scss" as stack;
+@use "./layout/switcher.scss" as switcher;
+@use "./layout/center.scss" as center;
+
+/* Utility */
+@use "./utility/index.scss" as *;
+
+@include cluster.styles;
+@include grid.styles;
+@include sidebar.styles;
+@include stack.styles;
+@include switcher.styles;
+@include center.styles;

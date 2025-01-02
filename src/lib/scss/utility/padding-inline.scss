@@ -1,0 +1,5 @@
+.u-padding-inline {
+  --padding-inline: initial;
+
+  padding-inline: var(--padding-inline, var(--s-1));
+}

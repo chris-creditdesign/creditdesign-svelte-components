@@ -1,0 +1,9 @@
+.u-border {
+  --border-color: initial;
+  --border-style: initial;
+  --border-width: initial;
+
+  border-width: var(--border-width, 1px);
+  border-style: var(--border-style, solid);
+  border-color: var(--border-color, var(--color-text));
+}

@@ -1,0 +1,37 @@
+:root {
+  /* Text */
+  --color-text: var(--color-black-0);
+  --color-text-invert: var(--color-white-0);
+
+  /* Link */
+  --color-link: var(--color-blue-1);
+  --color-link-invert: var(--color-orange-1);
+
+  --color-link-active: var(--color-black-0);
+  --color-link-active-invert: var(--color-black-0);
+
+  /* Outline */
+  --color-outline: var(--color-yellow-1);
+
+  /* Background */
+  --color-background: var(--color-white-0);
+  --color-background-alt: var(--color-white-2);
+  --color-background-invert: var(--color-black-0);
+
+  /* Button */
+  --color-text-disabled: var(--color-black-3);
+  --color-button-expanded: var(--color-link-active);
+  --color-button-background-expanded: var(--color-white-0);
+
+  /* Border */
+  --color-border: var(--color-black-0);
+  --color-border-alt: var(--color-white-3);
+
+  /* Size */
+  font-size: min(max(calc(0.5rem + 1vw), 16px), 18px);
+  --ratio: 1.5;
+  --measure: 60ch;
+  --line-height: 1.4;
+  --line-height-tighter: 1.2;
+  --font-family: var(--font-family-sans-serif);
+}

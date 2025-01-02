@@ -1,0 +1,9 @@
+.u-border-top {
+  --border-top-color: initial;
+  --border-top-style: initial;
+  --border-top-width: initial;
+
+  border-top-width: var(--border-top-width, 1px);
+  border-top-style: var(--border-top-style, solid);
+  border-top-color: var(--border-top-color, var(--color-text));
+}
