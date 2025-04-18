@@ -1,7 +1,6 @@
 ---
 title: Full Bleed
-key: full-bleed
-order: 5
+order: 4
 ---
 
 <script lang="ts">

@@ -4,8 +4,9 @@ import { createNavigationMap } from "$lib/utils/create-navigation-map.ts";
 export const load: LayoutLoad = async ({ params, url }) => {
 	// Example glob: { 'path': { metadata: {} }
 	const globs: Record<string, { metadata: { order: number, title: string } }> = import.meta.glob('./**/*.svx', { eager: true });
-
+	
 	const pages = Object.keys(globs)
+		.filter(path => path !== "./+page.svx")
 		.map((path) => {
 			// Example path: ./css/layout/stack/+page.svx
 			// remove the leading ./ and the trailing +page.svx

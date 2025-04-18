@@ -32,3 +32,4 @@ Then go ahead and use the components in your layout:
 ```
 
 Built by [Chris Ryan](https://www.creditdesign.co.uk/). Checkout this project on [GitHub](https://github.com/chris-creditdesign/creditdesign-svelte-components).
+

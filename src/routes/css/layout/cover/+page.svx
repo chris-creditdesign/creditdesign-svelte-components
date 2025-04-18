@@ -1,7 +1,6 @@
 ---
 title: Cover
-key: cover
-order: 3
+order: 2
 ---
 
 <script lang="ts">

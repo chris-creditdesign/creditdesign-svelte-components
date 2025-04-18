@@ -1,7 +1,6 @@
 ---
 title: Grid
-key: grid
-order: 6
+order: 5
 ---
 
 <script lang="ts">

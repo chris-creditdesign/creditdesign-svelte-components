@@ -1,6 +1,5 @@
 ---
 title: Box
-key: box
 order: 0
 ---
 
