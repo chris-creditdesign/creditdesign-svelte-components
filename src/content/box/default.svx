@@ -11,7 +11,7 @@ order: 0
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
 	import PropSelect from '$lib/PropSelect/index.svelte';
 
-	import { space_options } from '../../preview-content/options';
+	import { space_options } from '$lib/utils/preview-content.ts';
 
 	let boxSpace: Space = 'var(--s-1)';
 </script>

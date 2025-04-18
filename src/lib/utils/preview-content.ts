@@ -17,6 +17,7 @@ export let space_options = [
 ];
 
 export let measure_options = [
+	'initial',
 	'inherit',
 	'20ch',
 	'30ch',

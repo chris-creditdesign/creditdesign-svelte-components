@@ -8,7 +8,7 @@
 	--box-space--global: var(--s-1);
 }
 
-.box {
+.l-box {
 	--box-space--component: initial;
 	--box-space: var(--box-space--component, var(--box-space--global, 1rem));
 

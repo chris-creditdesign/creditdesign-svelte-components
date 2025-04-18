@@ -39,7 +39,7 @@ These will be displayed at the top and bottom of the Cover area.
 
 ## Usage
 
-```svelte
+```html
 <Cover coverSpace="var(--s-1)" coverHeight="100vh" className="test">
 	<span>Item</span>
 	<span class="cover__centered">.cover__centered</span>

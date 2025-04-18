@@ -4,10 +4,15 @@ key: center
 order: 1
 ---
 
-<script lang="ts">
-	import type { Space, Measure } from '$lib/types';
-	import Center from '$lib/Center/index.svelte';
+<script>
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
+	import PropSelect from '$lib/PropSelect/index.svelte';
+	import PropBoolean from '$lib/PropBoolean/index.svelte';
+	import { space_options, measure_options } from '$lib/utils/preview-content.ts';
+
+	let intrinsicallyCenter = $state(true);
+	let centerSpace= $state('var(--s-1)');
+	let centerMeasure = $state('var(--measure)');
 </script>
 
 <style>
@@ -15,48 +20,100 @@ order: 1
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
 		max-width: none;
-		min-height: 100px;
+		min-height: 50px;
 		padding: var(--s1);
 		background-color: lightblue;
+	}
+
+	.item--small {
+		max-width: max-content;
+		background-color: lightgray;
 	}
 </style>
 
 # Center
 
-Simple component used to horizontally center its contents.
+Layout class used to horizontally center its contents.
 
 ## Usage
 
-```svelte
-<script>
-	import { Center } from 'creditdesign-svelte-components';
-</script>
-
-<Center
-	centerSpace="var(--s-1)"
-	centerMeasure="var(--measure)"
-	intrinsicallyCenter={false}
-	className="test"
->
+```html
+<div class="l-center">
 	<span class="item">Item</span>
-</Center>
+</div>
 ```
-
-## Props
-
-| Property name         | Default value    |
-| --------------------- | ---------------- |
-| `boxSpace`            | `var(--s-1)`     |
-| `centerMeasure`       | `var(--measure)` |
-| `intrinsicallyCenter` | `false`          |
-| `className`           | `""`             |
 
 ## Default
 
 <SqueezeContainer>
-	<Center>
+	<div class="l-center">
 		<span class="item">Item</span>
-	</Center>
+	</div>
+</SqueezeContainer>
+
+## Custom properties
+
+| Property name         | Default value    | Description      |
+| --------------------- | ---------------- | ---------------- |
+| `--center-measure--component`       | `var(--measure)` | Maxium width of content |
+| `--center-space--component` | `var(--s-1)`          | Padding left and right around contents. |
+
+```html
+<div class="l-center"
+	style="
+		--center-measure--component: var(--measure);
+		--center-space--component: var(--s-1);"
+	>
+	<span class="item">Item</span>
+</div>
+```
+
+<PropSelect options={measure_options} name="--center-measure--component" bind:value={centerMeasure} />
+<PropSelect options={space_options} name="--center-space--component" bind:value={centerSpace} />
+
+<SqueezeContainer>
+	<div class="l-center" style={`--center-measure--component: ${centerMeasure}; --center-space--component: ${centerSpace};`}>
+		<span class="item">Item</span>
+	</div>
+</SqueezeContainer>
+
+## Intrinsically centred
+
+An additional '.intrinsically-center' class can be added to a flexbox column layout with `align-items: center` applied to intrinsically-center the content.
+
+```html
+<div class="l-center intrinsically-center">
+	<span class="item">Item</span>
+	<span class="item item--small">Small item</span>
+	<span class="item">Item</span>
+</div>
+```
+
+<PropBoolean name="intrinsically-center" bind:value={intrinsicallyCenter} />
+
+<SqueezeContainer>
+	<div class={`l-center ${intrinsicallyCenter ? "intrinsically-center": ""}`}>
+		<span class="item">Item</span>
+		<span class="item item--small">Small item</span>
+		<span class="item">Item</span>
+	</div>
+</SqueezeContainer>
+
+## Combined with other classes
+
+```html
+<div class="l-center l-stack u-box">
+	<span class="item">Item</span>
+	<span class="item item--small">Small item</span>
+	<span class="item">Item</span>
+</div>
+```
+
+<SqueezeContainer>
+	<div class="l-center l-stack u-box">
+		<span class="item">Item</span>
+		<span class="item item--small">Small item</span>
+		<span class="item">Item</span>
+	</div>
 </SqueezeContainer>

@@ -5,16 +5,13 @@ order: 9
 ---
 
 <script lang="ts">
-	import type { Space, Measure } from '$lib/types';
-	import Switcher from '$lib/Switcher/index.svelte';
-	import Stack from '$lib/Stack/index.svelte';
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
 	import PropSelect from '$lib/PropSelect/index.svelte';
 
-	import { space_options, measure_options } from '../../preview-content/options';
+	import { space_options, measure_options } from '$lib/utils/preview-content.ts';
 
-	let switcherSpace: Space = 'var(--s-1)';
-	let switcherMinWidth: Measure = 'var(--measure-small)';
+	let switcherSpace = $state('var(--s-1)');
+	let switcherMinWidth= $state('var(--measure)');
 </script>
 
 <style>
@@ -35,25 +32,83 @@ Will switch from a column to a stacked layout below a minimum width.
 
 If more than seven child elements, the stacked layout is applied automatically.
 
-If flexbox gap is not supported, expects a `.no-flexbox-gap` class to be applied to a parent element.
+## Useage
 
-In this case `switcherSpace` is applied as as padding around the child elements.
-
-## Props
-
-| Property name      | Default prop     |
-| ------------------ | ---------------- |
-| `switcherSpace`    | `var(--s-1)`     |
-| `switcherMinWidth` | `var(--measure)` |
-| `list`             | `false`          |
-| `className`        | `""`             |
+```html
+<div class="l-switcher">
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+</div>
+```
 
 ## Default
 
 <SqueezeContainer>
-	<Switcher {switcherSpace} {switcherMinWidth}>
+	<div class="l-switcher">
 		<span class="item">Item</span>
 		<span class="item">Item</span>
 		<span class="item">Item</span>
-	</Switcher>
+	</div>
+</SqueezeContainer>
+
+## Custom properties
+
+| Property name      | Default prop     |
+| ------------------ | ---------------- |
+| `--switcher-space--component`    | `var(--s-1)`     |
+| `--switcher-min-width--global` | `var(--measure)` |
+
+```html
+<div class="l-switcher"
+	style="
+		--switcher-space: var(--s-1); 
+		--switcher-min-width: var(--measure);"
+	>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+	<span class="item">Item</span>
+</div>
+```
+
+<PropSelect options={space_options} name="--switcher-space--component" bind:value={switcherSpace} />
+<PropSelect options={measure_options} name="--switcher-justify-content--component" bind:value={switcherMinWidth} />
+
+<SqueezeContainer>
+	<div class="l-switcher"
+		style="
+			--switcher-space: {switcherSpace}; 
+			--switcher-min-width: {switcherMinWidth};">
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+	</div>
+</SqueezeContainer>
+
+## Use as a list
+
+<SqueezeContainer>
+	<ul class="l-switcher">
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item
+	</ul>
+</SqueezeContainer>
+
+## With more than 7 items
+
+Note: Make this interactive by adding a button to add and remove items from the list.
+
+<SqueezeContainer>
+	<ul class="l-switcher">
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+		<li class="item">Item</li>
+	</ul>
 </SqueezeContainer>

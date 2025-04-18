@@ -23,10 +23,6 @@
         gap: var(--cluster-space);
     }
 
-    .no-flexbox-gap .l-cluster>* {
-        margin: var(--cluster-space);
-    }
-
     ul.l-cluster {
         max-width: none;
         padding: 0;

@@ -8,7 +8,7 @@
 	--cluster-justify-content--global: flex-start;
 }
 
-.cluster {
+.l-cluster {
 	--cluster-justify-content--component: initial;
 	--cluster-space--component: initial;
 	--cluster-justify-content: var(
@@ -23,18 +23,18 @@
 	gap: var(--cluster-space);
 }
 
-.no-flexbox-gap .cluster > * {
+.no-flexbox-gap .l-cluster > * {
 	margin: var(--cluster-space);
 }
 
-ul.cluster {
+ul.l-cluster {
 	max-width: none;
 	padding: 0;
 	list-style: none;
 	margin-block: 0;
 }
 
-ul.cluster > li {
+ul.l-cluster > li {
 	max-width: none;
 	padding: 0;
 }

@@ -28,13 +28,13 @@ Can also be applied as a standalone css class.
 ## Default
 
 ```html
-<div class="box">
+<div class="u-box">
 	<span>Item</span>
 </div>
 ```
 
 <SqueezeContainer>
-	<div class="box"><span>Item</span></div>
+	<div class="u-box"><span>Item</span></div>
 </SqueezeContainer>
 
 ## With CSS custom property applied

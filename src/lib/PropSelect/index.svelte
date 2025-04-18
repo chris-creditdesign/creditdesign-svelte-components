@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Stack from '$lib/Stack/index.svelte';
-
 	interface Props {
 		options: string[];
 		value: string;
@@ -18,7 +16,7 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-4)">
+<div class="l-cluster" style="--cluster-space--component: var(--s-4);">
 	<label for={id}>{name}:</label>
 	<select {id} bind:value>
 		{#each options as option}
@@ -27,4 +25,4 @@
 			</option>
 		{/each}
 	</select>
-</Stack>
+</div>

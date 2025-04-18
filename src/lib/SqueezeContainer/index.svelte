@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Stack from '$lib/Stack/index.svelte';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -20,10 +19,10 @@
 	}
 </style>
 
-<Stack stackSpace="var(--s-2)">
-	<input type="range" bind:value={width} min="0" max="100" />
-
+<div class="l-stack" style="--stack-space--component: var(--s-2);">
 	<div class="squeeze-container" style={`width: ${width}%;`}>
 		{@render children?.()}
 	</div>
-</Stack>
+
+	<input type="range" bind:value={width} min="0" max="100" />
+</div>

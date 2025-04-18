@@ -28,25 +28,22 @@ Simple component used to add padding around its contents.
 
 ## Usage
 
-```svelte
-<script>
-	import { Box } from 'creditdesign-svelte-components';
-</script>
-
-<Box boxSpace="var(--s-1)" className="test">
+```html
+<div class="u-box">
 	<span>Item</span>
-</Box>
+</div>
 ```
 
 ## Props
 
 | Property name | Default value |
 | ------------- | ------------- |
-| `boxSpace`    | `var(--s-1)`  |
-| `className`   | `""`          |
+| `--box-space--component`    | `var(--s-1)`  |
 
 ## Default
 
 <SqueezeContainer>
-	<Box><span>Item</span></Box>
+	<div class="u-box">
+		<span>Item</span>
+	</div>
 </SqueezeContainer>

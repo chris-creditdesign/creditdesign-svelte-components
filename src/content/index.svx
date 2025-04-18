@@ -1,10 +1,6 @@
-<script>
-	import Stack from "$lib/Stack/index.svelte";
-</script>
-
 # Creditdesign Svelte Components
 
-Welcome to `creditdesign-svelte-components`, a collection of [svelte](https://svelte.dev/) components used to build simple css layouts.
+Welcome to `creditdesign-svelte-components`, a collection of CSS layout and utility classes with [svelte](https://svelte.dev/) components which can be combined to build websites with ease.
 
 I'm using this project to put into practice the CSS I am learning from [Every Layout](https://every-layout.dev/) and to learn about [SvelteKit](https://kit.svelte.dev/).
 
@@ -26,28 +22,11 @@ It is first necessary to copy the global CSS file into your project, or to impor
 import '..node_modules/creditdesign-svelte-components/index.css';
 ```
 
-Then you can import each component into a Svelte app or componant as needed. For instance, you can import the `Box` and `Stack` components with:
-
-```js
-import { Box, Stack } from 'creditdesign-svelte-components';
-```
-
 Then go ahead and use the components in your layout:
 
-```svelte
-<Box>
-	<Stack>
-		<p>Hello</p>
-		<p>world</p>
-	</Stack>
-</Box>
-```
-
-Alternatively, the components can can be used as class names, applied to html elements:
-
 ```html
-<div class="box stack">
-	<p>Hello</p>
+<div class="l-stack u-box">
+	<p class="u-font-weight:bold">Hello</p>
 	<p>world</p>
 </div>
 ```

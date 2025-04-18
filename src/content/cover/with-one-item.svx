@@ -12,7 +12,7 @@ order: 1
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
 	import PropSelect from '$lib/PropSelect/index.svelte';
 
-	import { space_options, height_options } from '../../preview-content/options';
+	import { space_options, height_options } from '$lib/utils/preview-content.ts';
 
 	let coverSpace: Space = 'var(--s-1)';
 	let coverHeight: Height = '50vh';
