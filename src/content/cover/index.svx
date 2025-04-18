@@ -5,11 +5,14 @@ order: 3
 ---
 
 <script lang="ts">
-	import type { Space, Height } from '$lib/types';
-	import Cover from '$lib/Cover/index.svelte';
-	import Stack from '$lib/Stack/index.svelte';
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
 	import PropSelect from '$lib/PropSelect/index.svelte';
+	import PropBoolean from '$lib/PropBoolean/index.svelte';
+	import { space_options, height_options } from '$lib/utils/preview-content.ts';
+
+	let coverSpace = $state('var(--s-1)');
+	let coverHeight = $state('100vh');
+	let hasCentered = $state(true);
 </script>
 
 <style>	
@@ -23,7 +26,7 @@ order: 3
 		background-color: lightblue;
 	}
 
-	.cover__centered {
+	.e-cover__centered {
 		background-color: pink;
 	}
 </style>
@@ -32,7 +35,7 @@ order: 3
 
 Centers an item vertically within a defined height.
 
-Expects the item to be centered to have a `cover__centered` class applied.
+Expects the item to be centered to have an `e-cover__centered` class applied.
 
 Two additional items can be place before and after the centered element.
 These will be displayed at the top and bottom of the Cover area.
@@ -40,27 +43,72 @@ These will be displayed at the top and bottom of the Cover area.
 ## Usage
 
 ```html
-<Cover coverSpace="var(--s-1)" coverHeight="100vh" className="test">
+<div class="l-cover">
 	<span>Item</span>
-	<span class="cover__centered">.cover__centered</span>
+	<span class="e-cover__centered">.cover__centered</span>
 	<span>Item</span>
-</Cover>
+</div>
 ```
-
-## Props
-
-| Property name | Default value |
-| ------------- | ------------- |
-| `coverSpace`  | `var(--s-1)`  |
-| `coverHeight` | `100vh`       |
-| `className`   | `""`          |
 
 ## Default
 
 <SqueezeContainer>
-	<Cover>
+	<div class="l-cover">
 		<span class="item">Item</span>
-		<span class="item cover__centered">.cover__centered</span>
+		<span class="item e-cover__centered">.e-cover__centered</span>
 		<span class="item">Item</span>
-	</Cover>
+	</div>
+</SqueezeContainer>
+
+## Custom properties
+
+| Property name | Default value |
+| ------------- | ------------- |
+| `--cover-space--component`  | `var(--s-1)`  |
+| `--cover-height--component` | `100vh`       |
+
+```html
+<div class="l-cover"
+	style="
+		--cover-space--component: var(--s-1);
+		--cover-height--component: 100vh;"
+	>
+	<span class="item">Item</span>
+	<span class="item e-cover__centered">.e-cover__centered</span>
+	<span class="item">Item</span>
+</div>
+```
+
+<PropSelect options={space_options} name="--cover-space--component" bind:value={coverSpace} />
+<PropSelect options={height_options} name="--cover-height--component" bind:value={coverHeight} />
+<PropBoolean name="Child item has e-cover__centered class" bind:value={hasCentered} />
+
+<SqueezeContainer>
+	<div class="l-cover" style={`
+		--cover-space--component: ${coverSpace};
+		--cover-height--component: ${coverHeight};`}>
+		<span class="item">Item</span>
+		<span class="item {hasCentered ? 'e-cover__centered' : ''}">{hasCentered ? '.e-cover__centered' : 'Item'}</span>
+		<span class="item">Item</span>
+	</div>
+</SqueezeContainer>
+
+## With multiple items either side of the centered item
+
+<SqueezeContainer>
+	<div class="l-cover">
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+		<span class="item e-cover__centered">.e-cover__centered</span>
+		<span class="item">Item</span>
+		<span class="item">Item</span>
+	</div>
+</SqueezeContainer>
+
+## With just one item
+
+<SqueezeContainer>
+	<div class="l-cover">
+		<span class="item e-cover__centered">.e-cover__centered</span>
+	</div>
 </SqueezeContainer>

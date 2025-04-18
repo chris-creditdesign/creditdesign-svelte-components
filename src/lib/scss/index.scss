@@ -13,6 +13,9 @@
 @use "./layout/stack.scss" as stack;
 @use "./layout/switcher.scss" as switcher;
 @use "./layout/center.scss" as center;
+@use "./layout/cover.scss" as cover;
+@use "./layout/frame.scss" as frame;
+@use "./layout/full-bleed.scss" as full-bleed;
 
 /* Utility */
 @use "./utility/index.scss" as *;
@@ -23,3 +26,6 @@
 @include stack.styles;
 @include switcher.styles;
 @include center.styles;
+@include cover.styles;
+@include frame.styles;
+@include full-bleed.styles;

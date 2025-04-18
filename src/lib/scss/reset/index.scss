@@ -1,12 +1,13 @@
 /* elements */
-@use "./a.scss";
+@use "./universal.scss";
+@use "./html";
 @use "./body.scss";
+@use "./a.scss";
 @use "./button.scss";
 @use "./code.scss";
 @use "./figcaption.scss";
 @use "./headings.scss";
 @use "./hr.scss";
-@use "./html";
 @use "./img";
 @use "./list.scss";
 @use "./sup.scss";

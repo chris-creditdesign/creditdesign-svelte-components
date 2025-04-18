@@ -5,9 +5,13 @@ order: 5
 ---
 
 <script lang="ts">
-	import type { Space, Measure } from '$lib/types';
-	import FullBleed from '$lib/FullBleed/index.svelte';
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
+	import PropSelect from '$lib/PropSelect/index.svelte';
+	import { space_options, measure_options } from '$lib/utils/preview-content.ts';
+
+	let fullBleedMeasure = $state('var(--measure)');
+	let fullBleedSideSpace = $state('var(--s-1)');
+	let fullBleedStackSpace = $state('var(--s-1)');
 </script>
 
 <style>
@@ -32,71 +36,110 @@ srpead out to the left and right.
 
 Available classes for child elements are:
 
-- `full-bleed--1`
-- `full-bleed--2`
-- `full-bleed--3`
-- `full-bleed--4`
-- `full-bleed--left`
-- `full-bleed--left--2`
-- `full-bleed--left--3`
-- `full-bleed--left--4`
-- `full-bleed--right`
-- `full-bleed--right--2`
-- `full-bleed--right--3`
-- `full-bleed--right--4`
+- `u-full-bleed--1`
+- `u-full-bleed--2`
+- `u-full-bleed--3`
+- `u-full-bleed--4`
+- `u-full-bleed--left`
+- `u-full-bleed--left--2`
+- `u-full-bleed--left--3`
+- `u-full-bleed--left--4`
+- `u-full-bleed--right`
+- `u-full-bleed--right--2`
+- `u-full-bleed--right--3`
+- `u-full-bleed--right--4`
 
 ## Usage
 
-```svelte
-<script>
-	import { FullBleed } from 'creditdesign-svelte-components';
-</script>
-
-<FullBleed>
-	<span class="full-bleed">.full-bleed</span>
+```html
+<div class="l-full-bleed">
 	<span>Item</span>
-	<span class="full-bleed--2">.full-bleed--2</span>
+	<span>Item</span>
+	<span class="u-full-bleed--2">.u-full-bleed--2</span>
 	...
-</FullBleed>
+</div>
 ```
 
-## Props
-
-| Property name         | Default value    |
-| --------------------- | ---------------- |
-| `fullBleedMeasure`    | `var(--measure)` |
-| `fullBleedSideSpace`  | `var(--s-1)`     |
-| `fullBleedStackSpace` | `var(--s-1)`     |
-| `className`           | `""`             |
 
 ## Default
 
 <SqueezeContainer>
-	<FullBleed>
+	<div class="l-full-bleed">
 		<span>Item</span>
-		<span class="full-bleed--1">.full-bleed</span>
+		<span class="u-full-bleed--1">.u-full-bleed</span>
 		<span>Item</span>
-		<span class="full-bleed--2">.full-bleed--2</span>
+		<span class="u-full-bleed--2">.u-full-bleed--2</span>
 		<span>Item</span>
-		<span class="full-bleed--3">.full-bleed--3</span>
+		<span class="u-full-bleed--3">.u-full-bleed--3</span>
 		<span>Item</span>
-		<span class="full-bleed--4">.full-bleed--4</span>
+		<span class="u-full-bleed--4">.u-full-bleed--4</span>
 		<span>Item</span>
-		<span class="full-bleed--left">.full-bleed--left</span>
+		<span class="u-full-bleed--left">.u-full-bleed--left</span>
 		<span>Item</span>
-		<span class="full-bleed--left-2">.full-bleed--left-2</span>
+		<span class="u-full-bleed--left-2">.u-full-bleed--left-2</span>
 		<span>Item</span>
-		<span class="full-bleed--left-3">.full-bleed--left-3</span>
+		<span class="u-full-bleed--left-3">.u-full-bleed--left-3</span>
 		<span>Item</span>
-		<span class="full-bleed--left-4">.full-bleed--left-4</span>
+		<span class="u-full-bleed--left-4">.u-full-bleed--left-4</span>
 		<span>Item</span>
-		<span class="full-bleed--right">.full-bleed--right</span>
+		<span class="u-full-bleed--right">.u-full-bleed--right</span>
 		<span>Item</span>
-		<span class="full-bleed--right-2">.full-bleed--right-2</span>
+		<span class="u-full-bleed--right-2">.u-full-bleed--right-2</span>
 		<span>Item</span>
-		<span class="full-bleed--right-3">.full-bleed--right-3</span>
+		<span class="u-full-bleed--right-3">.u-full-bleed--right-3</span>
 		<span>Item</span>
-		<span class="full-bleed--right-4">.full-bleed--right-4</span>
+		<span class="u-full-bleed--right-4">.u-full-bleed--right-4</span>
 		<span>Item</span>
-	</FullBleed>
+	</div>
+</SqueezeContainer>
+
+## Custom properties
+
+| Property name         | Default value    |
+| --------------------- | ---------------- |
+| `--full-bleed-measure--component`    | `var(--measure)` |
+| `--full-bleed-side-space--component`  | `var(--s-1)`     |
+| `--full-bleed-stack-space--component` | `var(--s-1)`     |
+
+<PropSelect options={measure_options} name={'--full-bleed-measure--component'} bind:value={fullBleedMeasure} />
+<PropSelect options={space_options} name={'--full-bleed-side-space--component'} bind:value={fullBleedSideSpace} />
+<PropSelect options={space_options} name={'--full-bleed-stack-space--component'} bind:value={fullBleedStackSpace} />
+
+<SqueezeContainer>
+	<div class="l-full-bleed"
+		style="
+			--full-bleed-measure: {fullBleedMeasure};
+			--full-bleed-side-space: {fullBleedSideSpace};
+			--full-bleed-stack-space: {fullBleedStackSpace};
+				"
+			>
+		<span>Item</span>
+		<span class="u-full-bleed--1">.u-full-bleed</span>
+		<span>Item</span>
+		<span class="u-full-bleed--2">.u-full-bleed--2</span>
+		<span>Item</span>
+	</div>
+</SqueezeContainer>
+
+## Example with text and images
+
+<SqueezeContainer>
+	<div class="l-full-bleed">
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
+			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
+			laudantium quas voluptatem incidunt qui?
+		</p>
+		<img class="u-full-bleed--2" src="/img/image.jpg" alt="Test." />
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
+			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
+			laudantium quas voluptatem incidunt qui?
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo vitae explicabo quam
+			reprehenderit. Atque autem, aspernatur facilis dolorum, nisi, eum ipsa illum mollitia sed at
+			laudantium quas voluptatem incidunt qui?
+		</p>
+	</div>
 </SqueezeContainer>

@@ -1,0 +1,41 @@
+@at-root :root {
+	--cover-height--global: 100vh;
+	--cover-space--global: var(--s-1);
+}
+
+@mixin styles {
+    .l-cover {
+        --cover-height--component: initial;
+        --cover-space--component: initial;
+        --cover-height: var(--cover-height--component, var(--cover-height--global, 100vh));
+        --cover-space: var(--cover-space--component, var(--cover-space--global, 1rem));
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: var(--cover-height);
+        padding: 1rem;
+        padding: var(--cover-space);
+        overflow: hidden;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .l-cover > * {
+        margin-block-start: var(--s-1, 1rem);
+        margin-block-end: var(--s-1, 1rem);
+    }
+
+    .l-cover > .e-cover__centered {
+        margin-block-start: auto;
+        margin-block-end: auto;
+    }
+
+    .l-cover > :first-child:not(.e-cover__centered) {
+        margin-block-start: 0;
+    }
+
+    .l-cover > :last-child:not(.e-cover__centered) {
+        margin-block-end: 0;
+    }
+}

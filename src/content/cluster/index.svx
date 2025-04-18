@@ -54,6 +54,7 @@ Adding a `.u-flex-grow` class, or flex-grow CSS rule to a child element will cau
 </div>
 
 ```
+
 ## Default
 
 <SqueezeContainer>

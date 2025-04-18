@@ -5,9 +5,11 @@ order: 0
 ---
 
 <script lang="ts">
-	import type { Space } from '$lib/types';
-	import Box from '$lib/Box/index.svelte';
 	import SqueezeContainer from '$lib/SqueezeContainer/index.svelte';
+	import PropSelect from '$lib/PropSelect/index.svelte';
+	import { space_options } from '$lib/utils/preview-content.ts';
+
+	let boxPadding = $state('var(--s-1)');
 </script>
 
 <style>
@@ -34,16 +36,30 @@ Simple component used to add padding around its contents.
 </div>
 ```
 
-## Props
-
-| Property name | Default value |
-| ------------- | ------------- |
-| `--box-space--component`    | `var(--s-1)`  |
-
 ## Default
 
 <SqueezeContainer>
 	<div class="u-box">
+		<span>Item</span>
+	</div>
+</SqueezeContainer>
+
+## Custom Properties
+
+| Property name | Default value |
+| ------------- | ------------- |
+| `--box--padding`    | `var(--s-1)`  |
+
+```html
+<div class="u-box" style="--box--padding: var(--s-2);">
+	<span>Item</span>
+</div>
+```
+
+<PropSelect options={space_options} name="--box--padding" bind:value={boxPadding} />
+
+<SqueezeContainer>
+	<div class="u-box" style="--box--padding: {boxPadding};">
 		<span>Item</span>
 	</div>
 </SqueezeContainer>
