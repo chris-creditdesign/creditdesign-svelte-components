@@ -1,12 +1,12 @@
 export interface NavigationNode {
-	key: string;
 	order: number;
-	parent?: string;
 	title: string;
 	path: string;
 }
 
 export interface ProcessedNavigationNode extends NavigationNode {
+	key: string;
+	parent: string;
 	children: ProcessedNavigationNode[];
 }
 

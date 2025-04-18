@@ -1,0 +1,6 @@
+---
+order: 1
+title: Stack layout
+---
+
+# This is the Stack page

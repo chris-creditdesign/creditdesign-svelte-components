@@ -1,0 +1,8 @@
+---
+order: 1
+title: This is the about page
+---
+
+# About
+
+This is the about page. It is a markdown file that is rendered as HTML.
