@@ -6,25 +6,7 @@
 
 	let { data, children } = $props();
 
-	const navigationChildren = $derived.by(() => {
-		const locations = page.route.id?.slice(1).split('/');
-
-		const currentPage = locations?.at(-1) || "";
-
-		let currentParent = "";
-
-		if (locations && locations.length > 1) {
-			currentParent = locations.at(-2) ||  "";
-		}
-
-		let children = data.navigationMap.get(currentPage);
-
-		if (children && children.length) {
-			return children;
-		} else {
-			return data.navigationMap.get(currentParent);
-		}
-	});
+	let locations = $derived(page.route.id?.slice(1).split('/'));
 </script>
 
 <svelte:head>
@@ -34,27 +16,34 @@
 <div class="l-sidebar u-column">
 	<div class="u-box">
 		<nav>
-			<ul class="l-stack">
+			<ul>
 				<li>
 					<a href="/">Home</a>
 				</li>
-				{#if navigationChildren}
-					{#each navigationChildren as entry}
-						<li class="list-item list-item--parent">
-							<a href={`${entry.path}`}>{entry.title}</a>
+				{#each data.navigationMap?.get('') ?? [] as child}
+					<li>
+						<a href={`${child.path}`}>{child.title}</a>
 
-							<!-- {#if data.params.page?.split('/')[1] === entry.key}
+						{#if data.navigationMap?.get(child.key) && locations?.includes(child.key)}
 							<ul>
-								{#each entry.children as child}
-									<li class="list-item list-item--child">
-										<a href={`/components/${entry.key}/${child.key}`}>{child.title}</a>
+								{#each data.navigationMap?.get(child.key) ?? [] as grandchild}
+									<li>
+										<a href={`${grandchild.path}`}>{grandchild.title}</a>
+										{#if data.navigationMap?.get(grandchild.key) && locations?.includes(grandchild.key)}
+											<ul>
+												{#each data.navigationMap?.get(grandchild.key) ?? [] as b}
+													<li>
+														<a href={`${b.path}`}>{b.title}</a>
+													</li>
+												{/each}
+											</ul>
+										{/if}
 									</li>
 								{/each}
 							</ul>
-						{/if} -->
-						</li>
-					{/each}
-				{/if}
+						{/if}
+					</li>
+				{/each}
 			</ul>
 		</nav>
 	</div>
