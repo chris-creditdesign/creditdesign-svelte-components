@@ -1,10 +1,4 @@
-interface NavigationNode {
-	order: number;
-	title: string;
-	path: string;
-	key: string;
-	parent: string;
-}
+import type { NavigationNode } from "$lib/types.d.ts";
 
 /**
  * Takes an array of NavigationNode objects and organizes them into a  map structure.

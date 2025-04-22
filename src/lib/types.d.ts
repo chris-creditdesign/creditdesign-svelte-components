@@ -2,12 +2,8 @@ export interface NavigationNode {
 	order: number;
 	title: string;
 	path: string;
-}
-
-export interface ProcessedNavigationNode extends NavigationNode {
 	key: string;
 	parent: string;
-	children: ProcessedNavigationNode[];
 }
 
 export type Space =
